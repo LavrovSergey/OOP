@@ -5,42 +5,44 @@
 
 using namespace std;
 
+
+template<class I, class C>
 class Tree
 {
   private:
 	struct Node {
-		char eng[50];
-		char ukr[50];
+		I data;
+		C inf[10] = {};
 		int counter;
 		Node* left;
 		Node* right;
 	};
 	Node* root;
-	void AddLeafPrivate(char e[], char u[], Node* node, int c) {
+	void AddLeafPrivate(C e[], Node* node) {
 		if (root == NULL)
 		{
-			root = creat_leaf(e, u, c);
+			root = creat_leaf(e);
 		}
-		else if (e[0] <= node->eng[0])
+		else if (e[0] <= node->inf[0])
 		{
 			if (node->left != NULL)
 			{
-				AddLeafPrivate(e, u, node->left, c);
+				AddLeafPrivate(e, node->left);
 			}
 			else
 			{
-				node->left = creat_leaf(e, u, c);
+				node->left = creat_leaf(e);
 			}
 		}
-		else if (e[0] > node->eng[0])
+		else if (e[0] > node->inf[0])
 		{
 			if (node->right != NULL)
 			{
-				AddLeafPrivate(e, u, node->right, c);
+				AddLeafPrivate(e, node->right);
 			}
 			else
 			{
-				node->right = creat_leaf(e, u, c);
+				node->right = creat_leaf(e);
 			}
 		}
 	}
@@ -52,7 +54,7 @@ class Tree
 			{
 				PrintInOrderPrivate(node->left);
 			}
-			cout << node->eng << "-" << node->ukr << endl;
+			cout << node->inf << "-" << node->inf << endl;
 			if (node->right != NULL)
 			{
 				PrintInOrderPrivate(node->right);
@@ -61,25 +63,25 @@ class Tree
 		}
 		else(cout << "Пусто" << endl);
 	};
-	int FindPrivate(char e[], Node* node, int count)
+	int FindPrivate(C e[], Node* node, int count)
 	{
 		if (node != NULL)
 		{
 
-			if (!strcmp(node->eng, e))
+			if (!strcmp(node->inf, e))
 			{
 				node->counter++;
-				cout << node->ukr << endl;
+				cout << node->inf << endl;
 				count++;
 			}
 			else
 			{
-				if (e[0] <= node->eng[0])
+				if (e[0] <= node->inf[0])
 				{
 					node->counter++;
 					FindPrivate(e, node->left, count);
 				}
-				else if (e[0] > node->eng[0])
+				else if (e[0] > node->inf[0])
 				{
 					node->counter++;
 					FindPrivate(e, node->right, count);
@@ -116,13 +118,13 @@ class Tree
 			}
 			else
 			{
-				if (p->eng[0] <= parent->eng[0] && parent->left != NULL)
+				if (p->inf[0] <= parent->inf[0] && parent->left != NULL)
 				{
 					parent->left == p ?
 						RemoveMatch(parent, parent->left, true) :
 						RemoveRootPrivate(p, parent->left);
 				}
-				else if (p->eng[0] > parent->eng[0] && parent->right != NULL)
+				else if (p->inf[0] > parent->inf[0] && parent->right != NULL)
 				{
 					parent->right == p ?
 						RemoveMatch(parent, parent->right, false) :
@@ -137,25 +139,19 @@ class Tree
 	{
 		root = NULL;
 	}
-	Node* creat_leaf(char e[], char u[], int c) {
+
+	Node* creat_leaf(C e[]) {
 		Node* cur = new Node;
-		strcpy(cur->eng, e);
-		strcpy(cur->ukr, u);
-		cur->counter = c;
+		strcpy(cur->inf, e);
 		cur->left = NULL;
 		cur->right = NULL;
 		return cur;
 	};
 	void AddLeaf() {
-		char e[50], u[50];
-		int c;
-		cout << "Введите английское слово" << endl;
+		char e[50];
+		cout << "Введите информацию" << endl;
 		cin >> e;
-		cout << "Введите украинский перевод" << endl;
-		cin >> u;
-		cout << "Введите счетчик" << endl;
-		cin >> c;
-		AddLeafPrivate(e, u, root, c);
+		AddLeafPrivate(e, root);
 	};
 	void PrintInOrder() {
 		PrintInOrderPrivate(root);
@@ -200,8 +196,8 @@ class Tree
 		{
 			Node* p = Find_smallest();
 			RemoveRootPrivate(p, root);
-			strcpy(root->eng, p->eng);
-			strcpy(root->ukr, p->ukr);
+			strcpy(root->inf, p->inf);
+			strcpy(root->inf, p->inf);
 			root->counter = p->counter;
 
 		}
@@ -229,8 +225,8 @@ class Tree
 		{
 			Node* p = Find_smallestPrivate(match->right);
 			RemoveRootPrivate(p, match);
-			strcpy(match->eng, p->eng);
-			strcpy(match->ukr, p->ukr);
+			strcpy(match->inf, p->inf);
+			strcpy(match->inf, p->inf);
 			match->counter = p->counter;
 		}
 	}
@@ -247,10 +243,10 @@ int menu_start() {
 	do {
 		system("cls");
 		key = (key + 6) % 6;
-		if (key == 0) cout << "-> Добавить слово" << endl;
-		else  cout << "   Добавить слово" << endl;
-		if (key == 1) cout << "-> Вывести исходный словарь" << endl;
-		else  cout << "   Вывести исходный словарь" << endl;
+		if (key == 0) cout << "-> Записать в дерево" << endl;
+		else  cout << "   Записать в дерево" << endl;
+		if (key == 1) cout << "-> Вывести дерево" << endl;
+		else  cout << "   Вывести дерево" << endl;
 		if (key == 2) cout << "-> Найти перевод слова" << endl;
 		else  cout << "   Найти перевод слова" << endl;
 		if (key == 3) cout << "-> Вывести новый словарь" << endl;
@@ -271,11 +267,8 @@ int menu_start() {
 
 int main(bool isRunning)
 {
-	Tree tree;
+	Tree<int, char> tree;
 	int a1 = 0, a2 = 0;
-	Tree1 tree1;
-	Tree2 tree2;
-	Node* p;
 	int max = 0;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
@@ -286,22 +279,22 @@ int main(bool isRunning)
 		answer = menu_start();
 		switch (answer)
 		{
-		case 0:tree1.add_leaf(); break;
-		case 1:tree1.PrintInOrder(); break;
-		case 2:if (a1 > a2 || (a1 > 0 && a2 > 0 && a1 == a2)) { tree2.find(); a2 = a1; }
-			   else(tree1.find()); break;
-		case 3:
-		{   a1++;
-		while (tree1.root != NULL)
-		{
-			max = 0;
-			p = tree1.find_max();
-			tree2.add_leaf_new(p);
-			tree1.RemoveNode(p);
-		}
-		tree2.PrintInOrder();
-		break;
-		}
+		case 0:tree.AddLeaf(); break;
+		case 1:tree.PrintInOrder(); break;
+		case 2:if (a1 > a2 || (a1 > 0 && a2 > 0 && a1 == a2)) { tree.Find(); a2 = a1; }
+			   else(tree.Find()); break;
+		//case 3:
+		//{   a1++;
+		//while (tree.root != NULL)
+		//{
+		//	max = 0;
+		//	p = tree1.find_max();
+		//	tree2.add_leaf_new(p);
+		//	tree1.RemoveNode(p);
+		//}
+		//tree2.PrintInOrder();
+		//break;
+		//}
 		case 4: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
 		}
 
