@@ -1,17 +1,18 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <vector>
 #include <conio.h>
 #include "windows.h"
 
 using namespace std;
 
-
 template<class T>
-class Tree
+class BinarySearchTree
 {
   private:
 	struct Node {
 		T data;
+		bool way;
 		int counter;
 		Node* left;
 		Node* right;
@@ -20,7 +21,7 @@ class Tree
 	void AddLeafPrivate(T e, Node* node) {
 		if (root == NULL)
 		{
-			root = creat_leaf(e);
+			root = creat_leaf(e, 0);
 		}
 		else if (e <= node->data)
 		{
@@ -30,7 +31,7 @@ class Tree
 			}
 			else
 			{
-				node->left = creat_leaf(e);
+				node->left = creat_leaf(e,0);
 			}
 		}
 		else if (e > node->data)
@@ -41,7 +42,7 @@ class Tree
 			}
 			else
 			{
-				node->right = creat_leaf(e);
+				node->right = creat_leaf(e, 1);
 			}
 		}
 	}
@@ -132,16 +133,40 @@ class Tree
 			}
 		}
 	}
-
+	int FindByTheWayPrivate(bool*mas, Node* node, int count, int i, int n) {
+			if (node != NULL)
+			{
+				if ( i==n)
+				{
+					cout << node->data << endl;
+					count++;
+				}
+				else
+				{
+					if (mas[i]==0)
+					{
+						i++;
+						FindByTheWayPrivate(mas, node->left, count, i,n);
+					}
+					else 
+					{
+						i++;
+						FindByTheWayPrivate(mas, node->right, count, i, n);
+					}
+				}
+			}
+			else { return count; }
+	}
   public:
-	Tree() 
+	BinarySearchTree() 
 	{
 		root = NULL;
 	}
 
-	Node* creat_leaf(T e) {
+	Node* creat_leaf(T e, bool way1) {
 		Node* cur = new Node;
 		cur->data=e;
+		cur->way = way1;
 		cur->left = NULL;
 		cur->right = NULL;
 		return cur;
@@ -232,7 +257,23 @@ class Tree
 	void RemoveNode(Node* p) {
 		RemoveRootPrivate(p, root);
 	}
-
+	void FindByTheWay() {
+		int count = 0, i=0;
+		int n;
+		cout << "Введите длину маршрута"<<endl;
+		cin >> n;
+		bool* mas = new bool[n];
+		cout << "Заполните маршрут" << endl;
+		for (int j = 0; j < n;j++) {
+			cin >> mas[j];
+		}
+		if (FindByTheWayPrivate(mas, root, count, i, n) == 0) 
+		{ 
+			cout << "Такого нема"; 
+		}
+		delete[]mas;
+		system("pause");
+	}
 };
 
 
@@ -254,8 +295,8 @@ int menu_start() {
 		else  cout << "   Найти int" << endl;
 		if (key == 5) cout << "-> Найти string" << endl;
 		else  cout << "   Найти string" << endl;
-		if (key == 6) cout << "-> Вывести новый словарь" << endl;
-		else  cout << "   Вывести новый словарь" << endl;
+		if (key == 6) cout << "-> Найти int по пути" << endl;
+		else  cout << "   Найти int по пути" << endl;
 		if (key == 7) cout << "-> Выход" << endl;
 		else  cout << "   Выход" << endl;
 		code = _getch();
@@ -272,8 +313,9 @@ int menu_start() {
 
 int main(bool isRunning)
 {
-	Tree<int> tree1;
-	Tree<string> tree2;
+	vector<int>a;
+	BinarySearchTree<int> tree1;
+	BinarySearchTree<decltype(a)> tree2;                         //vector dont want to work
 	int a1 = 0, a2 = 0;
 	int max = 0;
 	SetConsoleCP(1251);
@@ -291,18 +333,7 @@ int main(bool isRunning)
 		case 3:tree2.PrintInOrder(); break;
 		case 4:tree1.Find(); break;
 		case 5:tree2.Find(); break;
-		//case 6:
-		//{   a1++;
-		//while (tree.root != NULL)
-		//{
-		//	max = 0;
-		//	p = tree1.find_max();
-		//	tree2.add_leaf_new(p);
-		//	tree1.RemoveNode(p);
-		//}
-		//tree2.PrintInOrder();
-		//break;
-		//}
+		case 6:tree1.FindByTheWay();break; 
 		case 7: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
 		}
 
