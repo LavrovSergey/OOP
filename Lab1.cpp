@@ -5,48 +5,35 @@
 #include "windows.h"
 
 using namespace std;
-
 template<class T>
 class BinarySearchTree
 {
-  private:
-	struct Node {
-		T data;
-		bool way;
-		int counter;
-		Node* left;
-		Node* right;
-	};
-	Node* root;
-	void AddLeafPrivate(T e, Node* node) {
-		if (root == NULL)
-		{
-			root = creat_leaf(e, 0);
-		}
-		else if (e <= node->data)
-		{
-			if (node->left != NULL)
-			{
-				AddLeafPrivate(e, node->left);
-			}
-			else
-			{
-				node->left = creat_leaf(e,0);
-			}
-		}
-		else if (e > node->data)
-		{
-			if (node->right != NULL)
-			{
-				AddLeafPrivate(e, node->right);
-			}
-			else
-			{
-				node->right = creat_leaf(e, 1);
-			}
-		}
-	}
-	void PrintInOrderPrivate(Node* node)
+public:
+	  struct Node {
+		  T data;
+		  vector<T> v;
+		  bool way;
+		  int counter;
+		  Node* left;
+		  Node* right;
+	  };
+	  Node* creat_leaf(T e, bool way1) {
+		  Node* cur = new Node;
+		  cur->data = e;
+		  cur->way = way1;
+		  cur->left = NULL;
+		  cur->right = NULL;
+		  return cur;
+	  };
+	  Node* creat_leaf_v(vector<T> v, bool way1) {
+		  Node* cur = new Node;
+		  cur->v = v;
+		  cur->way = way1;
+		  cur->left = NULL;
+		  cur->right = NULL;
+		  return cur;
+	  };
+	/*void PrintInOrderPrivate(Node* node)
 	{
 		if (root != NULL)
 		{
@@ -62,7 +49,7 @@ class BinarySearchTree
 
 		}
 		else(cout << "Пусто" << endl);
-	};
+	};*/
 	int FindPrivate(T e, Node* node, int count)
 	{
 		if (node != NULL)
@@ -157,31 +144,74 @@ class BinarySearchTree
 			}
 			else { return count; }
 	}
-  public:
+	void AddLeafPrivate(T e, Node* node) {
+		if (root == NULL)
+		{
+			root = creat_leaf(e, 0);
+		}
+		else if (e <= node->data)
+		{
+			if (node->left != NULL)
+			{
+				AddLeafPrivate(e, node->left);
+			}
+			else
+			{
+				node->left = creat_leaf(e, 0);
+			}
+		}
+		else if (e > node->data)
+		{
+			if (node->right != NULL)
+			{
+				AddLeafPrivate(e, node->right);
+			}
+			else
+			{
+				node->right = creat_leaf(e, 1);
+			}
+		}
+	}
+	void AddLeafPrivate_v(vector<T> v, Node* node) {
+		if (root == NULL)
+		{
+			root = creat_leaf_v(v, 0);
+		}
+		else if (v[0] <= node->data)
+		{
+			if (node->left != NULL)
+			{
+				AddLeafPrivate_v(v, node->left);
+			}
+			else
+			{
+				node->left = creat_leaf_v(v, 0);
+			}
+		}
+		else if (v[0] > node->data)
+		{
+			if (node->right != NULL)
+			{
+				AddLeafPrivate_v(v, node->right);
+			}
+			else
+			{
+				node->right = creat_leaf_v(v, 1);
+			}
+		}
+	}
+	
+	  Node* root;
 	BinarySearchTree() 
 	{
 		root = NULL;
 	}
-
-	Node* creat_leaf(T e, bool way1) {
-		Node* cur = new Node;
-		cur->data=e;
-		cur->way = way1;
-		cur->left = NULL;
-		cur->right = NULL;
-		return cur;
-	};
-	void AddLeaf() {
-		T e;
-		cout << "Введите информацию" << endl;
-		cin >> e;
-		AddLeafPrivate(e, root);
-	};
-	void PrintInOrder() {
+	
+	/*void PrintInOrder() {
 		PrintInOrderPrivate(root);
 		system("pause");
-	}
-	void Find() {
+	}*/
+	/*void Find() {
 		int count = 0;
 		T e;
 		cout << "Введите слово, перевод которого хотите узнать" << endl;
@@ -189,7 +219,7 @@ class BinarySearchTree
 		count = FindPrivate(e, root, count);
 		if (count == 0) { cout << "Такого нема"; }
 		system("pause");
-	}
+	}*/
 	Node* Find_max() {
 		return Find_maxPrivate(root);
 	}
@@ -275,8 +305,31 @@ class BinarySearchTree
 		system("pause");
 	}
 };
-
-
+template <class T>
+class Functions :private BinarySearchTree<int> {
+public:
+	void AddLeaf() {
+		T inf;
+		cout << "Введите информацию" << endl;
+		cin >> inf;
+		AddLeafPrivate(inf, root);
+	}
+	
+	void AddLeaf_vect() {
+		int n;
+		T inf;
+		vector<T> v;
+		cout << "Размер вектора: " << endl;
+		cin >> n;
+		cout << "Заполните вектор" << endl;
+		for (int i = 0; i < n; i++)
+		{
+			cin >> inf;
+			v.push_back(inf);
+		}
+		AddLeafPrivate_v(v, root);
+	}
+};
 int menu_start() {
 	int key = 0;
 	int code;
@@ -313,6 +366,7 @@ int menu_start() {
 
 int main(bool isRunning)
 {
+	Functions<int>f;
 	vector<int>a;
 	BinarySearchTree<int> tree1;
 	BinarySearchTree<decltype(a)> tree2;                         //vector dont want to work
@@ -327,12 +381,12 @@ int main(bool isRunning)
 		answer = menu_start();
 		switch (answer)
 		{
-		case 0:tree1.AddLeaf(); break;
-		case 1:tree1.PrintInOrder(); break;
-		case 2:tree2.AddLeaf(); break;
-		case 3:tree2.PrintInOrder(); break;
-		case 4:tree1.Find(); break;
-		case 5:tree2.Find(); break;
+		case 0: f.AddLeaf(); break;
+		/*case 1:tree1.PrintInOrder(); break;*/
+		case 2:f.AddLeaf_vect(); break;
+		//case 3:tree2.PrintInOrder(); break;
+		/*case 4:tree1.Find(); break;
+		case 5:tree2.Find(); break;*/
 		case 6:tree1.FindByTheWay();break; 
 		case 7: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
 		}
