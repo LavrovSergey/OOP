@@ -1,2 +1,0 @@
-A:\GitHub\OOP\x64\Debug\Lab1.exe
-A:\GitHub\OOP\x64\Debug\Lab1.pdb
