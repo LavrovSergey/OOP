@@ -1,11 +1,11 @@
 ﻿  Lab1.cpp
-A:\GitHub\OOP\Lab1.cpp(588): warning C4715: Functions1<int>::FindPrivate_vect: значение возвращается не при всех путях выполнения
-A:\GitHub\OOP\Lab1.cpp(445): warning C4715: Functions1<int>::FindByTheWayPrivate: значение возвращается не при всех путях выполнения
-A:\GitHub\OOP\Lab1.cpp(565): warning C4715: Functions1<int>::FindPrivate: значение возвращается не при всех путях выполнения
-A:\GitHub\OOP\Lab1.cpp(864): warning C4715: Functions2<double>::FindPrivate: значение возвращается не при всех путях выполнения
-A:\GitHub\OOP\Lab1.cpp(744): warning C4715: Functions2<double>::FindByTheWayPrivate: значение возвращается не при всех путях выполнения
-A:\GitHub\OOP\Lab1.cpp(887): warning C4715: Functions2<double>::FindPrivate_vect: значение возвращается не при всех путях выполнения
-A:\GitHub\OOP\Lab1.cpp(1162): warning C4715: Functions3<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::FindPrivate: значение возвращается не при всех путях выполнения
-A:\GitHub\OOP\Lab1.cpp(1042): warning C4715: Functions3<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::FindByTheWayPrivate: значение возвращается не при всех путях выполнения
-A:\GitHub\OOP\Lab1.cpp(1185): warning C4715: Functions3<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::FindPrivate_vect: значение возвращается не при всех путях выполнения
+A:\GitHub\OOP\Lab1.cpp(563): warning C4715: Functions1<int>::FindPrivate: значение возвращается не при всех путях выполнения
+A:\GitHub\OOP\Lab1.cpp(443): warning C4715: Functions1<int>::FindByTheWayPrivate: значение возвращается не при всех путях выполнения
+A:\GitHub\OOP\Lab1.cpp(586): warning C4715: Functions1<int>::FindPrivate_vect: значение возвращается не при всех путях выполнения
+A:\GitHub\OOP\Lab1.cpp(742): warning C4715: Functions2<double>::FindByTheWayPrivate: значение возвращается не при всех путях выполнения
+A:\GitHub\OOP\Lab1.cpp(862): warning C4715: Functions2<double>::FindPrivate: значение возвращается не при всех путях выполнения
+A:\GitHub\OOP\Lab1.cpp(885): warning C4715: Functions2<double>::FindPrivate_vect: значение возвращается не при всех путях выполнения
+A:\GitHub\OOP\Lab1.cpp(1040): warning C4715: Functions3<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::FindByTheWayPrivate: значение возвращается не при всех путях выполнения
+A:\GitHub\OOP\Lab1.cpp(1160): warning C4715: Functions3<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::FindPrivate: значение возвращается не при всех путях выполнения
+A:\GitHub\OOP\Lab1.cpp(1183): warning C4715: Functions3<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::FindPrivate_vect: значение возвращается не при всех путях выполнения
   Lab1.vcxproj -> A:\GitHub\OOP\x64\Debug\Lab1.exe

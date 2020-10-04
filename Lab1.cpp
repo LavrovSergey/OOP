@@ -291,9 +291,7 @@ class BinarySearchTree
 			cur->right = NULL;
 			return cur;
 		};
-		
-		
-		
+			
 };
 template <class T>
 class Functions1 :public BinarySearchTree<int> {
@@ -451,7 +449,7 @@ private:
 			{
 				PrintInOrderPrivate(node->left);
 			}
-			cout << node->id << ".";
+			cout << node->id << ". ";
 			cout << node->data << endl;
 			if (node->right != NULL)
 			{
@@ -496,7 +494,7 @@ private:
 	void PrintPreOrderPrivate_vect(Node* node) {
 		if (node != NULL)
 		{
-			cout << node.id << ". "; for (int i = 0; i < node->v.size(); i++) { cout << node->v[i] << ' ' << endl; }
+			cout << node->id << ". "; for (int i = 0; i < node->v.size(); i++) { cout << node->v[i] << ' ' << endl; }
 			if (node->left != NULL)
 			{
 				PrintPreOrderPrivate_vect(node->left);
@@ -520,7 +518,7 @@ private:
 			{
 				PrintPostOrderPrivate_vect(node->right);
 			}
-			cout << node.id << ". "; for (int i = 0; i < node->v.size(); i++) { cout << node->v[i] <<' '<<endl; }
+			cout << node->id << ". "; for (int i = 0; i < node->v.size(); i++) { cout << node->v[i] <<' '<<endl; }
 		}
 		else(cout << "Пусто" << endl);
 	}
@@ -795,7 +793,7 @@ private:
 	void PrintPreOrderPrivate_vect(Node* node) {
 		if (node != NULL)
 		{
-			cout << node.id << ". "; for (int i = 0; i < node->v.size(); i++) { cout << node->v[i] << ' ' << endl; }
+			cout << node->id << ". "; for (int i = 0; i < node->v.size(); i++) { cout << node->v[i] << ' ' << endl; }
 			if (node->left != NULL)
 			{
 				PrintPreOrderPrivate_vect(node->left);
@@ -819,7 +817,7 @@ private:
 			{
 				PrintPostOrderPrivate_vect(node->right);
 			}
-			cout << node.id << ". "; for (int i = 0; i < node->v.size(); i++) { cout << node->v[i] << ' ' << endl; }
+			cout << node->id << ". "; for (int i = 0; i < node->v.size(); i++) { cout << node->v[i] << ' ' << endl; }
 		}
 		else(cout << "Пусто" << endl);
 	}
@@ -1093,7 +1091,7 @@ private:
 	void PrintPreOrderPrivate_vect(Node* node) {
 		if (node != NULL)
 		{
-			cout << node.id << ". "; for (int i = 0; i < node->v.size(); i++) { cout << node->v[i] << ' ' << endl; }
+			cout << node->id << ". "; for (int i = 0; i < node->v.size(); i++) { cout << node->v[i] << ' ' << endl; }
 			if (node->left != NULL)
 			{
 				PrintPreOrderPrivate_vect(node->left);
@@ -1117,7 +1115,7 @@ private:
 			{
 				PrintPostOrderPrivate_vect(node->right);
 			}
-			cout << node.id << ". "; for (int i = 0; i < node->v.size(); i++) { cout << node->v[i] << ' ' << endl; }
+			cout << node->id << ". "; for (int i = 0; i < node->v.size(); i++) { cout << node->v[i] << ' ' << endl; }
 		}
 		else(cout << "Пусто" << endl);
 	}
@@ -1196,22 +1194,96 @@ int menu_start() {
 	int code;
 	do {
 		system("cls");
-		key = (key + 9) % 9;
+		key = (key + 43) % 43;
 		if (key == 0) cout << "-> Записать int" << endl;
 		else  cout << "   Записать int" << endl;
-		if (key == 1) cout << "-> Записать string" << endl;
-		else  cout << "   Записать string" << endl;
-		if (key == 2) cout << "-> Вывести дерево int" << endl;
-		else  cout << "   Вывести дерево int" << endl;
-		if (key == 3) cout << "-> Вывести дерево string" << endl;
-		else  cout << "   Вывести дерево string" << endl;
-		if (key == 4) cout << "-> Найти int" << endl;
+		if (key == 1) cout << "-> Вывести InOrder int" << endl;
+		else  cout << "   Вывести InOrder int" << endl;
+		if (key == 2) cout << "-> Вывести PreOrder int" << endl;
+		else  cout << "   Вывести PreOrder int" << endl;
+		if (key == 3) cout << "-> Вывести PostOrder int" << endl;
+		else  cout << "   Вывести PostOrder int" << endl;
+		if (key == 4) cout << "-> Найти по пути int" << endl;
+		else  cout << "   Найти по пути int" << endl;
+		if (key == 5) cout << "-> Найти int" << endl;
 		else  cout << "   Найти int" << endl;
-		if (key == 5) cout << "-> Найти string" << endl;
+		if (key == 6) cout << "-> Удалить int" << endl;
+		else  cout << "   Удалить int" << endl;
+		if (key == 7) cout << "-> Записать vector int" << endl;
+		else  cout << "   Записать vector int" << endl;
+		if (key == 8) cout << "-> Вывести InOrder vector int" << endl;
+		else  cout << "   Вывести InOrder vector int" << endl;
+		if (key == 9) cout << "-> Вывести PreOrder vector int" << endl;
+		else  cout << "   Вывести PreOrder vector int" << endl;
+		if (key == 10) cout << "-> Вывести PostOrder vector int" << endl;
+		else  cout << "   Вывести PostOrder vector int" << endl;
+		if (key == 11) cout << "-> Найти по пути vector int" << endl;
+		else  cout << "   Найти по пути vector int" << endl;
+		if (key == 12) cout << "-> Найти vector int" << endl;
+		else  cout << "   Найти vector int" << endl;
+		if (key == 13) cout << "-> Удалить vector int" << endl;
+		else  cout << "   Удалить vector int" << endl;
+		if (key == 14) cout << "-> Записать double" << endl;
+		else  cout << "   Записать double" << endl;
+		if (key == 15) cout << "-> Вывести InOrder double" << endl;
+		else  cout << "   Вывести InOrder double" << endl;
+		if (key == 16) cout << "-> Вывести PreOrder double" << endl;
+		else  cout << "   Вывести PreOrder double" << endl;
+		if (key == 17) cout << "-> Вывести PostOrder double" << endl;
+		else  cout << "   Вывести PostOrder double" << endl;
+		if (key == 18) cout << "-> Найти по пути double" << endl;
+		else  cout << "   Найти по пути double" << endl;
+		if (key == 19) cout << "-> Найти double" << endl;
+		else  cout << "   Найти double" << endl;
+		if (key == 20) cout << "-> Удалить double" << endl;
+		else  cout << "   Удалить double" << endl;
+		if (key == 21) cout << "-> Записать vector double" << endl;
+		else  cout << "   Записать vector double" << endl;
+		if (key == 22) cout << "-> Вывести InOrder vector double" << endl;
+		else  cout << "   Вывести InOrder vector double" << endl;
+		if (key == 23) cout << "-> Вывести PreOrder vector double" << endl;
+		else  cout << "   Вывести PreOrder vector double" << endl;
+		if (key == 24) cout << "-> Вывести PostOrder vector double" << endl;
+		else  cout << "   Вывести PostOrder vector double" << endl;
+		if (key == 25) cout << "-> Найти по пути vector double" << endl;
+		else  cout << "   Найти по пути vector double" << endl;
+		if (key == 26) cout << "-> Найти vector double" << endl;
+		else  cout << "   Найти vector double" << endl;
+		if (key == 27) cout << "-> Удалить vector double" << endl;
+		else  cout << "   Удалить vector double" << endl;
+		if (key == 28) cout << "-> Записать string" << endl;
+		else  cout << "   Записать string" << endl;
+		if (key == 29) cout << "-> Вывести InOrder string" << endl;
+		else  cout << "   Вывести InOrder string" << endl;
+		if (key == 30) cout << "-> Вывести PreOrder string" << endl;
+		else  cout << "   Вывести PreOrder string" << endl;
+		if (key == 31) cout << "-> Вывести PostOrder string" << endl;
+		else  cout << "   Вывести PostOrder string" << endl;
+		if (key == 32) cout << "-> Найти по пути string" << endl;
+		else  cout << "   Найти по пути string" << endl;
+		if (key == 33) cout << "-> Найти string" << endl;
 		else  cout << "   Найти string" << endl;
-		if (key == 6) cout << "-> Найти int по пути" << endl;
-		else  cout << "   Найти int по пути" << endl;
-		if (key == 7) cout << "-> Выход" << endl;
+		if (key == 34) cout << "-> Удалить string" << endl;
+		else  cout << "   Удалить string" << endl;
+		if (key == 35) cout << "-> Записать vector string" << endl;
+		else  cout << "   Записать vector string" << endl;
+		if (key == 36) cout << "-> Вывести InOrder vector string" << endl;
+		else  cout << "   Вывести InOrder vector string" << endl;
+		if (key == 37) cout << "-> Вывести PreOrder vector string" << endl;
+		else  cout << "   Вывести PreOrder vector string" << endl;
+		if (key == 38) cout << "-> Вывести PostOrder vector string" << endl;
+		else  cout << "   Вывести PostOrder vector string" << endl;
+		if (key == 39) cout << "-> Найти по пути vector string" << endl;
+		else  cout << "   Найти по пути vector string" << endl;
+		if (key == 40) cout << "-> Найти vector string" << endl;
+		else  cout << "   Найти vector string" << endl;
+		if (key == 41) cout << "-> Удалить vector string" << endl;
+		else  cout << "   Удалить vector string" << endl;
+		/*if (key == 30) cout << "-> Найти string" << endl;
+		else  cout << "   Найти string" << endl;
+		if (key == 31) cout << "-> Найти int по пути" << endl;
+		else  cout << "   Найти int по пути" << endl;*/
+		if (key == 42) cout << "-> Выход" << endl;
 		else  cout << "   Выход" << endl;
 		code = _getch();
 		if (code == 224)
@@ -1228,8 +1300,11 @@ int menu_start() {
 int main(bool isRunning)
 {
 	Functions1<int> i;
+	Functions1<int> i_v;
 	Functions2<double> d;
+	Functions2<double> d_v;
 	Functions3<string> s;
+	Functions3<string> s_v;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	isRunning = true;
@@ -1243,35 +1318,45 @@ int main(bool isRunning)
 		case 1: i.PrintInOrder(); break;
 		case 2: i.PrintPreOrder(); break;
 		case 3: i.PrintPostOrder(); break;
-		case 4: i.Find(); break;
-		case 5: i.PrintInOrder(); i.Delete();  break;
-		case 6: i.AddLeaf_vect(); break;
-		case 7: i.PrintInOrder_vect(); break;
-		case 8: i.Find_vect(); break;
-		case 9: i.PrintInOrder_vect(); i.Delete_vect(); break;
-		case 10: i.FindByTheWay(); break;
-		case 11: d.AddLeaf(); break;
-		case 12: d.PrintInOrder(); break;
-		case 13: d.PrintPreOrder(); break;
-		case 14: d.PrintPostOrder(); break;
-		case 15: d.Find(); break;
-		case 16: d.PrintInOrder(); i.Delete();  break;
-		case 17: d.AddLeaf_vect(); break;
-		case 18: d.PrintInOrder_vect(); break;
-		case 19: d.Find_vect(); break;
-		case 20: d.PrintInOrder_vect(); i.Delete_vect(); break;
-		case 21: d.FindByTheWay(); break;
-		case 22: s.AddLeaf(); break;
-		case 23: s.PrintInOrder(); break;
-		case 24: s.PrintPreOrder(); break;
-		case 25: s.PrintPostOrder(); break;
-		case 26: s.Find(); break;
-		case 27: s.PrintInOrder(); i.Delete();  break;
-		case 28: s.AddLeaf_vect(); break;
-		case 29: s.PrintInOrder_vect(); break;
-		case 30: s.Find_vect(); break;
-		case 31: s.PrintInOrder_vect(); i.Delete_vect(); break;
+		case 4: i.FindByTheWay(); break;
+		case 5: i.Find(); break;
+		case 6: i.PrintInOrder(); i.Delete();  break;
+		case 7: i_v.AddLeaf_vect(); break;
+		case 8: i_v.PrintInOrder_vect(); break;
+		case 9: i_v.PrintPreOrder_vect(); break;
+		case 10: i_v.PrintPostOrder_vect(); break;
+		case 11: i_v.FindByTheWay(); break;
+		case 12: i_v.Find_vect(); break;
+		case 13: i_v.PrintInOrder_vect(); i.Delete_vect(); break;
+		case 14: d.AddLeaf(); break;
+		case 15: d.PrintInOrder(); break;
+		case 16: d.PrintPreOrder(); break;
+		case 17: d.PrintPostOrder(); break;
+		case 18: d.FindByTheWay(); break;
+		case 19: d.Find(); break;
+		case 20: d.PrintInOrder(); i.Delete();  break;
+		case 21: d_v.AddLeaf_vect(); break;
+		case 22: d_v.PrintInOrder_vect(); break;
+		case 23: d_v.PrintPreOrder_vect(); break;
+		case 24: d_v.PrintPostOrder_vect(); break;
+		case 25: d_v.FindByTheWay(); break;
+		case 26: d_v.Find_vect(); break;
+		case 27: d_v.PrintInOrder_vect(); i.Delete_vect(); break;
+		case 28: s.AddLeaf(); break;
+		case 29: s.PrintInOrder(); break;
+		case 30: s.PrintPreOrder(); break;
+		case 31: s.PrintPostOrder(); break;
 		case 32: s.FindByTheWay(); break;
+		case 33: s.Find(); break;
+		case 34: s.PrintInOrder(); i.Delete();  break;
+		case 35: s_v.AddLeaf_vect(); break;
+		case 36: s_v.PrintInOrder_vect(); break;
+		case 37: s_v.PrintPreOrder_vect(); break;
+		case 38: s_v.PrintPostOrder_vect(); break;
+		case 39: s_v.FindByTheWay(); break;
+		case 40: s_v.Find_vect(); break;
+		case 41: s_v.PrintInOrder_vect(); i.Delete_vect(); break;
+	/*	case 32: s.FindByTheWay(); break;*/
 
 	/*	case 6: d.AddLeaf_vect(); break;
 		case 7: d.PrintInOrder_vect(); break;
@@ -1283,7 +1368,7 @@ int main(bool isRunning)
 		/*case 4:tree1.Find(); break;
 		case 5:tree2.Find(); break;*/
 		
-		case 40: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
+		case 42: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
 		}
 
 	}
