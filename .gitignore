@@ -2,6 +2,7 @@
 *.suo
 *.vs
 *.user
+*.filters
 *.userosscache
 *.sln.docstates
 *.vcxproj
