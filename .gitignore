@@ -1,5 +1,6 @@
 *.rsuser
 *.suo
+*.vs
 *.user
 *.userosscache
 *.sln.docstates
