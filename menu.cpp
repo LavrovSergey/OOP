@@ -1,4 +1,15 @@
 #include "menu.h"
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <vector>
+#include <conio.h>
+#include "windows.h"
+#include "BinarySearchTree.h"
+#include "TreeChildrenList.h"
+#include "BinaryTree.h"
+#include "Functions.h"
+#include "Node1.h"
+using namespace std;
 int menu_inf(int a) {
 	int key = 0;
 	int code;
@@ -81,8 +92,8 @@ int menu_console() {
 }
 int menu1(bool isRunning, int a, int b)
 {
-		Functions1<int> i;
-		Functions1<int> i_v;
+	Functions1<int> i;
+	Functions1<int> i_v;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	isRunning = true;

@@ -1,5 +1,13 @@
 #pragma once
 #include "Node1.h"
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <vector>
+#include <conio.h>
+#include "windows.h"
+#include "Functions.h"
+#include "Node1.h"
+using namespace std;
 template<class T>
 class BinarySearchTree
 {
