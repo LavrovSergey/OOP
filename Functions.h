@@ -1,5 +1,8 @@
 #pragma once
 #include "Node1.h"
+#include "BinarySearchTree.h"
+#include "BinaryTree.h"
+#include "TreeChildrenList.h"
 #include <iostream>
 using namespace std;
 template <class T>
@@ -18,19 +21,19 @@ public:
 			cin >> mas[j];
 		}
 		if (a == 1) {
-			if (FindByTheWayPrivate1(mas, BinarySearchTree::root, count, i, n) == 0)
+			if (FindByTheWayPrivate1(mas, BinarySearchTree<T>::root, count, i, n) == 0)
 			{
 				cout << "Такого нема";
 			}
 		}
 		else if (a == 2) {
-			if (FindByTheWayPrivate2(mas, BinaryTree::root, count, i, n) == 0)
+			if (FindByTheWayPrivate2(mas, BinaryTree<T>::root, count, i, n) == 0)
 			{
 				cout << "Такого нема";
 			}
 		}
 		else {
-			if (FindByTheWayPrivate3(mas, TreeChildrenList::root, count, i, n) == 0)
+			if (FindByTheWayPrivate3(mas, TreeChildrenList<T>::root, count, i, n) == 0)
 			{
 				cout << "Такого нема";
 			}
@@ -46,21 +49,21 @@ public:
 			cin >> inf;
 			if (a == 1)
 			{
-				Node<T>* ptr = FindPrivate1(inf, BinarySearchTree::root);
+				Node<T>* ptr = FindPrivate1(inf, BinarySearchTree<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else  (BinarySearchTree::RemoveNode(ptr, BinarySearchTree::root, 1));
+				else  (BinarySearchTree<T>::RemoveNode(ptr, BinarySearchTree<T>::root, 1));
 			}
 			else if (a == 2)
 			{
-				Node<T>* ptr = FindPrivate2(inf, BinaryTree::root);
+				Node<T>* ptr = FindPrivate2(inf, BinaryTree<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else (BinaryTree::RemoveNode(ptr, BinaryTree::root, 1));
+				else (BinaryTree<T>::RemoveNode(ptr, BinaryTree<T>::root, 1));
 			}
 			else if (a == 3)
 			{
-				Node<T>* ptr = FindPrivate3(inf, TreeChildrenList::root);
+				Node<T>* ptr = FindPrivate3(inf, TreeChildrenList<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else (TreeChildrenList::RemoveNode(ptr, TreeChildrenList::root, 1));
+				else (TreeChildrenList<T>::RemoveNode(ptr, TreeChildrenList<T>::root, 1));
 			}
 		}
 		else if (b == 2) {
@@ -70,21 +73,21 @@ public:
 			cin >> id;
 			if (a == 1)
 			{
-				Node<T>* ptr = FindPrivateId1(id, BinarySearchTree::root);
+				Node<T>* ptr = FindPrivateId1(id, BinarySearchTree<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else  (BinarySearchTree::RemoveNode(ptr, BinarySearchTree::root, 1));
+				else  (BinarySearchTree<T>::RemoveNode(ptr, BinarySearchTree<T>::root, 1));
 			}
 			else if (a == 2)
 			{
-				Node<T>* ptr = FindPrivateId2(id, BinaryTree::root);
+				Node<T>* ptr = FindPrivateId2(id, BinaryTree<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else (BinaryTree::RemoveNode(ptr, BinaryTree::root, 1));
+				else (BinaryTree<T>::RemoveNode(ptr, BinaryTree<T>::root, 1));
 			}
 			else if (a == 3)
 			{
-				Node<T>* ptr = FindPrivateId3(id, TreeChildrenList::root);
+				Node<T>* ptr = FindPrivateId3(id, TreeChildrenList<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else (TreeChildrenList::RemoveNode(ptr, TreeChildrenList::root, 1));
+				else (TreeChildrenList<T>::RemoveNode(ptr, TreeChildrenList<T>::root, 1));
 			}
 		}
 		else if (b == 3)
@@ -95,21 +98,21 @@ public:
 			cin >> id;
 			if (a == 1)
 			{
-				Node<T>* ptr = FindPrivateId1(id, BinarySearchTree::root);
+				Node<T>* ptr = FindPrivateId1(id, BinarySearchTree<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else  (BinarySearchTree::RemoveNode(ptr, BinarySearchTree::root, 2));
+				else  (BinarySearchTree<T>::RemoveNode(ptr, BinarySearchTree<T>::root, 2));
 			}
 			else if (a == 2)
 			{
-				Node<T>* ptr = FindPrivateId2(id, BinaryTree::root);
+				Node<T>* ptr = FindPrivateId2(id, BinaryTree<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else (BinaryTree::RemoveNode(ptr, BinaryTree::root, 2));
+				else (BinaryTree<T>::RemoveNode(ptr, BinaryTree<T>::root, 2));
 			}
 			else if (a == 3)
 			{
-				Node<T>* ptr = FindPrivateId3(id, TreeChildrenList::root);
+				Node<T>* ptr = FindPrivateId3(id, TreeChildrenList<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else (TreeChildrenList::RemoveNode(ptr, TreeChildrenList::root, 2));
+				else (TreeChildrenList<T>::RemoveNode(ptr, TreeChildrenList<T>::root, 2));
 			}
 		}
 	}
@@ -117,9 +120,9 @@ public:
 		T inf;
 		cout << "Введите информацию" << endl;
 		cin >> inf;
-		if (a == 1) { BinarySearchTree::AddLeaf(inf, BinarySearchTree::root); }
-		else if (a == 2) { BinaryTree::root = AddLeaf1(BinaryTree::root, BinaryTree::creat_leaf(inf, 0)); }
-		else if (a == 3) { TreeChildrenList::AddLeaf(inf, TreeChildrenList::root); }
+		if (a == 1) { BinarySearchTree<T>::AddLeaf(inf, BinarySearchTree<T>::root); }
+		else if (a == 2) { BinaryTree<T>::root = BinaryTree<T>::AddLeaf1(BinaryTree<T>::root, BinaryTree<T>::creat_leaf(inf, 0)); }
+		else if (a == 3) { TreeChildrenList<T>::AddLeaf(inf, TreeChildrenList<T>::root); }
 	}
 	void AddLeaf_vect(int a) {
 		int n;
@@ -133,9 +136,9 @@ public:
 			cin >> inf;
 			v.push_back(inf);
 		}
-		if (a == 1) { BinarySearchTree::AddLeaf_v(v, BinarySearchTree::root); }
-		else if (a == 2) { BinaryTree::root = AddLeaf1_v(BinaryTree::root, BinaryTree::creat_leaf_v(v, 0)); }
-		else if (a == 3) { TreeChildrenList::AddLeaf_v(v, TreeChildrenList::root); }
+		if (a == 1) { BinarySearchTree<T>::AddLeaf_v(v, BinarySearchTree<T>::root); }
+		else if (a == 2) { BinaryTree<T>::root = BinaryTree<T>::AddLeaf1_v(BinaryTree<T>::root, BinaryTree<T>::creat_leaf_v(v, 0)); }
+		else if (a == 3) { TreeChildrenList<T>::AddLeaf_v(v, TreeChildrenList<T>::root); }
 	}
 	void Find(int a) {
 		T inf;
@@ -143,60 +146,60 @@ public:
 		cin >> inf;
 		if (a == 1)
 		{
-			Node<T>* ptr = FindPrivate1(inf, BinarySearchTree::root);
+			Node<T>* ptr = FindPrivate1(inf, BinarySearchTree<T>::root);
 			if (ptr == NULL) { cout << "Такого нема" << endl; }
 			else(cout << ptr->id << ". " << ptr->data << endl);
 			system("pause");
 		}
 		else if (a == 2)
 		{
-			Node<T>* ptr = FindPrivate2(inf, BinaryTree::root);
+			Node<T>* ptr = FindPrivate2(inf, BinaryTree<T>::root);
 			if (ptr == NULL) { cout << "Такого нема" << endl; }
 			else(cout << ptr->id << ". " << ptr->data << endl);
 			system("pause");
 		}
 		else if (a == 3)
 		{
-			Node<T>* ptr = FindPrivate3(inf, TreeChildrenList::root);
+			Node<T>* ptr = FindPrivate3(inf, TreeChildrenList<T>::root);
 			if (ptr == NULL) { cout << "Такого нема" << endl; }
 			else(cout << ptr->id << ". " << ptr->data << endl);
 			system("pause");
 		}
 	}
 	void PrintInOrder(int a) {
-		if (a == 1) { PrintInOrderPrivate1(BinarySearchTree::root); }
-		else if (a == 2) { PrintInOrderPrivate2(BinaryTree::root); }
-		else if (a == 3) { PrintPreOrderPrivate3(TreeChildrenList::root); }
+		if (a == 1) { PrintInOrderPrivate1(BinarySearchTree<T>::root); }
+		else if (a == 2) { PrintInOrderPrivate2(BinaryTree<T>::root); }
+		else if (a == 3) { PrintPreOrderPrivate3(TreeChildrenList<T>::root); }
 		system("pause");
 	}
 	void PrintInOrder_vect(int a) {
-		if (a == 1) { PrintInOrderPrivate1_vect(BinarySearchTree::root); }
-		else if (a == 2) { PrintInOrderPrivate2_vect(BinaryTree::root); }
-		else if (a == 3) { PrintPreOrderPrivate3_vect(TreeChildrenList::root); }
+		if (a == 1) { PrintInOrderPrivate1_vect(BinarySearchTree<T>::root); }
+		else if (a == 2) { PrintInOrderPrivate2_vect(BinaryTree<T>::root); }
+		else if (a == 3) { PrintPreOrderPrivate3_vect(TreeChildrenList<T>::root); }
 		system("pause");
 	}
 	void PrintPostOrder(int a) {
-		if (a == 1) { PrintPostOrderPrivate1(BinarySearchTree::root); }
-		else if (a == 2) { PrintPostOrderPrivate2(BinaryTree::root); }
-		else if (a == 3) { PrintPreOrderPrivate3(TreeChildrenList::root); }
+		if (a == 1) { PrintPostOrderPrivate1(BinarySearchTree<T>::root); }
+		else if (a == 2) { PrintPostOrderPrivate2(BinaryTree<T>::root); }
+		else if (a == 3) { PrintPreOrderPrivate3(TreeChildrenList<T>::root); }
 		system("pause");
 	}
 	void PrintPostOrder_vect(int a) {
-		if (a == 1) { PrintPostOrderPrivate1_vect(BinarySearchTree::root); }
-		else if (a == 2) { PrintPostOrderPrivate2_vect(BinaryTree::root); }
-		else if (a == 3) { PrintPreOrderPrivate3_vect(TreeChildrenList::root); }
+		if (a == 1) { PrintPostOrderPrivate1_vect(BinarySearchTree<T>::root); }
+		else if (a == 2) { PrintPostOrderPrivate2_vect(BinaryTree<T>::root); }
+		else if (a == 3) { PrintPreOrderPrivate3_vect(TreeChildrenList<T>::root); }
 		system("pause");
 	}
 	void PrintPreOrder(int a) {
-		if (a == 1) { PrintPreOrderPrivate1(BinarySearchTree::root); }
-		else if (a == 2) { PrintPreOrderPrivate2(BinaryTree::root); }
-		else if (a == 3) { PrintPreOrderPrivate3(TreeChildrenList::root); }
+		if (a == 1) { PrintPreOrderPrivate1(BinarySearchTree<T>::root); }
+		else if (a == 2) { PrintPreOrderPrivate2(BinaryTree<T>::root); }
+		else if (a == 3) { PrintPreOrderPrivate3(TreeChildrenList<T>::root); }
 		system("pause");
 	}
 	void PrintPreOrder_vect(int a) {
-		if (a == 1) { PrintPreOrderPrivate1_vect(BinarySearchTree::root); }
-		else if (a == 2) { PrintPreOrderPrivate2_vect(BinaryTree::root); }
-		else if (a == 3) { PrintPreOrderPrivate3_vect(TreeChildrenList::root); }
+		if (a == 1) { PrintPreOrderPrivate1_vect(BinarySearchTree<T>::root); }
+		else if (a == 2) { PrintPreOrderPrivate2_vect(BinaryTree<T>::root); }
+		else if (a == 3) { PrintPreOrderPrivate3_vect(TreeChildrenList<T>::root); }
 		system("pause");
 	}
 	void Find_vect(int a) {
@@ -213,7 +216,7 @@ public:
 		}
 		if (a == 1)
 		{
-			Node<T>* ptr = FindPrivate1_vect(v, BinarySearchTree::root);
+			Node<T>* ptr = FindPrivate1_vect(v, BinarySearchTree<T>::root);
 			if (ptr == NULL) { cout << "Такого нема" << endl; }                       //тут почемуто не работает но такое же в удалении работает
 			else {
 				cout << ptr->id << ". ";
@@ -226,7 +229,7 @@ public:
 		}
 		if (a == 2)
 		{
-			Node<T>* ptr = FindPrivate2_vect(v, BinaryTree::root);
+			Node<T>* ptr = FindPrivate2_vect(v, BinaryTree<T>::root);
 			if (ptr == NULL) { cout << "Такого нема" << endl; }
 			else {
 				cout << ptr->id << ". ";
@@ -239,7 +242,7 @@ public:
 		}
 		if (a == 3)
 		{
-			Node<T>* ptr = FindPrivate3_vect(v, TreeChildrenList::root);
+			Node<T>* ptr = FindPrivate3_vect(v, TreeChildrenList<T>::root);
 			if (ptr == NULL) { cout << "Такого нема" << endl; }
 			else {
 				cout << ptr->id << ". ";
@@ -267,21 +270,21 @@ public:
 			}
 			if (a == 1)
 			{
-				Node<T>* ptr = FindPrivate1_vect(v, BinarySearchTree::root);
+				Node<T>* ptr = FindPrivate1_vect(v, BinarySearchTree<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else  (BinarySearchTree::RemoveNode_vect(ptr, BinarySearchTree::root, a));
+				else  (BinarySearchTree<T>::RemoveNode_vect(ptr, BinarySearchTree<T>::root, a));
 			}
 			else if (a == 2)
 			{
-				Node<T>* ptr = FindPrivate2_vect(v, BinaryTree::root);
+				Node<T>* ptr = FindPrivate2_vect(v, BinaryTree<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else (BinaryTree::RemoveNode_vect(ptr, BinaryTree::root, a));
+				else (BinaryTree<T>::RemoveNode_vect(ptr, BinaryTree<T>::root, a));
 			}
 			else if (a == 3)
 			{
-				Node<T>* ptr = FindPrivate3_vect(v, TreeChildrenList::root);
+				Node<T>* ptr = FindPrivate3_vect(v, TreeChildrenList<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else (TreeChildrenList::RemoveNode_vect(ptr, TreeChildrenList::root, a));
+				else (TreeChildrenList<T>::RemoveNode_vect(ptr, TreeChildrenList<T>::root, a));
 			}
 
 		}
@@ -292,21 +295,21 @@ public:
 			cin >> id;
 			if (a == 1)
 			{
-				Node<T>* ptr = FindPrivateId1(id, BinarySearchTree::root);
+				Node<T>* ptr = FindPrivateId1(id, BinarySearchTree<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else  (BinarySearchTree::RemoveNode_vect(ptr, BinarySearchTree::root, a));
+				else  (BinarySearchTree<T>::RemoveNode_vect(ptr, BinarySearchTree<T>::root, a));
 			}
 			else if (a == 2)
 			{
-				Node<T>* ptr = FindPrivateId2(id, BinaryTree::root);
+				Node<T>* ptr = FindPrivateId2(id, BinaryTree<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else (BinaryTree::RemoveNode_vect(ptr, BinaryTree::root, a));
+				else (BinaryTree<T>::RemoveNode_vect(ptr, BinaryTree<T>::root, a));
 			}
 			else if (a == 3)
 			{
-				Node<T>* ptr = FindPrivateId3(id, BinaryTree::root);
+				Node<T>* ptr = FindPrivateId3(id, BinaryTree<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else (BinaryTree::RemoveNode_vect(ptr, TreeChildrenList::root, a));
+				else (BinaryTree<T>::RemoveNode_vect(ptr, TreeChildrenList<T>::root, a));
 			}
 		}
 		else if (b == 3)
@@ -317,21 +320,21 @@ public:
 			cin >> id;
 			if (a == 1)
 			{
-				Node<T>* ptr = FindPrivateId1(id, BinarySearchTree::root);
+				Node<T>* ptr = FindPrivateId1(id, BinarySearchTree<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else  (BinarySearchTree::RemoveNode_vect(ptr, BinarySearchTree::root, 2));
+				else  (BinarySearchTree<T>::RemoveNode_vect(ptr, BinarySearchTree<T>::root, 2));
 			}
 			else if (a == 2)
 			{
-				Node<T>* ptr = FindPrivateId2(id, BinaryTree::root);
+				Node<T>* ptr = FindPrivateId2(id, BinaryTree<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else (BinaryTree::RemoveNode_vect(ptr, BinaryTree::root, 2));
+				else (BinaryTree<T>::RemoveNode_vect(ptr, BinaryTree<T>::root, 2));
 			}
 			else if (a == 3)
 			{
-				Node<T>* ptr = FindPrivateId3(id, BinaryTree::root);
+				Node<T>* ptr = FindPrivateId3(id, BinaryTree<T>::root);
 				if (ptr == NULL) { cout << "Такого нема" << endl; }
-				else (BinaryTree::RemoveNode_vect(ptr, TreeChildrenList::root, 2));
+				else (BinaryTree<T>::RemoveNode_vect(ptr, TreeChildrenList<T>::root, 2));
 			}
 		}
 	}
@@ -410,7 +413,7 @@ private:
 	}
 	void PrintInOrderPrivate1(Node<T>* node)
 	{
-		if (BinarySearchTree::root != NULL)
+		if (BinarySearchTree<T>::root != NULL)
 		{
 			if (node->left != NULL)
 			{
@@ -426,7 +429,7 @@ private:
 		else(cout << "Пусто" << endl);
 	}
 	void PrintInOrderPrivate2(Node<T>* node) {
-		if (BinaryTree::root != NULL)
+		if (BinaryTree<T>::root != NULL)
 		{
 			if (node->left != NULL)
 			{
@@ -599,7 +602,7 @@ private:
 	}
 	void PrintInOrderPrivate1_vect(Node<T>* node)
 	{
-		if (BinarySearchTree::root != NULL)
+		if (BinarySearchTree<T>::root != NULL)
 		{
 			if (node->left != NULL)
 			{
@@ -616,7 +619,7 @@ private:
 	};
 	void PrintInOrderPrivate2_vect(Node<T>* node)
 	{
-		if (BinaryTree::root != NULL)
+		if (BinaryTree<T>::root != NULL)
 		{
 			if (node->left != NULL)
 			{

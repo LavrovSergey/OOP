@@ -1,5 +1,4 @@
-﻿#include "pch.h"
-#include"menu.h"
+﻿#include"menu.h"
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <vector>
