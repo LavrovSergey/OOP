@@ -1,25 +1,9 @@
 #pragma once
-#define _CRT_SECURE_NO_WARNINGS
-#include <iostream>
-#include <vector>
-#include <conio.h>
-#include "windows.h"
-#include "Functions.h"
 #include "Node1.h"
-using namespace std;
 
 template <class T>
 class TreeChildrenList {
 public:
-	/*struct Node
-	{
-		T data;
-		vector<T> v;
-		int id = 0;
-		bool way;
-		 Node* right;
-		 Node* left;
-	};*/
 	int d = 0;
 	Node<T>* root;
 	void AddLeaf(T e, Node<T>* node) {
@@ -52,7 +36,7 @@ public:
 		}
 		else(node->left = creat_leaf(e, 0));
 	}
-	void AddLeaf_v(vector<T> v, Node<T>* node) {
+	void AddLeaf_v(std::vector<T> v, Node<T>* node) {
 		bool c = false;
 		if (root == NULL)
 		{
@@ -157,7 +141,7 @@ public:
 	}
 private:
 	Node<T>* creat_leaf(T e, bool way1) {
-		Node* cur = new Node;
+		Node<T>* cur = new Node<T>;
 		cur->data = e;
 		cur->way = way1;
 		cur->right = NULL;
@@ -165,8 +149,8 @@ private:
 		cur->id = d++;
 		return cur;
 	};
-	Node<T>* creat_leaf_v(vector<T> v, bool way1) {
-		Node* cur = new Node;
+	Node<T>* creat_leaf_v(std::vector<T> v, bool way1) {
+		Node<T>* cur = new Node<T>;
 		cur->v = v;
 		cur->way = way1;
 		cur->right = NULL;

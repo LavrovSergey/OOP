@@ -1,23 +1,8 @@
 #pragma once
-#define _CRT_SECURE_NO_WARNINGS
-#include <iostream>
-#include <vector>
-#include <conio.h>
-#include "windows.h"
-#include "Functions.h"
 #include "Node1.h"
-using namespace std;
 template<class T>
 class BinaryTree {
 public:
-	/*struct Node {
-		T data;
-		vector<T> v;
-		int id;
-		bool way;
-		Node* left;
-		Node* right;
-	};*/
 	int d = 1;
 	Node<T>* root;
 	BinaryTree()
@@ -117,8 +102,8 @@ public:
 			}
 		}
 	}
-	Node<T>* creat_leaf_v(vector<T> v, bool way1) {
-		Node* cur = new Node;
+	Node<T>* creat_leaf_v(std::vector<T> v, bool way1) {
+		Node<T>* cur = new Node<T>;
 		for (int i = 0; i < v.size(); i++) { cur->v[i] = v[i]; }
 		cur->way = way1;
 		cur->left = NULL;
@@ -127,7 +112,7 @@ public:
 		return cur;
 	};
 	Node<T>* creat_leaf(T e, bool way1) {
-		Node* cur = new Node;
+		Node<T>* cur = new Node<T>;
 		cur->data = e;
 		cur->way = way1;
 		cur->left = NULL;
@@ -136,32 +121,32 @@ public:
 		return cur;
 	};
 private:
-	int bal(Node<T>* node) {
-		if (node == NULL) { return 0; }
-		int lheight = height(node->left) + 1;
-		int rheight = height(node->right) + 1;
+	int bal(Node<T>* root) {
+		if (root == NULL) { return 0; }
+		int lheight = height(root->left) + 1;
+		int rheight = height(root->right) + 1;
 		return(lheight - rheight);
 	}
-	int height(Node<T>* node) {
-		if (node == NULL)
+	int height(Node<T>* root) {
+		if (root == NULL)
 		{
 			return 0;
 		}
 		else {
-			int lheight = height(node->left) + 1;
-			int rheight = height(node->right) + 1;
+			int lheight = height(root->left) + 1;
+			int rheight = height(root->right) + 1;
 
 			return(lheight > rheight) ? lheight : rheight;
 		}
 	}
-	bool check(Node<T>* node) {
-		if (node == NULL) { return false; }
-		bool x = check(node->left);
-		if (bal(node))
+	bool check(Node<T>* root) {
+		if (root == NULL) { return false; }
+		bool x = check(root->left);
+		if (bal(root))
 		{
 			return true;
 		}
-		bool y = check(node->right);
+		bool y = check(root->right);
 		return x || y;
 	}
 	Node<T>* Find_smallestPrivate(Node<T>* node)

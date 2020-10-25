@@ -1,13 +1,5 @@
 #pragma once
 #include "Node1.h"
-#define _CRT_SECURE_NO_WARNINGS
-#include <iostream>
-#include <vector>
-#include <conio.h>
-#include "windows.h"
-#include "Functions.h"
-#include "Node1.h"
-using namespace std;
 template<class T>
 class BinarySearchTree
 {
@@ -50,7 +42,7 @@ public:
 			}
 		}
 	}
-	void AddLeaf_v(vector<T> v, Node<T>* node) {
+	void AddLeaf_v(std::vector<T> v, Node<T>* node) {
 		if (root == NULL)
 		{
 			root = creat_leaf_v(v, 0);
@@ -138,7 +130,7 @@ private:
 		cur->id = d++;
 		return cur;
 	};
-	Node<T>* creat_leaf_v(vector<T> vv, bool way1) {
+	Node<T>* creat_leaf_v(std::vector<T> vv, bool way1) {
 		Node<T>* cur = new Node<T>;
 		cur->v = vv;
 		cur->way = way1;
