@@ -1,88 +1,79 @@
 #pragma once
-
+#include "Node1.h"
 
 template <class T>
 class TreeChildrenList {
 public:
-	struct Node3
-	{
-		T data;
-		vector<T> v;
-		int id = 0;
-		bool way;
-		struct Node3* next;
-		struct Node3* child;
-	};
 	int d = 0;
-	Node3* root;
-	void AddLeaf(T e, Node3* node) {
+	Node<T>* root;
+	void AddLeaf(T e, Node<T>* node) {
 		bool c = false;
 		if (root == NULL)
 		{
 			root = creat_leaf(e, 0);
 		}
-		else if (node->child)
+		else if (node->left)
 		{
-			if (e > node->child->data) {
-				node = node->child;
-				while (node->next)
+			if (e > node->left->data) {
+				node = node->left;
+				while (node->right)
 				{
-					node = node->next;
+					node = node->right;
 					if (node->data > e) {
-						if (node->child) { AddLeaf(e, node); c = true; }
+						if (node->left) { AddLeaf(e, node); c = true; }
 						else {
-							node->child = creat_leaf(e, 0);
+							node->left = creat_leaf(e, 0);
 							c = true;
 							break;
 						}
 					}
 				}
-				if (c == false) { node->next = creat_leaf(e, 1); }
+				if (c == false) { node->right = creat_leaf(e, 1); }
 			}
 			else {
-				node->child->child = creat_leaf(e, 0);
+				node->left->left = creat_leaf(e, 0);
 			}
 		}
-		else(node->child = creat_leaf(e, 0));
+		else(node->left = creat_leaf(e, 0));
 	}
-	void AddLeaf_v(vector<T> v, Node3* node) {
+	void AddLeaf_v(vector<T> v, Node<T>* node) {
 		bool c = false;
 		if (root == NULL)
 		{
 			root = creat_leaf_v(v, 0);
 		}
-		else if (node->child)
+		else if (node->left)
 		{
-			if (v[0] > node->child->data) {
-				node = node->child;
-				while (node->next)
+			if (v[0] > node->left->data) {
+				node = node->left;
+				while (node->right)
 				{
-					node = node->next;
+					node = node->right;
 					if (node->data > v[0]) {
-						if (node->child) { AddLeaf_v(v, node); c = true; }
+						if (node->left) { AddLeaf_v(v, node); c = true; }
 						else {
-							node->child = creat_leaf_v(v, 0);
+							node->left = creat_leaf_v(v, 0);
 							c = true;
 							break;
 						}
 					}
 				}
-				if (c == false) { node->next = creat_leaf_v(v, 1); }
+				if (c == false) { node->right = creat_leaf_v(v, 1); }
 			}
 			else {
-				node->child->child = creat_leaf_v(v, 0);
+				node->left->left = creat_leaf_v(v, 0);
 			}
 		}
-		else(node->child = creat_leaf_v(v, 0));
+		else(node->left = creat_leaf_v(v, 0));
 	}
-	Node3* newNode(int data)
+	Node<T>* newNode(int data)
 	{
-		Node3* newNode = new Node3;
-		newNode->next = newNode->child = NULL;
+		Node<T>* newNode = new Node<T>;
+		newNode->right = newNode->left = NULL;
 		newNode->data = data;
 		return newNode;
 	}
-	void RemoveNode(Node3* p, Node3* parent, int a)
+	void RemoveNode(Node<T>* p, Node<T>* parent, int a)
 	{
 		if (root != NULL)
 		{
@@ -90,32 +81,32 @@ public:
 			{
 				RemoveRoot(a);
 			}
-			else if (root != p && parent->child != p && parent->next != p)
+			else if (root != p && parent->left != p && parent->right != p)
 			{
-				if (parent->child)
+				if (parent->left)
 				{
-					if (p->data <= parent->child->data)
+					if (p->data <= parent->left->data)
 					{
-						RemoveNode(p, parent->child, a);
+						RemoveNode(p, parent->left, a);
 					}
-					else if (p->data > parent->child->data)
+					else if (p->data > parent->left->data)
 					{
-						if (parent == root) { RemoveNode(p, parent->child->next, a); }
-						else(RemoveNode(p, parent->next, a));
+						if (parent == root) { RemoveNode(p, parent->left->right, a); }
+						else(RemoveNode(p, parent->right, a));
 					}
 				}
-				else(RemoveNode(p, parent->next, a));
+				else(RemoveNode(p, parent->right, a));
 
 			}
-			if (parent->child == p) {
-				RemoveMatch(parent, parent->child, a);
+			if (parent->left == p) {
+				RemoveMatch(parent, parent->left, a);
 			}
-			else if (parent->next == p) {
-				RemoveMatch(parent, parent->next, a);
+			else if (parent->right == p) {
+				RemoveMatch(parent, parent->right, a);
 			}
 		}
 	}
-	void RemoveNode_vect(Node3* p, Node3* parent, int a)
+	void RemoveNode_vect(Node<T>* p, Node<T>* parent, int a)
 	{
 		if (root != NULL)
 		{
@@ -123,126 +114,126 @@ public:
 			{
 				RemoveRoot(a);
 			}
-			else if (root != p && parent->child != p && parent->next != p)
+			else if (root != p && parent->left != p && parent->right != p)
 			{
-				if (parent->child)
+				if (parent->left)
 				{
-					if (p->data <= parent->child->data)
+					if (p->data <= parent->left->data)
 					{
-						RemoveNode(p, parent->child, a);
+						RemoveNode(p, parent->left, a);
 					}
-					else if (p->data > parent->child->data)
+					else if (p->data > parent->left->data)
 					{
-						if (parent == root) { RemoveNode(p, parent->child->next, a); }
-						else(RemoveNode(p, parent->next, a));
+						if (parent == root) { RemoveNode(p, parent->left->right, a); }
+						else(RemoveNode(p, parent->right, a));
 					}
 				}
-				else(RemoveNode(p, parent->next, a));
+				else(RemoveNode(p, parent->right, a));
 
 			}
-			if (parent->child == p) {
-				RemoveMatch(parent, parent->child, a);
+			if (parent->left == p) {
+				RemoveMatch(parent, parent->left, a);
 			}
-			else if (parent->next == p) {
-				RemoveMatch(parent, parent->next, a);
+			else if (parent->right == p) {
+				RemoveMatch(parent, parent->right, a);
 			}
 		}
 	}
 private:
-	Node3* creat_leaf(T e, bool way1) {
-		Node3* cur = new Node3;
+	Node<T>* creat_leaf(T e, bool way1) {
+		Node* cur = new Node;
 		cur->data = e;
 		cur->way = way1;
-		cur->next = NULL;
-		cur->child = NULL;
+		cur->right = NULL;
+		cur->left = NULL;
 		cur->id = d++;
 		return cur;
 	};
-	Node3* creat_leaf_v(vector<T> v, bool way1) {
-		Node3* cur = new Node3;
+	Node<T>* creat_leaf_v(vector<T> v, bool way1) {
+		Node* cur = new Node;
 		cur->v = v;
 		cur->way = way1;
-		cur->next = NULL;
-		cur->child = NULL;
+		cur->right = NULL;
+		cur->left = NULL;
 		cur->id = d++;
 		return cur;
 	};
-	void RemoveMatch(Node3* parent, Node3* match, int a) {
+	void RemoveMatch(Node<T>* parent, Node<T>* match, int a) {
 		if (parent == root)
 		{
 			if (a == 1) {
-				if (match->child) {
-					parent->child = match->child;
-					match->child->next = match->next;
+				if (match->left) {
+					parent->left = match->left;
+					match->left->right = match->right;
 				}
 				else {
-					parent->child = match->next;
+					parent->left = match->right;
 				}
 			}
 			else {
-				parent->child = match->next;
+				parent->left = match->right;
 			}
 		}
-		else if (parent->next == match)
+		else if (parent->right == match)
 		{
 			if (a == 1) {
-				if (match->child) {
-					parent->next = match->child;
-					while (parent->next)
+				if (match->left) {
+					parent->right = match->left;
+					while (parent->right)
 					{
-						parent = parent->next;
+						parent = parent->right;
 					}
-					parent->next = match->next;
+					parent->right = match->right;
 				}
 				else {
-					parent->next = match->next;
+					parent->right = match->right;
 				}
 			}
 			else {
-				parent->next = match->next;
+				parent->right = match->right;
 			}
 		}
-		else if (parent->child == match)
+		else if (parent->left == match)
 		{
 			if (a == 1) {
-				if (match->next)
+				if (match->right)
 				{
-					parent->child = match->next;
-					while (parent->child) {
-						parent = parent->child;
+					parent->left = match->right;
+					while (parent->left) {
+						parent = parent->left;
 					}
-					parent->child = match->child;
+					parent->left = match->left;
 				}
 				else {
-					parent->child = match->child;
+					parent->left = match->left;
 				}
 			}
-			else { parent->child = match->next; }
+			else { parent->left = match->right; }
 		}
 	}
 	void RemoveRoot(int a) {
-		Node3* node;
-		if (root->child == NULL)
+		Node<T>* node;
+		if (root->left == NULL)
 		{
 			root = NULL;
 
 		}
-		else if (root->child != NULL && root->child->child != NULL)
+		else if (root->left != NULL && root->left->left != NULL)
 		{
-			node = root->child->child;
-			root = root->child;
-			while (node->next)
+			node = root->left->left;
+			root = root->left;
+			while (node->right)
 			{
-				node = node->next;
+				node = node->right;
 			}
-			node->next = root->next;
-			root->next = NULL;
+			node->right = root->right;
+			root->right = NULL;
 		}
-		else if (root->child != NULL && root->child->child == NULL)
+		else if (root->left != NULL && root->left->left == NULL)
 		{
-			root = root->child;
-			root->child = root->next;
-			root->next = NULL;
+			root = root->left;
+			root->left = root->right;
+			root->right = NULL;
 		}
 	}
 };

@@ -8,6 +8,7 @@
 #include "TreeChildrenList.h"
 #include "BinaryTree.h"
 #include "Functions.h"
+#include "Node1.h"
 using namespace std;
 
 int menu_inf(int a);

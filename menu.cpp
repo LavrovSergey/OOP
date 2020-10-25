@@ -81,8 +81,8 @@ int menu_console() {
 }
 int menu1(bool isRunning, int a, int b)
 {
-	Functions1<int> i;
-	Functions1<int> i_v;
+		Functions1<int> i;
+		Functions1<int> i_v;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	isRunning = true;
@@ -118,8 +118,8 @@ int menu1(bool isRunning, int a, int b)
 }
 int menu2(bool isRunning, int a, int b)
 {
-	Functions2<double> d;
-	Functions2<double> d_v;
+	Functions1<double> d;
+	Functions1<double> d_v;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	isRunning = true;
@@ -155,8 +155,8 @@ int menu2(bool isRunning, int a, int b)
 }
 int menu3(bool isRunning, int a, int b)
 {
-	Functions3<string> s;
-	Functions3<string> s_v;
+	Functions1<string> s;
+	Functions1<string> s_v;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	isRunning = true;
@@ -202,8 +202,8 @@ int inf(bool isRunning, int a)
 		switch (answer)
 		{
 		case 0: menu1(true, a, 1); break;
-		case 1: menu2(true, a, 2);  break;
-		case 2: menu3(true, a, 3); break;
+		case 1: menu1(true, a, 2);  break;
+		case 2: menu1(true, a, 3); break;
 		case 3:  break;
 		case 4: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
 		}

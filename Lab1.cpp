@@ -1,4 +1,14 @@
 ﻿#include"menu.h"
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <vector>
+#include <conio.h>
+#include "windows.h"
+#include "BinarySearchTree.h"
+#include "TreeChildrenList.h"
+#include "BinaryTree.h"
+#include "Functions.h"
+#include "Node1.h"
 using namespace std;
 
 
@@ -19,7 +29,6 @@ int main(bool isRunning)
 		case 3:  break;
 		case 4: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
 		}
-
 	}
 	return 0;
 }
