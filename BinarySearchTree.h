@@ -114,7 +114,6 @@ public:
 	}
 private:
 
-
 	void AddLeaf_v(U* cur, U* node) {
 		if (root == NULL)
 		{

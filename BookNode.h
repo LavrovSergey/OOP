@@ -20,6 +20,12 @@ public:
 class BookFunctions : public BinarySearchTree<string, BookNode>
 {
 public:
+	
+	/*void FromFile() {
+		ifstream books("books.bin");
+		FromFilePrivate(BinarySearchTree<string, BookNode>::root, books);
+		books.close();
+	}*/
 	void InFile() {
 		ofstream books("books.bin");
 		InFilePrivate(BinarySearchTree<string, BookNode>::root, books);
@@ -138,7 +144,7 @@ private:
 			if (node->right != NULL)
 			{
 				PrintInOrderPrivate(node->right);
-			}
+			} 
 		}
 		else(cout << "Пусто" << endl);
 	}

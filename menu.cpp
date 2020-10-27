@@ -132,7 +132,6 @@ int menu_part2() {
 		else  cout << "   Найти героя" << endl;
 		if (key == 8) cout << "-> Показать серии книг" << endl;
 		else  cout << "   Показать серии книг" << endl;
-		
 		if (key == 9) cout << "-> Выход" << endl;
 		else  cout << "   Выход" << endl;
 		code = _getch();
