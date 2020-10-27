@@ -113,7 +113,7 @@ int menu_part2() {
 	int code;
 	do {
 		system("cls");
-		key = (key + 19) % 19;
+		key = (key + 10) % 10;
 		if (key == 0) cout << "-> Добавить книгу" << endl;
 		else  cout << "   Добавить книгу" << endl;
 		if (key == 1) cout << "-> Добавить героя" << endl;
@@ -133,7 +133,7 @@ int menu_part2() {
 		if (key == 8) cout << "-> Показать серии книг" << endl;
 		else  cout << "   Показать серии книг" << endl;
 		
-		if (key == 18) cout << "-> Выход" << endl;
+		if (key == 9) cout << "-> Выход" << endl;
 		else  cout << "   Выход" << endl;
 		code = _getch();
 		if (code == 224)
@@ -148,7 +148,6 @@ int menu_part2() {
 }
 int part2(bool isRunning)
 {
-	
 	BookFunctions b;
 	HeroFunctions h;
 	SetConsoleCP(1251);
@@ -170,9 +169,7 @@ int part2(bool isRunning)
 		case 6: b.Find(); break;
 		case 7: h.Find(); break;
 		case 8: h.Series(); break;
-		case 9: ; break;
-		
-		case 18: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
+		case 9: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
 		}
 	}
 	return 0;
@@ -303,7 +300,8 @@ int inf(bool isRunning, int a)
 		case 0: menu1(true, a); break;
 		case 1: menu2(true, a);  break;
 		case 2: menu3(true, a); break;
-		case 3: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
+		case 3: part2(true); break;
+		case 4: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
 		}
 
 	}

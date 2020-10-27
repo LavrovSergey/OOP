@@ -15,5 +15,5 @@ public:
 	T data;
 	std::vector<T> v;
 	int id = 0;
-	bool way;
+	bool way; 
 };

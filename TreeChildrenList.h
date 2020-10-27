@@ -14,7 +14,7 @@ public:
 		bool c = false;
 		if (root == NULL)
 		{
-			root = creat_leaf(e, 0);
+			root = creat_leaf(e, 0); 
 		}
 		else if (node->left)
 		{

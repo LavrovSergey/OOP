@@ -9,7 +9,7 @@ template <class T, class U>
 class Functions: public BinarySearchTree<T, U>, public BinaryTree<T, U>, public TreeChildrenList<T, U>
 {
 public:
-	friend class Node<T>;
+	friend class Node<T>; 
 	void FindByTheWay(int a) {
 		bool count = false, i = 0;
 		int n;

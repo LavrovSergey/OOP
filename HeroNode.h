@@ -2,11 +2,6 @@
 #include <string>
 #include <vector>
 template<class T, class U> class BinarySearchTree;
-//enum Role {
-//		main,
-//		secondary,
-//		episodic,
-//	};
 class HeroNode {
 	friend class BinarySearchTree<string, HeroNode>;
 public:
