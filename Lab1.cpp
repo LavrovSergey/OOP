@@ -26,7 +26,7 @@ int main(bool isRunning)
 		case 0: inf(true, 1); break;
 		case 1: inf(true, 2);  break;
 		case 2: inf(true, 3); break;
-		case 3:  break;
+		case 3: part2(true); break;
 		case 4: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
 		}
 	}

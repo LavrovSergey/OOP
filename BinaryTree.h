@@ -212,7 +212,7 @@ private:
 			RemoveNode(p, match, a);
 			match->v.resize(p->v.size());
 			for (int i = 0; i < root->v.size(); i++) {
-				match->v[i] = p->v[i];
+				match->v[i]=p->v[i];
 			}
 		}
 	}
