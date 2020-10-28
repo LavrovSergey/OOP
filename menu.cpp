@@ -1,7 +1,33 @@
-#include "pch.h"
 #include <iostream>
 #include <string>
 #include "menu.h"
+int menu_start() {
+	int key = 0;
+	int code;
+	do {
+		system("cls");
+		key = (key + 5) % 5;
+		if (key == 0) cout << "-> BinarySearchTree" << endl;
+		else  cout << "   BinarySearchTree" << endl;
+		if (key == 1) cout << "-> Binary Tree" << endl;
+		else  cout << "   Binary Tree" << endl;
+		if (key == 2) cout << "-> Tree list of sons" << endl;
+		else  cout << "   Tree list of sons" << endl;
+		if (key == 3) cout << "-> Part 2" << endl;
+		else  cout << "   Part 2" << endl;
+		if (key == 4) cout << "-> Выход" << endl;
+		else  cout << "   Выход" << endl;
+		code = _getch();
+		if (code == 224)
+		{
+			code = _getch();
+			if (code == 80) key++;
+			if (code == 72) key--;
+		}
+	} while (code != 13);
+	system("cls");
+	return key;
+}
 int menu_inf(int a) {
 	int key = 0;
 	int code;
@@ -32,7 +58,7 @@ int menu_console() {
 	int code;
 	do {
 		system("cls");
-		key = (key + 55) % 55;
+		key = (key + 19) % 19;
 		if (key == 0) cout << "-> Записать" << endl;
 		else  cout << "   Записать" << endl;
 		if (key == 1) cout << "-> Вывести InOrder" << endl;
@@ -69,7 +95,7 @@ int menu_console() {
 		else  cout << "   Удалить int vector id" << endl;
 		if (key == 17) cout << "-> Удалить vector по отцу" << endl;
 		else  cout << "   Удалить vector по отцу" << endl;
-		if (key == 54) cout << "-> Выход" << endl;
+		if (key == 18) cout << "-> Выход" << endl;
 		else  cout << "   Выход" << endl;
 		code = _getch();
 		if (code == 224)
@@ -82,10 +108,78 @@ int menu_console() {
 	system("cls");
 	return key;
 }
-int menu1(bool isRunning, int a, int b)
+int menu_part2() {
+	int key = 0;
+	int code;
+	do {
+		system("cls");
+		key = (key + 10) % 10;
+		if (key == 0) cout << "-> Добавить книгу" << endl;
+		else  cout << "   Добавить книгу" << endl;
+		if (key == 1) cout << "-> Добавить героя" << endl;
+		else  cout << "   Добавить героя" << endl;
+		if (key == 2) cout << "-> Показать книги" << endl;
+		else  cout << "   Показать книги" << endl;
+		if (key == 3) cout << "-> Показать персонажей" << endl;
+		else  cout << "   Показать персонажей" << endl;
+		if (key == 4) cout << "-> Удалить книгу" << endl;
+		else  cout << "   Удалить книгу" << endl;
+		if (key == 5) cout << "-> Удалить героя" << endl;
+		else  cout << "   Удалить героя" << endl;
+		if (key == 6) cout << "-> Найти книгу" << endl;
+		else  cout << "   Найти книгу" << endl;
+		if (key == 7) cout << "-> Найти героя" << endl;
+		else  cout << "   Найти героя" << endl;
+		if (key == 8) cout << "-> Показать серии книг" << endl;
+		else  cout << "   Показать серии книг" << endl;
+		if (key == 9) cout << "-> Выход" << endl;
+		else  cout << "   Выход" << endl;
+		code = _getch();
+		if (code == 224)
+		{
+			code = _getch();
+			if (code == 80) key++;
+			if (code == 72) key--;
+		}
+	} while (code != 13);
+	system("cls");
+	return key;
+}
+int part2(bool isRunning)
 {
-		Functions1<int> i;
-		Functions1<int> i_v;
+	BookFunctions b;
+	HeroFunctions h;
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	isRunning = true;
+	while (isRunning)
+	{
+		int answer = 0;
+		answer = menu_part2();
+
+		switch (answer)
+		{
+		case 0: b.AddBook(); b.InFile(); break;
+		case 1: h.AddHero(); h.InFile(); break;
+		case 2:b.PrintInOrder(); break;
+		case 3:h.PrintInOrder(); break;
+		case 4: b.Delete(); b.InFile(); break;
+		case 5: h.Delete(); h.InFile(); break;
+		case 6: b.Find(); break;
+		case 7: h.Find(); break;
+		case 8: h.Series(); break;
+		case 9: b.Update(); break;
+		case 10: h.Update(); break;
+		case 11: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
+		}
+	}
+	return 0;
+}
+
+int menu1(bool isRunning, int a)
+{
+		Functions<int, Node<int>> i;
+		Functions<int, Node<int>> i_v;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	isRunning = true;
@@ -119,10 +213,10 @@ int menu1(bool isRunning, int a, int b)
 	}
 	return 0;
 }
-int menu2(bool isRunning, int a, int b)
+int menu2(bool isRunning, int a)
 {
-	Functions1<double> d;
-	Functions1<double> d_v;
+	Functions<double, Node<double>> d;
+	Functions<double, Node<double>> d_v;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	isRunning = true;
@@ -156,10 +250,10 @@ int menu2(bool isRunning, int a, int b)
 	}
 	return 0;
 }
-int menu3(bool isRunning, int a, int b)
+int menu3(bool isRunning, int a)
 {
-	Functions1<string> s;
-	Functions1<string> s_v;
+	Functions<string, Node<string>> s;
+	Functions<string, Node<string>> s_v;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	isRunning = true;
@@ -204,40 +298,13 @@ int inf(bool isRunning, int a)
 		answer = menu_inf(a);
 		switch (answer)
 		{
-		case 0: menu1(true, a, 1); break;
-		case 1: menu1(true, a, 2);  break;
-		case 2: menu1(true, a, 3); break;
-		case 3:  break;
+		case 0: menu1(true, a); break;
+		case 1: menu2(true, a);  break;
+		case 2: menu3(true, a); break;
+		case 3: part2(true); break;
 		case 4: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
 		}
 
 	}
 	return 0;
-}
-int menu_start() {
-	int key = 0;
-	int code;
-	do {
-		system("cls");
-		key = (key + 5) % 5;
-		if (key == 0) cout << "-> BinarySearchTree" << endl;
-		else  cout << "   BinarySearchTree" << endl;
-		if (key == 1) cout << "-> Binary Tree" << endl;
-		else  cout << "   Binary Tree" << endl;
-		if (key == 2) cout << "-> Tree list of sons" << endl;
-		else  cout << "   Tree list of sons" << endl;
-		if (key == 3) cout << "-> Part 2" << endl;
-		else  cout << "   Part 2" << endl;
-		if (key == 4) cout << "-> Выход" << endl;
-		else  cout << "   Выход" << endl;
-		code = _getch();
-		if (code == 224)
-		{
-			code = _getch();
-			if (code == 80) key++;
-			if (code == 72) key--;
-		}
-	} while (code != 13);
-	system("cls");
-	return key;
 }

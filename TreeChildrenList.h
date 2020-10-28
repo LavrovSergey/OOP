@@ -1,16 +1,20 @@
 #pragma once
 #include "Node1.h"
 
-template <class T>
+template <class T, class U>
 class TreeChildrenList {
 public:
 	int d = 0;
-	Node<T>* root;
-	void AddLeaf(T e, Node<T>* node) {
+	U* root;
+	TreeChildrenList()
+	{
+		root = NULL;
+	}
+	void AddLeaf(T e, U* node) {
 		bool c = false;
 		if (root == NULL)
 		{
-			root = creat_leaf(e, 0);
+			root = creat_leaf(e, 0); 
 		}
 		else if (node->left)
 		{
@@ -36,7 +40,7 @@ public:
 		}
 		else(node->left = creat_leaf(e, 0));
 	}
-	void AddLeaf_v(std::vector<T> v, Node<T>* node) {
+	void AddLeaf_v(std::vector<T> v, U* node) {
 		bool c = false;
 		if (root == NULL)
 		{
@@ -66,14 +70,14 @@ public:
 		}
 		else(node->left = creat_leaf_v(v, 0));
 	}
-	Node<T>* newNode(int data)
+	U* newNode(int data)
 	{
-		Node<T>* newNode = new Node<T>;
+		U* newNode = new U;
 		newNode->right = newNode->left = NULL;
 		newNode->data = data;
 		return newNode;
 	}
-	void RemoveNode(Node<T>* p, Node<T>* parent, int a)
+	void RemoveNode(U* p, U* parent, int a)
 	{
 		if (root != NULL)
 		{
@@ -106,7 +110,7 @@ public:
 			}
 		}
 	}
-	void RemoveNode_vect(Node<T>* p, Node<T>* parent, int a)
+	void RemoveNode_vect(U* p, U* parent, int a)
 	{
 		if (root != NULL)
 		{
@@ -140,8 +144,8 @@ public:
 		}
 	}
 private:
-	Node<T>* creat_leaf(T e, bool way1) {
-		Node<T>* cur = new Node<T>;
+	U* creat_leaf(T e, bool way1) {
+		U* cur = new U;
 		cur->data = e;
 		cur->way = way1;
 		cur->right = NULL;
@@ -149,8 +153,8 @@ private:
 		cur->id = d++;
 		return cur;
 	};
-	Node<T>* creat_leaf_v(std::vector<T> v, bool way1) {
-		Node<T>* cur = new Node<T>;
+	U* creat_leaf_v(std::vector<T> v, bool way1) {
+		U* cur = new U;
 		cur->v = v;
 		cur->way = way1;
 		cur->right = NULL;
@@ -158,7 +162,7 @@ private:
 		cur->id = d++;
 		return cur;
 	};
-	void RemoveMatch(Node<T>* parent, Node<T>* match, int a) {
+	void RemoveMatch(U* parent, U* match, int a) {
 		if (parent == root)
 		{
 			if (a == 1) {
@@ -212,7 +216,7 @@ private:
 		}
 	}
 	void RemoveRoot(int a) {
-		Node<T>* node;
+		U* node;
 		if (root->left == NULL)
 		{
 			root = NULL;
