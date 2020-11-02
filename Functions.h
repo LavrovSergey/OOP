@@ -1,3 +1,4 @@
+/*! Class for working with a template node.*/
 #pragma once
 #include "Node1.h"
 #include "BinarySearchTree.h"
@@ -5,11 +6,14 @@
 #include "TreeChildrenList.h"
 #include <iostream>
 using namespace std;
+/*! @param T -data type
+* @param U -object.*/
 template <class T, class U>
 class Functions: public BinarySearchTree<T, U>, public BinaryTree<T, U>, public TreeChildrenList<T, U>
 {
 public:
 	friend class Node<T>; 
+	/*! Search by the way.*/
 	void FindByTheWay(int a) {
 		bool count = false, i = 0;
 		int n;
@@ -41,6 +45,7 @@ public:
 		delete[]mas;
 		system("pause");
 	}
+	/*! All ways to delete.*/
 	void Delete(int a, int b)
 	{
 		if (b == 1) {
@@ -116,6 +121,7 @@ public:
 			}
 		}
 	}
+	/*! Adding a node.*/
 	void AddLeaf(int a) {
 		T inf;
 		cout << "Введите информацию" << endl;
@@ -140,6 +146,7 @@ public:
 		else if (a == 2) { BinaryTree<T, U>::root = BinaryTree<T, U>::AddLeaf_v(BinaryTree<T, U>::root, BinaryTree<T, U>::creat_leaf_v(v, 0)); }
 		else if (a == 3) { TreeChildrenList<T, U>::AddLeaf_v(v, TreeChildrenList<T, U>::root); }
 	}
+	/*! Search by the information.*/
 	void Find(int a) {
 		T inf;
 		cout << "Введите, что хотите найти" << endl;
@@ -166,36 +173,42 @@ public:
 			system("pause");
 		}
 	}
+	/*! Print.*/
 	void PrintInOrder(int a) {
 		if (a == 1) { PrintInOrderPrivate1(BinarySearchTree<T, U>::root); }
 		else if (a == 2) { PrintInOrderPrivate2(BinaryTree<T, U>::root); }
 		else if (a == 3) { PrintPreOrderPrivate3(TreeChildrenList<T, U>::root); }
 		system("pause");
 	}
+	/*! Print.*/
 	void PrintInOrder_vect(int a) {
 		if (a == 1) { PrintInOrderPrivate1_vect(BinarySearchTree<T, U>::root); }
 		else if (a == 2) { PrintInOrderPrivate2_vect(BinaryTree<T, U>::root); }
 		else if (a == 3) { PrintPreOrderPrivate3_vect(TreeChildrenList<T, U>::root); }
 		system("pause");
 	}
+	/*! Print.*/
 	void PrintPostOrder(int a) {
 		if (a == 1) { PrintPostOrderPrivate1(BinarySearchTree<T, U>::root); }
 		else if (a == 2) { PrintPostOrderPrivate2(BinaryTree<T, U>::root); }
 		else if (a == 3) { PrintPreOrderPrivate3(TreeChildrenList<T, U>::root); }
 		system("pause");
 	}
+	/*! Print.*/
 	void PrintPostOrder_vect(int a) {
 		if (a == 1) { PrintPostOrderPrivate1_vect(BinarySearchTree<T, U>::root); }
 		else if (a == 2) { PrintPostOrderPrivate2_vect(BinaryTree<T, U>::root); }
 		else if (a == 3) { PrintPreOrderPrivate3_vect(TreeChildrenList<T, U>::root); }
 		system("pause");
 	}
+	/*! Print.*/
 	void PrintPreOrder(int a) {
 		if (a == 1) { PrintPreOrderPrivate1(BinarySearchTree<T, U>::root); }
 		else if (a == 2) { PrintPreOrderPrivate2(BinaryTree<T, U>::root); }
 		else if (a == 3) { PrintPreOrderPrivate3(TreeChildrenList<T, U>::root); }
 		system("pause");
 	}
+	/*! Print.*/
 	void PrintPreOrder_vect(int a) {
 		if (a == 1) { PrintPreOrderPrivate1_vect(BinarySearchTree<T, U>::root); }
 		else if (a == 2) { PrintPreOrderPrivate2_vect(BinaryTree<T, U>::root); }
@@ -217,7 +230,7 @@ public:
 		if (a == 1)
 		{
 			U* ptr = FindPrivate1_vect(v, BinarySearchTree<T, U>::root);
-			if (ptr == NULL) { cout << "Такого нема" << endl; }                       //тут почемуто не работает но такое же в удалении работает
+			if (ptr == NULL) { cout << "Такого нема" << endl; }                       //тут почему-то не работает но такое же в удалении работает
 			else {
 				cout << ptr->id << ". ";
 				for (int i = 0; i < n; i++)

@@ -1,10 +1,14 @@
 #pragma once
 #include "Node1.h"
+/*! @param T -data type
+* @param U -object.*/
 template<class T, class U>
+/*! Class binary tree*/
 class BinaryTree {
 public:
 	int d = 1;
 	U* root;
+	/*! Designer. Root = 0.*/
 	BinaryTree()
 	{
 		root = NULL;
@@ -12,10 +16,12 @@ public:
 	/*Node* Find_max() {
 		return Find_maxPrivate(root);
 	}*/
+	/*! Find the smallest value of the tree to rebuild after deletion.*/
 	U* Find_smallest()
 	{
 		return Find_smallestPrivate(root);
 	}
+	/*! Add a node to the tree.*/
 	U* AddLeaf(U* root, U* node) {
 		if (root == NULL) { return node; }
 		else if (bal(root) == 0 && check(root->right)) { root->right = AddLeaf(root->right, node); root->right->way = 1; }
@@ -52,6 +58,7 @@ public:
 		if (tmp != NULL && tmp->counter > node->counter) { node = tmp; }
 		return node;
 	}*/
+	/*! Deleting a node.*/
 	void RemoveNode(U* p, U* parent, int a)
 	{
 		if (root != NULL)
@@ -111,6 +118,7 @@ public:
 		cur->id = d++;
 		return cur;
 	};
+	/*! Creating a node.*/
 	U* creat_leaf(T e, bool way1) {
 		U* cur = new U;
 		cur->data = e;
@@ -121,12 +129,14 @@ public:
 		return cur;
 	};
 private:
+	/*! Check the balance of the tree.*/
 	int bal(U* root) {
 		if (root == NULL) { return 0; }
 		int lheight = height(root->left) + 1;
 		int rheight = height(root->right) + 1;
 		return(lheight - rheight);
 	}
+	/*! Check the height of the tree.*/
 	int height(U* root) {
 		if (root == NULL)
 		{

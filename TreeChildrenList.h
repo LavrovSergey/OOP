@@ -1,7 +1,9 @@
 #pragma once
 #include "Node1.h"
-
+/*! @param T -data type
+* @param U -object.*/
 template <class T, class U>
+/*! Tree class with any number of children based on the list.*/
 class TreeChildrenList {
 public:
 	int d = 0;
@@ -10,6 +12,7 @@ public:
 	{
 		root = NULL;
 	}
+	/*! Adding a Node.*/
 	void AddLeaf(T e, U* node) {
 		bool c = false;
 		if (root == NULL)
@@ -70,13 +73,7 @@ public:
 		}
 		else(node->left = creat_leaf_v(v, 0));
 	}
-	U* newNode(int data)
-	{
-		U* newNode = new U;
-		newNode->right = newNode->left = NULL;
-		newNode->data = data;
-		return newNode;
-	}
+	/*! Deleting the Node.*/
 	void RemoveNode(U* p, U* parent, int a)
 	{
 		if (root != NULL)
@@ -144,6 +141,7 @@ public:
 		}
 	}
 private:
+	/*!Creating a Node.*/
 	U* creat_leaf(T e, bool way1) {
 		U* cur = new U;
 		cur->data = e;
@@ -162,6 +160,7 @@ private:
 		cur->id = d++;
 		return cur;
 	};
+	/*! Delete the node that was found before.*/
 	void RemoveMatch(U* parent, U* match, int a) {
 		if (parent == root)
 		{
@@ -215,6 +214,7 @@ private:
 			else { parent->left = match->right; }
 		}
 	}
+	/*! Deleting the root.*/
 	void RemoveRoot(int a) {
 		U* node;
 		if (root->left == NULL)

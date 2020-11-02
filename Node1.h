@@ -3,8 +3,9 @@
 template<class T, class U> class BinarySearchTree;
 template<class T, class U> class BinaryTree;
 template<class T, class U> class TreeChildrenList;
-
+/*! @param T -data type*/
 template<class T>
+/*! Template node class.*/
 class Node {
 	friend class BinarySearchTree<T, Node<T>>;
 	friend class BinaryTree<T, Node<T>>;

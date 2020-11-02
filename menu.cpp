@@ -1,6 +1,8 @@
+// Файл у якому знаходиться реализация підменю.
 #include <iostream>
 #include <string>
 #include "menu.h"
+// Вивід пунктів, для вибору дерева.
 int menu_start() {
 	int key = 0;
 	int code;
@@ -28,6 +30,7 @@ int menu_start() {
 	system("cls");
 	return key;
 }
+// Вивід меню для вибору типу з яким будемо працювати.
 int menu_inf(int a) {
 	int key = 0;
 	int code;
@@ -53,6 +56,7 @@ int menu_inf(int a) {
 	system("cls");
 	return key;
 }
+// Вивід меню для вибору того, що ми хочемо робити з деревом.
 int menu_console() {
 	int key = 0;
 	int code;
@@ -108,6 +112,7 @@ int menu_console() {
 	system("cls");
 	return key;
 }
+//Вивід меню для вибору того, що ми хочемо робити з другою частиною лабораторної.
 int menu_part2() {
 	int key = 0;
 	int code;
@@ -145,6 +150,7 @@ int menu_part2() {
 	system("cls");
 	return key;
 }
+// Реалізація меню другої частини.
 int part2(bool isRunning)
 {
 	BookFunctions b;
@@ -173,7 +179,7 @@ int part2(bool isRunning)
 	}
 	return 0;
 }
-
+// Реалізація меню для робити з деревом int.
 int menu1(bool isRunning, int a)
 {
 		Functions<int, Node<int>> i;
@@ -211,6 +217,7 @@ int menu1(bool isRunning, int a)
 	}
 	return 0;
 }
+// Реалізація меню для робити з деревом double.
 int menu2(bool isRunning, int a)
 {
 	Functions<double, Node<double>> d;
@@ -248,6 +255,7 @@ int menu2(bool isRunning, int a)
 	}
 	return 0;
 }
+// Реалізація меню для робити з деревом string.
 int menu3(bool isRunning, int a)
 {
 	Functions<string, Node<string>> s;
@@ -285,6 +293,7 @@ int menu3(bool isRunning, int a)
 	}
 	return 0;
 }
+// Реалізація початкового меню.
 int inf(bool isRunning, int a)
 {
 	SetConsoleCP(1251);

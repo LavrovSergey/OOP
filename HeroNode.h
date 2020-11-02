@@ -1,7 +1,10 @@
 #pragma once
 #include <string>
 #include <vector>
+/*! @param T -data type
+* @param U -object.*/
 template<class T, class U> class BinarySearchTree;
+/*! Character class.*/
 class HeroNode {
 	friend class BinarySearchTree<string, HeroNode>;
 public:
@@ -16,11 +19,13 @@ public:
 class HeroFunctions : public BinarySearchTree<string, HeroNode>
 {
 public:
+	/*! Write to file.*/
 	void InFile() {
 		ofstream heroes("heroes.bin");
 		InFilePrivate(BinarySearchTree<string, HeroNode>::root, heroes);
 		heroes.close();
 	}
+	/*! Add a character.*/
 	void AddHero() {
 		int a;
 		HeroNode* h = new HeroNode;
@@ -48,6 +53,7 @@ public:
 		}
 		BinarySearchTree<string, HeroNode>::AddLeaf(h, BinarySearchTree<string, HeroNode>::root);
 	}
+	/*! Delete by number.*/
 	void Delete( )
 	{
 		PrintInOrder();
@@ -58,10 +64,12 @@ public:
 			if (ptr == NULL) { cout << "Такого нема" << endl; }
 			else  (BinarySearchTree<string, HeroNode>::RemoveNode(ptr, BinarySearchTree<string, HeroNode>::root, 1));
 	}
+	/*! Print.*/
 	void PrintInOrder() {
 		PrintPreOrderPrivate(BinarySearchTree<string, HeroNode>::root);
 		system("pause");
 	}
+	/*! Find.*/
 	void Find() {
 		string inf;
 		cout << "Введите, что хотите найти" << endl;
@@ -73,6 +81,7 @@ public:
 			}
 			system("pause");	
 	}
+	/*! Print series.*/
 	void Series() {
 		vector<string>name;
 		SeriesPrivate(BinarySearchTree<string, HeroNode>::root, name);

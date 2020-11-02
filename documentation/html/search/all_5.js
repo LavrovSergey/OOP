@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['Завдання_11',['Завдання',['../md__r_e_a_d_m_e.html',1,'']]]
+  ['herofunctions_16',['HeroFunctions',['../class_hero_functions.html',1,'']]],
+  ['heronode_17',['HeroNode',['../class_hero_node.html',1,'']]]
 ];

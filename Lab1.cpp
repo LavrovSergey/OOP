@@ -1,17 +1,12 @@
-﻿#include"menu.h"
-#define _CRT_SECURE_NO_WARNINGS
-#include <iostream>
-#include <vector>
-#include <conio.h>
-#include "windows.h"
-#include "BinarySearchTree.h"
-#include "TreeChildrenList.h"
-#include "BinaryTree.h"
-#include "Functions.h"
-#include "Node1.h"
-using namespace std;
-
-
+﻿/*! Main project file.
+* \file main.cpp
+* \author Lavrov Srgey
+*/
+#include "menu.h"
+//! main function
+/*!
+* Start menu
+*/
 int main(bool isRunning)
 {
 	SetConsoleCP(1251);

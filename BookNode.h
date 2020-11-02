@@ -2,8 +2,10 @@
 #include <string>
 #include <vector>
 #include<fstream>
+/*! @param T -data type
+* @param U -object.*/
 template<class T, class U> class BinarySearchTree;
-
+/*! Book class and function class for working with books.*/
 class BookNode {
 	friend class BinarySearchTree<string, BookNode>;
 public:
@@ -26,11 +28,13 @@ public:
 		FromFilePrivate(BinarySearchTree<string, BookNode>::root, books);
 		books.close();
 	}*/
+	/*! Write to file.*/
 	void InFile() {
 		ofstream books("books.bin");
 		InFilePrivate(BinarySearchTree<string, BookNode>::root, books);
 		books.close();
 	}
+	/*! Adding a book.*/
 	void AddBook() {
 		BookNode* b = new BookNode;
 		int n; string s;
@@ -54,6 +58,7 @@ public:
 		BinarySearchTree<string, BookNode>::AddLeaf(b, BinarySearchTree<string, BookNode>::root);
 		
 	}
+	/*! Delete a book.*/
 	void Delete()
 	{
 		PrintInOrder();
@@ -65,10 +70,12 @@ public:
 			else  (BinarySearchTree<string, BookNode>::RemoveNode(ptr, BinarySearchTree<string, BookNode>::root, 1));
 			system("pause");
 	}
+	/*! Print.*/
 	void PrintInOrder() {
 		PrintInOrderPrivate(BinarySearchTree<string, BookNode>::root);
 		system("pause");
 	}
+	/*! Find.*/
 	void Find() {
 		string inf;
 		cout << "¬ведите, что хотите найти" << endl;
@@ -117,7 +124,7 @@ public:
 		cout << "ќписание:" << node->plot << endl;
 	}
 private:
-	
+	/*! Search by id.*/
 	BookNode* FindPrivateId(int id, BookNode* node) {
 		if (node == NULL) return node;
 		if (id == node->id) {

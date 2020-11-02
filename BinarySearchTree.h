@@ -1,19 +1,25 @@
 #pragma once
 #include "Node1.h"
+/*! @param T -data type
+* @param U -object.*/
 template<class T, class U>
+/*! Class binary search tree*/
 class BinarySearchTree
 {
 public:
 	int d = 1;
 	U* root;
+	/*! Constructer. Root = 0..*/
 	BinarySearchTree()
 	{
 		root = NULL;
 	}
+	/*! Find the smallest value of the tree to rebuild after deletion.*/
 	U* Find_smallest()
 	{
 		return Find_smallestPrivate(root);
 	}
+	/*!Creating a Node.*/
 	void creat_leaf(T e, bool way1) {
 		U* cur = new U;
 		cur->data = e;
@@ -23,6 +29,7 @@ public:
 		cur->id = d++;
 		AddLeaf(cur, root);
 	};
+	/*! Adding a Node.*/
 	void AddLeaf(U* cur, U* node) {
 		if (root == NULL)
 		{
@@ -53,6 +60,7 @@ public:
 			}
 		}
 	}
+	/*! Ствоюємо вузол для вектора.*/
 	void creat_leaf_v(std::vector<T> vv, bool way1) {
 		U* cur = new U;
 		cur->v = vv;
@@ -62,6 +70,7 @@ public:
 		cur->id = d++;
 		AddLeaf_v(cur, root);
 	};
+	/*! Deleting the Node.*/
 	void RemoveNode(U* p, U* parent, int a)
 	{
 		if (root != NULL)
@@ -87,6 +96,7 @@ public:
 			}
 		}
 	}
+	/*! Видалення вузла вектора.*/
 	void RemoveNode_vect(U* p, U* parent, int a)
 	{
 		if (root != NULL)
@@ -152,6 +162,7 @@ private:
 		}
 		else { return node; };
 	}
+	/*! Deleting the root.*/
 	void RemoveRoot(int a) {
 		U* delPtr = root;
 		if (root->left == NULL && root->right == NULL)
@@ -178,6 +189,7 @@ private:
 			root->data = p->data;
 		}
 	}
+	/*! Delete the node that was found before.*/
 	void RemoveMatch(U* parent, U* match, bool left, int a) {
 
 		if (match->left == NULL && match->right == NULL)
