@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include "menu.h"
-// Вивід пунктів, для вибору дерева.
+// Output items to select a tree.
 int menu_start() {
 	int key = 0;
 	int code;
@@ -17,8 +17,8 @@ int menu_start() {
 		else  cout << "   Tree list of sons" << endl;
 		if (key == 3) cout << "-> Part 2" << endl;
 		else  cout << "   Part 2" << endl;
-		if (key == 4) cout << "-> Выход" << endl;
-		else  cout << "   Выход" << endl;
+		if (key == 4) cout << "-> Exit" << endl;
+		else  cout << "   Exit" << endl;
 		code = _getch();
 		if (code == 224)
 		{
@@ -30,7 +30,7 @@ int menu_start() {
 	system("cls");
 	return key;
 }
-// Вивід меню для вибору типу з яким будемо працювати.
+// Output menu to select the type with which we will work.
 int menu_inf(int a) {
 	int key = 0;
 	int code;
@@ -43,8 +43,8 @@ int menu_inf(int a) {
 		else  cout << "   DOUBLE" << endl;
 		if (key == 2) cout << "-> STRING" << endl;
 		else  cout << "   STRING" << endl;
-		if (key == 3) cout << "-> Выход" << endl;
-		else  cout << "   Выход" << endl;
+		if (key == 3) cout << "-> Exit" << endl;
+		else  cout << "   Exit" << endl;
 		code = _getch();
 		if (code == 224)
 		{
@@ -56,49 +56,49 @@ int menu_inf(int a) {
 	system("cls");
 	return key;
 }
-// Вивід меню для вибору того, що ми хочемо робити з деревом.
+// Display a menu to select what we want to do with the tree.
 int menu_console() {
 	int key = 0;
 	int code;
 	do {
 		system("cls");
 		key = (key + 19) % 19;
-		if (key == 0) cout << "-> Записать" << endl;
-		else  cout << "   Записать" << endl;
-		if (key == 1) cout << "-> Вывести InOrder" << endl;
-		else  cout << "   Вывести InOrder" << endl;
-		if (key == 2) cout << "-> Вывести PreOrder" << endl;
-		else  cout << "   Вывести PreOrder" << endl;
-		if (key == 3) cout << "-> Вывести PostOrder" << endl;
-		else  cout << "   Вывести PostOrder " << endl;
-		if (key == 4) cout << "-> Найти по пути" << endl;
-		else  cout << "   Найти по пути" << endl;
-		if (key == 5) cout << "-> Найти" << endl;
-		else  cout << "   Найти" << endl;
-		if (key == 6) cout << "-> Удалить по значению" << endl;
-		else  cout << "   Удалить по значению" << endl;
-		if (key == 7) cout << "-> Удалить по id" << endl;
-		else  cout << "   Удалить по id" << endl;
-		if (key == 8) cout << "-> Удалить по отцу" << endl;
-		else  cout << "   Удалить по отцу" << endl;
-		if (key == 9) cout << "-> Записать vector" << endl;
-		else  cout << "   Записать vector" << endl;
-		if (key == 10) cout << "-> Вывести InOrder vector" << endl;
-		else  cout << "   Вывести InOrder vector" << endl;
-		if (key == 11) cout << "-> Вывести PreOrder vector" << endl;
-		else  cout << "   Вывести PreOrder vector" << endl;
-		if (key == 12) cout << "-> Вывести PostOrder vector" << endl;
-		else  cout << "   Вывести PostOrder vector" << endl;
-		if (key == 13) cout << "-> Найти по пути vector " << endl;
-		else  cout << "   Найти по пути vector" << endl;
-		if (key == 14) cout << "-> Найти vector" << endl;
-		else  cout << "   Найти vector" << endl;
-		if (key == 15) cout << "-> Удалить vector по значению" << endl;
-		else  cout << "   Удалить vector по значению" << endl;
-		if (key == 16) cout << "-> Удалить vector по id" << endl;
-		else  cout << "   Удалить int vector id" << endl;
-		if (key == 17) cout << "-> Удалить vector по отцу" << endl;
-		else  cout << "   Удалить vector по отцу" << endl;
+		if (key == 0) cout << "-> Enter" << endl;
+		else  cout << "   Enter" << endl;
+		if (key == 1) cout << "-> Print InOrder" << endl;
+		else  cout << "   Print InOrder" << endl;
+		if (key == 2) cout << "-> Print PreOrder" << endl;
+		else  cout << "   Print PreOrder" << endl;
+		if (key == 3) cout << "-> Print PostOrder" << endl;
+		else  cout << "   Print PostOrder " << endl;
+		if (key == 4) cout << "-> Find by the way" << endl;
+		else  cout << "   Find by the way" << endl;
+		if (key == 5) cout << "-> Find" << endl;
+		else  cout << "   Find" << endl;
+		if (key == 6) cout << "-> Remove by value" << endl;
+		else  cout << "   Remove by value" << endl;
+		if (key == 7) cout << "-> Delete by id" << endl;
+		else  cout << "   Delete by id" << endl;
+		if (key == 8) cout << "-> Delete by Father" << endl;
+		else  cout << "   Delete by Father" << endl;
+		if (key == 9) cout << "-> Enter vector" << endl;
+		else  cout << "   Enter vector" << endl;
+		if (key == 10) cout << "-> Print InOrder vector" << endl;
+		else  cout << "   Print InOrder vector" << endl;
+		if (key == 11) cout << "-> Print PreOrder vector" << endl;
+		else  cout << "   Print PreOrder vector" << endl;
+		if (key == 12) cout << "-> Print PostOrder vector" << endl;
+		else  cout << "   Print PostOrder vector" << endl;
+		if (key == 13) cout << "-> Find by the way vector " << endl;
+		else  cout << "   Find by the way vector" << endl;
+		if (key == 14) cout << "-> Find vector" << endl;
+		else  cout << "   Find vector" << endl;
+		if (key == 15) cout << "-> Delete vector by value" << endl;
+		else  cout << "   Delete vector by value" << endl;
+		if (key == 16) cout << "-> Delete vector by id" << endl;
+		else  cout << "   Delete int vector by id" << endl;
+		if (key == 17) cout << "-> Delete vector by Father" << endl;
+		else  cout << "   Delete vector by Father" << endl;
 		if (key == 18) cout << "-> Выход" << endl;
 		else  cout << "   Выход" << endl;
 		code = _getch();
@@ -112,33 +112,37 @@ int menu_console() {
 	system("cls");
 	return key;
 }
-//Вивід меню для вибору того, що ми хочемо робити з другою частиною лабораторної.
+//Output the menu to select what we want to do with the second part of the lab.
 int menu_part2() {
 	int key = 0;
 	int code;
 	do {
 		system("cls");
-		key = (key + 10) % 10;
-		if (key == 0) cout << "-> Добавить книгу" << endl;
-		else  cout << "   Добавить книгу" << endl;
-		if (key == 1) cout << "-> Добавить героя" << endl;
-		else  cout << "   Добавить героя" << endl;
-		if (key == 2) cout << "-> Показать книги" << endl;
-		else  cout << "   Показать книги" << endl;
-		if (key == 3) cout << "-> Показать персонажей" << endl;
-		else  cout << "   Показать персонажей" << endl;
-		if (key == 4) cout << "-> Удалить книгу" << endl;
-		else  cout << "   Удалить книгу" << endl;
-		if (key == 5) cout << "-> Удалить героя" << endl;
-		else  cout << "   Удалить героя" << endl;
-		if (key == 6) cout << "-> Найти книгу" << endl;
-		else  cout << "   Найти книгу" << endl;
-		if (key == 7) cout << "-> Найти героя" << endl;
-		else  cout << "   Найти героя" << endl;
-		if (key == 8) cout << "-> Показать серии книг" << endl;
-		else  cout << "   Показать серии книг" << endl;
-		if (key == 9) cout << "-> Выход" << endl;
-		else  cout << "   Выход" << endl;
+		key = (key + 12) % 12;
+		if (key == 0) cout << "-> Add a book" << endl;
+		else  cout << "   Add a book" << endl;
+		if (key == 1) cout << "-> Add a character" << endl;
+		else  cout << "   Add a character" << endl;
+		if (key == 2) cout << "-> Show books" << endl;
+		else  cout << "   Show books" << endl;
+		if (key == 3) cout << "-> Show characters" << endl;
+		else  cout << "   Show characters" << endl;
+		if (key == 4) cout << "-> Delete the book" << endl;
+		else  cout << "   Delete the book" << endl;
+		if (key == 5) cout << "-> Delete a character" << endl;
+		else  cout << "   Delete a character" << endl;
+		if (key == 6) cout << "-> Find a book" << endl;
+		else  cout << "   Find a book" << endl;
+		if (key == 7) cout << "-> Find a character" << endl;
+		else  cout << "   Find a character" << endl;
+		if (key == 8) cout << "-> Update the book" << endl;
+		else  cout << "   Update the book" << endl;
+		if (key == 9) cout << "-> Update the character" << endl;
+		else  cout << "   Update the character" << endl;
+		if (key == 10) cout << "-> Show series of books" << endl;
+		else  cout << "   Show series of books" << endl;
+		if (key == 11) cout << "-> Exit" << endl;
+		else  cout << "   Exit" << endl;
 		code = _getch();
 		if (code == 224)
 		{
@@ -153,8 +157,8 @@ int menu_part2() {
 // Реалізація меню другої частини.
 int part2(bool isRunning)
 {
-	BookFunctions b;
-	HeroFunctions h;
+	BookFunctions <string, Book> b;
+	HeroFunctions <string, Hero> h;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	isRunning = true;
@@ -173,8 +177,10 @@ int part2(bool isRunning)
 		case 5: h.Delete(); break;
 		case 6: b.Find(); break;
 		case 7: h.Find(); break;
-		case 8: h.Series(); break;
-		case 9: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
+		case 8: b.Update(); break;
+		case 9: h.Update(); break;
+		case 10: h.Series(); break;
+		case 11: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
 		}
 	}
 	return 0;
@@ -182,8 +188,8 @@ int part2(bool isRunning)
 // Реалізація меню для робити з деревом int.
 int menu1(bool isRunning, int a)
 {
-		Functions<int, Node<int>> i;
-		Functions<int, Node<int>> i_v;
+		Functions<int,Part1<int>> i;
+		Functions<int, Part1<int>> i_v;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	isRunning = true;
@@ -220,8 +226,8 @@ int menu1(bool isRunning, int a)
 // Реалізація меню для робити з деревом double.
 int menu2(bool isRunning, int a)
 {
-	Functions<double, Node<double>> d;
-	Functions<double, Node<double>> d_v;
+	Functions<double, Part1<double>> d;
+	Functions<double, Part1<double>> d_v;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	isRunning = true;
@@ -258,8 +264,8 @@ int menu2(bool isRunning, int a)
 // Реалізація меню для робити з деревом string.
 int menu3(bool isRunning, int a)
 {
-	Functions<string, Node<string>> s;
-	Functions<string, Node<string>> s_v;
+	Functions<string, Part1<string>> s;
+	Functions<string, Part1<string>> s_v;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	isRunning = true;
@@ -311,7 +317,6 @@ int inf(bool isRunning, int a)
 		case 3: part2(true); break;
 		case 4: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
 		}
-
 	}
 	return 0;
 }

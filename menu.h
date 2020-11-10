@@ -7,12 +7,14 @@
 #include <conio.h>
 #include "windows.h"
 #include "BinarySearchTree.h"
-#include "TreeChildrenList.h"
+#include "NarrayTree.h"
 #include "BinaryTree.h"
 #include "Functions.h"
-#include "BookNode.h"
-#include "HeroNode.h"
-#include "Part2Functions.h"
+#include "Book.h"
+#include "BookFunctions.h"
+#include "HeroFunctions.h"
+#include "Hero.h"
+#include "Node.h"
 #include "Node1.h"
 using namespace std;
 /*! Output menu to select the type with which we will work.*/
