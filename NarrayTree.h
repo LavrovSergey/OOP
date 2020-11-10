@@ -1,5 +1,5 @@
 #pragma once
-#include "Node1.h"
+#include "Part1.h"
 #include "Node.h"
 /*! @param T -data type
 * @param U -object.*/
@@ -13,7 +13,11 @@ public:
 	{
 		root = NULL;
 	}
-	/*! Adding a Node.*/
+	/*! Adding a Node.
+	*We add more to the right.
+    *If more than the previous one and less than the next,
+	*then add the next one as a child
+	*/
 	void AddLeaf(T inf, Node<T, U>* node) {
 		bool c = false;
 		if (root == NULL)
@@ -44,6 +48,11 @@ public:
 		}
 		else(node->left->data = creat_leaf(inf, 0));
 	}
+	/*! Adding a Node.
+	*We add more to the right.
+	*If more than the previous one and less than the next,
+	*then add the next one as a child
+	*/
 	void AddLeaf_v(std::vector<T> v, Node<T, U>* node) {
 		bool c = false;
 		if (root == NULL)
@@ -75,7 +84,10 @@ public:
 		}
 		else(node->left->data = creat_leaf_v(v, 0));
 	}
-	/*! Deleting the Node.*/
+	/*! Deleting the Node.
+	*We are looking for the node 
+	*that we will delete, and its parent
+	*/
 	void RemoveNode(Node<T, U>* p, Node<T, U>* parent, int a)
 	{
 		if (root != NULL)
@@ -108,6 +120,10 @@ public:
 			}
 		}
 	}
+	/*! Deleting the Node.
+	*We are looking for the node
+	*that we will delete, and its parent
+	*/
 	void RemoveNode_vect(Node<T, U>* p, Node<T, U>* parent, int a)
 	{
 		if (root != NULL)
@@ -149,6 +165,7 @@ private:
 		cur->id = d++;
 		return cur;
 	};
+	/*!Creating a Node.*/
 	Node<T, U>* creat_leaf_v(std::vector<T> v, bool way1) {
 		U* cur = new U;
 		cur->v = v;
@@ -156,7 +173,10 @@ private:
 		cur->id = d++;
 		return cur;
 	};
-	/*! Delete the node that was found before.*/
+	/*! Delete the node that was found before.
+	* à==1 Delete Node
+	* else - Delete by parent
+	*/
 	void RemoveMatch(Node<T, U>* parent, Node<T, U>* match, int a) {
 		if (parent == root)
 		{
@@ -210,7 +230,7 @@ private:
 			else { parent->left = match->right; }
 		}
 	}
-	/*! Deleting the root.*/
+	/*! Delete the root*/
 	void RemoveRoot(int a) {
 		Node<T, U>* node;
 		if (root->left == NULL)

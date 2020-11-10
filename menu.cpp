@@ -1,8 +1,8 @@
-// Файл у якому знаходиться реализация підменю.
+/*! The file in which the submenu implementation is located. */
 #include <iostream>
 #include <string>
 #include "menu.h"
-// Output items to select a tree.
+/*! Output items to select a tree.*/
 int menu_start() {
 	int key = 0;
 	int code;
@@ -30,7 +30,7 @@ int menu_start() {
 	system("cls");
 	return key;
 }
-// Output menu to select the type with which we will work.
+/*!Output menu to select the type with which we will work.*/
 int menu_inf(int a) {
 	int key = 0;
 	int code;
@@ -56,7 +56,7 @@ int menu_inf(int a) {
 	system("cls");
 	return key;
 }
-// Display a menu to select what we want to do with the tree.
+/*! Display a menu to select what we want to do with the tree.*/
 int menu_console() {
 	int key = 0;
 	int code;
@@ -112,7 +112,7 @@ int menu_console() {
 	system("cls");
 	return key;
 }
-//Output the menu to select what we want to do with the second part of the lab.
+/*!Output the menu to select what we want to do with the second part of the lab.*/
 int menu_part2() {
 	int key = 0;
 	int code;
@@ -154,7 +154,7 @@ int menu_part2() {
 	system("cls");
 	return key;
 }
-// Реалізація меню другої частини.
+/*! Implementation of the menu of the second part.*/
 int part2(bool isRunning)
 {
 	BookFunctions <string, Book> b;
@@ -174,7 +174,7 @@ int part2(bool isRunning)
 		case 2:b.PrintInOrder(); break;
 		case 3:h.PrintInOrder(); break;
 		case 4: b.Delete(); b.InFile(); break;
-		case 5: h.Delete(); break;
+		case 5: h.Delete(); h.InFile(); break;
 		case 6: b.Find(); break;
 		case 7: h.Find(); break;
 		case 8: b.Update(); break;
@@ -185,7 +185,7 @@ int part2(bool isRunning)
 	}
 	return 0;
 }
-// Реалізація меню для робити з деревом int.
+/*! Implementation of the menu for work with a tree int.*/
 int menu1(bool isRunning, int a)
 {
 		Functions<int,Part1<int>> i;
@@ -223,7 +223,7 @@ int menu1(bool isRunning, int a)
 	}
 	return 0;
 }
-// Реалізація меню для робити з деревом double.
+/*! Implementation of the menu for work with a tree double.*/
 int menu2(bool isRunning, int a)
 {
 	Functions<double, Part1<double>> d;
@@ -261,7 +261,7 @@ int menu2(bool isRunning, int a)
 	}
 	return 0;
 }
-// Реалізація меню для робити з деревом string.
+/*! Implementation of the menu for work with a tree string.*/
 int menu3(bool isRunning, int a)
 {
 	Functions<string, Part1<string>> s;
@@ -299,7 +299,7 @@ int menu3(bool isRunning, int a)
 	}
 	return 0;
 }
-// Реалізація початкового меню.
+/*!Implementation of the initial menu.*/
 int inf(bool isRunning, int a)
 {
 	SetConsoleCP(1251);

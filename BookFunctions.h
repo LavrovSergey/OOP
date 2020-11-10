@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Node.h"
 #include "BinarySearchTree.h"
+#include <fstream>
 /*! @param T -data type
 * @param U -object.*/
 /*! Function class for working with books.*/
@@ -8,7 +9,6 @@ template <class T, class U>
 class BookFunctions : public  Node<T, U>, public BinarySearchTree<T, U>
 {
 public:
-
 	/*void FromFile() {
 		ifstream books("books.bin");
 		if (books.peek() != EOF) {
@@ -178,10 +178,10 @@ private:
 			InFilePrivate(node->left, books);
 		}
 		if (node != NULL) {
-			books.write((char*)&node->v, sizeof(int));
-			/*for (int i = 0; i < node->v; i++) {
-				books.write((char*)&node->authors[i], sizeof(string));
-			}*/
+			books.write((char*)&node->data->v, sizeof(int));
+			for (int i = 0; i < node->v; i++) {
+				books.write((char*)&node->data->authors[i], sizeof(string));
+			}
 			books.write((char*)&node->data->data, sizeof(string));
 			books.write((char*)&node->data->d, sizeof(int));
 			books.write((char*)&node->data->m, sizeof(int));
@@ -196,20 +196,20 @@ private:
 	}
 	//void FromFilePrivate(ifstream& books) {
 	//	while (!books.eof()) {
-	//		BookNode* b = new BookNode;
+	//		Book* b = new Book;
 	//		string s;
-	//		books.read((char*)&b->v, sizeof(int));
+	//		books.read((char*)&b->data->v, sizeof(int));
 	//		if (books.eof()) { break; }
-	//		/*for (int i = 0; i < b->v; i++) {
-	//			books.read((char*)&s, sizeof(string)); b->authors.push_back(s);           Âûçâàíî èñêëþ÷åíèå: íàðóøåíèå äîñòóïà äëÿ ÷òåíèÿ._Pnext áûëî 0x2BACC0F0A08.
-	//		}*/
-	//		books.read((char*)&b->data, sizeof(string));
-	//		books.read((char*)&b->d, sizeof(int));
-	//		books.read((char*)&b->m, sizeof(int));
-	//		books.read((char*)&b->y, sizeof(int));
-	//		books.read((char*)&b->plot, sizeof(string));
-	//		books.read((char*)&b->pages, sizeof(int));
-	//		BinarySearchTree<string, BookNode>::AddLeaf(b, BinarySearchTree<string, BookNode>::root);
+	//		for (int i = 0; i < b->data->v; i++) {
+	//			books.read((char*)&s, sizeof(string)); b->data->authors.push_back(s);          // Âûçâàíî èñêëþ÷åíèå: íàðóøåíèå äîñòóïà äëÿ ÷òåíèÿ._Pnext áûëî 0x2BACC0F0A08.
+	//		}
+	//		books.read((char*)&b->data->data, sizeof(string));
+	//		books.read((char*)&b->data->d, sizeof(int));
+	//		books.read((char*)&b->data->m, sizeof(int));
+	//		books.read((char*)&b->data->y, sizeof(int));
+	//		books.read((char*)&b->data->plot, sizeof(string));
+	//		books.read((char*)&b->data->pages, sizeof(int));
+	//		BinarySearchTree<string, Node<T, U>>::AddLeaf(b, BinarySearchTree<string, Node<T, U>>::root);
 	//	}
 	//}
 };

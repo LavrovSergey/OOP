@@ -1,5 +1,6 @@
 #pragma once
-#include "Node1.h"
+#include "Part1.h"
+#include "Node.h"
 /*! @param T -data type
 * @param U -object.*/
 template<class T, class U>
@@ -21,7 +22,10 @@ public:
 	{
 		return Find_smallestPrivate(root->right);
 	}
-	/*! Add a node to the tree.*/
+	/*! Add a node to the tree.
+	*We check the tree for fullness 
+	*and write down where it is empty
+	*/
 	Node<T, U>* AddLeaf(Node<T, U>* root, U* node) {
 		if (root == NULL) {
 			Node<T, U>* cur = new Node<T, U>;
@@ -125,6 +129,7 @@ public:
 			}
 		}
 	}
+	/*! Creating a node.*/
 	U* creat_leaf_v(std::vector<T> v, bool way1) {
 		U* cur = new Part1<T>;
 		for (int i = 0; i < v.size(); i++) { cur->v[i] = v[i]; }

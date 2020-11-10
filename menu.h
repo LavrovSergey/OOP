@@ -15,7 +15,7 @@
 #include "HeroFunctions.h"
 #include "Hero.h"
 #include "Node.h"
-#include "Node1.h"
+#include "Part1.h"
 using namespace std;
 /*! Output menu to select the type with which we will work.*/
 int menu_inf(int a);

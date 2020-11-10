@@ -1,0 +1,81 @@
+\hypertarget{class_narray_tree}{}\doxysection{Narray\+Tree$<$ T, U $>$ Class Template Reference}
+\label{class_narray_tree}\index{NarrayTree$<$ T, U $>$@{NarrayTree$<$ T, U $>$}}
+
+
+{\ttfamily \#include $<$Narray\+Tree.\+h$>$}
+
+Inheritance diagram for Narray\+Tree$<$ T, U $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_narray_tree}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_narray_tree_ad772c252428dce5d68ae921fdc6f5d62}{Add\+Leaf}} (T inf, \mbox{\hyperlink{class_node}{Node}}$<$ T, U $>$ $\ast$node)
+\item 
+void \mbox{\hyperlink{class_narray_tree_a3173bc1161011c7fa49658ea61c3cc9d}{Add\+Leaf\+\_\+v}} (std\+::vector$<$ T $>$ v, \mbox{\hyperlink{class_node}{Node}}$<$ T, U $>$ $\ast$node)
+\item 
+void \mbox{\hyperlink{class_narray_tree_aafe272efdf15ba089ea50a03cbd7a510}{Remove\+Node}} (\mbox{\hyperlink{class_node}{Node}}$<$ T, U $>$ $\ast$p, \mbox{\hyperlink{class_node}{Node}}$<$ T, U $>$ $\ast$parent, int a)
+\item 
+void \mbox{\hyperlink{class_narray_tree_a14b220631458f6c095eb560b75ed7f6d}{Remove\+Node\+\_\+vect}} (\mbox{\hyperlink{class_node}{Node}}$<$ T, U $>$ $\ast$p, \mbox{\hyperlink{class_node}{Node}}$<$ T, U $>$ $\ast$parent, int a)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_narray_tree_a7c0809dfc3c3aba63b360a8424accbc4}\label{class_narray_tree_a7c0809dfc3c3aba63b360a8424accbc4}} 
+int {\bfseries d} = 0
+\item 
+\mbox{\Hypertarget{class_narray_tree_ab3d7d32d12b4e3e5c52f8406033c167a}\label{class_narray_tree_ab3d7d32d12b4e3e5c52f8406033c167a}} 
+\mbox{\hyperlink{class_node}{Node}}$<$ T, U $>$ $\ast$ {\bfseries root}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T, class U$>$\newline
+class Narray\+Tree$<$ T, U $>$}
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & -\/data type \\
+\hline
+{\em U} & -\/object.\\
+\hline
+\end{DoxyParams}
+Tree class with any number of children based on the list. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_narray_tree_ad772c252428dce5d68ae921fdc6f5d62}\label{class_narray_tree_ad772c252428dce5d68ae921fdc6f5d62}} 
+\index{NarrayTree$<$ T, U $>$@{NarrayTree$<$ T, U $>$}!AddLeaf@{AddLeaf}}
+\index{AddLeaf@{AddLeaf}!NarrayTree$<$ T, U $>$@{NarrayTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{AddLeaf()}{AddLeaf()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_narray_tree}{Narray\+Tree}}$<$ T, U $>$\+::Add\+Leaf (\begin{DoxyParamCaption}\item[{T}]{inf,  }\item[{\mbox{\hyperlink{class_node}{Node}}$<$ T, U $>$ $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adding a \mbox{\hyperlink{class_node}{Node}}. We add more to the right. If more than the previous one and less than the next, then add the next one as a child \mbox{\Hypertarget{class_narray_tree_a3173bc1161011c7fa49658ea61c3cc9d}\label{class_narray_tree_a3173bc1161011c7fa49658ea61c3cc9d}} 
+\index{NarrayTree$<$ T, U $>$@{NarrayTree$<$ T, U $>$}!AddLeaf\_v@{AddLeaf\_v}}
+\index{AddLeaf\_v@{AddLeaf\_v}!NarrayTree$<$ T, U $>$@{NarrayTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{AddLeaf\_v()}{AddLeaf\_v()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_narray_tree}{Narray\+Tree}}$<$ T, U $>$\+::Add\+Leaf\+\_\+v (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$}]{v,  }\item[{\mbox{\hyperlink{class_node}{Node}}$<$ T, U $>$ $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adding a \mbox{\hyperlink{class_node}{Node}}. We add more to the right. If more than the previous one and less than the next, then add the next one as a child \mbox{\Hypertarget{class_narray_tree_aafe272efdf15ba089ea50a03cbd7a510}\label{class_narray_tree_aafe272efdf15ba089ea50a03cbd7a510}} 
+\index{NarrayTree$<$ T, U $>$@{NarrayTree$<$ T, U $>$}!RemoveNode@{RemoveNode}}
+\index{RemoveNode@{RemoveNode}!NarrayTree$<$ T, U $>$@{NarrayTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveNode()}{RemoveNode()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_narray_tree}{Narray\+Tree}}$<$ T, U $>$\+::Remove\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}}$<$ T, U $>$ $\ast$}]{p,  }\item[{\mbox{\hyperlink{class_node}{Node}}$<$ T, U $>$ $\ast$}]{parent,  }\item[{int}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Deleting the \mbox{\hyperlink{class_node}{Node}}. We are looking for the node that we will delete, and its parent \mbox{\Hypertarget{class_narray_tree_a14b220631458f6c095eb560b75ed7f6d}\label{class_narray_tree_a14b220631458f6c095eb560b75ed7f6d}} 
+\index{NarrayTree$<$ T, U $>$@{NarrayTree$<$ T, U $>$}!RemoveNode\_vect@{RemoveNode\_vect}}
+\index{RemoveNode\_vect@{RemoveNode\_vect}!NarrayTree$<$ T, U $>$@{NarrayTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveNode\_vect()}{RemoveNode\_vect()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_narray_tree}{Narray\+Tree}}$<$ T, U $>$\+::Remove\+Node\+\_\+vect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}}$<$ T, U $>$ $\ast$}]{p,  }\item[{\mbox{\hyperlink{class_node}{Node}}$<$ T, U $>$ $\ast$}]{parent,  }\item[{int}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Deleting the \mbox{\hyperlink{class_node}{Node}}. We are looking for the node that we will delete, and its parent 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Narray\+Tree.\+h\end{DoxyCompactItemize}

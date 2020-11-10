@@ -1,6 +1,6 @@
 /*! Class for working with a template node.*/
 #pragma once
-#include "Node1.h"
+#include "Part1.h"
 #include "Node.h"
 #include "BinarySearchTree.h"
 #include "BinaryTree.h"
@@ -14,7 +14,10 @@ template <class T, class U>
 class Functions: public  Node<T, U>, public BinarySearchTree<T, U>, public BinaryTree<T, U>, public NarrayTree<T, U>
 {
 public:
-	/*! Search by the way.*/
+	/*! Search by the way.
+	*0-left
+	* 1-right
+	*/
 	void FindByTheWay(int a) {
 		bool count = false, i = 0;
 		int n;
@@ -46,7 +49,11 @@ public:
 		delete[]mas;
 		system("pause");
 	}
-	/*! All ways to delete.*/
+	/*! All ways to delete.
+	* a==1 by value
+	* a==2 by id
+	* a==3 by fathers`s node
+	*/
 	void Delete(int a, int b)
 	{
 		if (b == 1) {
@@ -120,7 +127,7 @@ public:
 			}
 		}
 	}
-	/*! Adding a node.*/
+	/*! Adding a node for part1.*/
 	void AddLeaf(int a) {
 		T inf;
 		cout << "Enter information" << endl;
@@ -129,6 +136,7 @@ public:
 		else if (a == 2) { BinaryTree<T, U>::root = BinaryTree<T, U>::AddLeaf(BinaryTree<T, U>::root, BinaryTree<T, U>::creat_leaf(inf, 0)); }
 		else if (a == 3) { NarrayTree<T, U>::AddLeaf(inf, NarrayTree<T, U>::root); }
 	}
+	/*! Adding a node for part1.*/
 	void AddLeaf_vect(int a) {
 		int n;
 		T inf;
@@ -172,6 +180,7 @@ public:
 			system("pause");
 		}
 	}
+	/*! Search by the information.*/
 	void Find_vect(int a) {
 		T inf;
 		vector<T> v;
@@ -266,6 +275,11 @@ public:
 		else if (a == 3) { PrintPreOrderPrivate3_vect(NarrayTree<T, U>::root); }
 		system("pause");
 	}
+	/*! All ways to delete.
+	* a==1 by value
+	* a==2 by id
+	* a==3 by fathers`s node
+	*/
 	void Delete_vect(int a, int b)
 	{
 		if (b == 1) {

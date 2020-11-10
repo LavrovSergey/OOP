@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include "Node.h"
+#include "Hero.h"
 #include "BinarySearchTree.h"
+#include <fstream>
 /*! @param T -data type
 * @param U -object.*/
 /*! Function class for working with character.*/
@@ -33,7 +35,7 @@ public:
 	/*! Add a character.*/
 	void AddHero() {
 		int a;
-		Hero* h = new Hero;
+		Hero* h=new Hero;
 		int n; string s;
 		cout << "Enter character name" << endl;
 		getline(cin, h->data);
@@ -217,14 +219,14 @@ private:
 	//	while (!heroes.eof()) {
 	//		Hero* b = new Hero;
 	//		string s;
-	//		heroes.read((char*)&b->v, sizeof(int));
+	//		heroes.read((char*)&b->data->v, sizeof(int));
 	//		if (heroes.eof()) { break; }
-	//		/*for (int i = 0; i < b->v; i++) {
-	//			heroes.read((char*)&s, sizeof(string)); b->names.push_back(s);           Âûçâàíî èñêëþ÷åíèå: íàðóøåíèå äîñòóïà äëÿ ÷òåíèÿ._Pnext áûëî 0x2BACC0F0A08.
-	//		}*/
+	//		for (int i = 0; i < b->data->v; i++) {
+	//			heroes.read((char*)&s, sizeof(string)); b->data->names.push_back(s);         //  Âûçâàíî èñêëþ÷åíèå: íàðóøåíèå äîñòóïà äëÿ ÷òåíèÿ._Pnext áûëî 0x2BACC0F0A08.
+	//		}
 	//		//multimap
-	//		heroes.read((char*)&b->m, sizeof(int));
-	//		BinarySearchTree<string, Hero>::AddLeaf(b, BinarySearchTree<string, Hero>::root);
+	//		heroes.read((char*)&b->data->m, sizeof(int));
+	//		BinarySearchTree<string, Hero>::AddLeaf(b, BinarySearchTree<string, Node<T, U>>::root);
 	//	}
 	//}
 	void InFilePrivate(Node<T, U>* node, ostream& heroes) {
@@ -234,14 +236,14 @@ private:
 			InFilePrivate(node->left, heroes);
 		}
 		if (node != NULL) {
-			heroes.write((char*)&node->v, sizeof(int));
-			/*for (int i = 0; i < node->v; i++) {
-				heroes.write((char*)&node->names[i], sizeof(string));
-			}*/
-			heroes.write((char*)&node->m, sizeof(int));
-			/*for (int i = 0; i < node->m; i++) {
-				heroes.write((char*)&node->names[i], sizeof(string));
-			}*/
+			heroes.write((char*)&node->data->v, sizeof(int));
+			for (int i = 0; i < node->data->v; i++) {
+				heroes.write((char*)&node->data->names[i], sizeof(string));
+			}
+			heroes.write((char*)&node->data->m, sizeof(int));
+			for (int i = 0; i < node->data->m; i++) {
+				heroes.write((char*)&node->data->names[i], sizeof(string));
+			}
 		}
 		if (node->right != NULL)
 		{

@@ -1,5 +1,4 @@
 #pragma once
-#include "Node1.h"
 template<class T, class U> class BinarySearchTree;
 template<class T, class U> class BinaryTree;
 template<class T, class U> class NarrayTree;

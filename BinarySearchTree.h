@@ -1,6 +1,5 @@
 #pragma once
-#pragma once
-#include "Node1.h"
+#include "Part1.h"
 #include "Node.h"
 /*! @param T -data type
 * @param U -object.*/
@@ -10,11 +9,14 @@ class BinarySearchTree
 {
 public:
 	int d = 1;
-	Node<T, U>* root;
+	Node<T, U>* root=new Node<T, U>;
 	/*! Constructer. Root = 0.*/
 	BinarySearchTree()
 	{
-		root = NULL;
+		 root = NULL;
+		 root->data= NULL;
+		 root->left = NULL;
+		 root->right = NULL;
 	}
 	/*! Find the smallest value of the tree to rebuild after deletion.*/
 	Node<T, U>* Find_smallest()
@@ -29,11 +31,10 @@ public:
 		cur->id = d++;
 		AddLeaf(cur, root);
 	};
-	/*! Adding a Part1.*/
+	/*! Adding a Node.*/
 	void AddLeaf(U* cur, Node<T, U>* node) {
 		if (root == NULL)
 		{
-			root = new Node<T, U>;
 			root->data = cur;
 		}
 		else if (cur->data <= node->data->data)
@@ -71,7 +72,7 @@ public:
 		cur->id = d++;
 		AddLeaf_v(cur, root);
 	};
-	/*! Deleting the Part1.*/
+	/*! Deleting the Node.*/
 	void RemoveNode(Node<T, U>* p, Node<T, U>* parent, int a)
 	{
 		if (root != NULL)

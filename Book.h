@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 #include <vector>
-#include<fstream>
 /*! @param T -data type
 * @param U -object.*/
 template<class T, class U> class BinarySearchTree;
