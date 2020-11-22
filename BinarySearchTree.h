@@ -1,5 +1,6 @@
 #pragma once
 #include "Part1.h"
+#include "Book.h"
 #include "Node.h"
 /*! @param T -data type
 * @param U -object.*/
@@ -9,35 +10,28 @@ class BinarySearchTree
 {
 public:
 	int d = 1;
-	Node<T, U>* root=new Node<T, U>;
 	/*! Constructer. Root = 0.*/
 	BinarySearchTree()
 	{
-		 root = NULL;
-		 root->data= NULL;
-		 root->left = NULL;
-		 root->right = NULL;
+		root = NULL;
 	}
-	/*! Find the smallest value of the tree to rebuild after deletion.*/
-	Node<T, U>* Find_smallest()
-	{
-		return Find_smallestPrivate(root->right);
+	Node<U>* GetRoot() {
+		return root;
 	}
 	/*!Creating a Part1.*/
-	void creat_leaf(T e, bool way1) {
-		U* cur = new U;
-		cur->data=e;
-		cur->way = way1;
-		cur->id = d++;
+	void creat_leaf(T e, bool way) {
+		U* cur = new U(e, d++, way);
 		AddLeaf(cur, root);
 	};
 	/*! Adding a Node.*/
-	void AddLeaf(U* cur, Node<T, U>* node) {
+	void AddLeaf(U* cur, Node<U>* node) {
+		T comp = cur->GetData();
 		if (root == NULL)
 		{
+			root= new Node<U>;
 			root->data = cur;
 		}
-		else if (cur->data <= node->data->data)
+		else if (comp<= node->data->GetData())
 		{
 			if (node->left != NULL)
 			{
@@ -45,12 +39,12 @@ public:
 			}
 			else
 			{
-				node->left =new Node<T, U>;
+				node->left = new Node<U>;
 				node->left->data = cur;
 				cur->way = 0;
 			}
 		}
-		else if (cur->data > node->data->data)
+		else if (comp > node->data->GetData())
 		{
 			if (node->right != NULL)
 			{
@@ -58,22 +52,22 @@ public:
 			}
 			else
 			{
-				node->right = new Node<T, U>;
+				node->right = new Node<U>;
 				node->right->data = cur;
 				cur->way = 1;
 			}
 		}
 	}
 	/*! Create a node for the vector.*/
-	void creat_leaf_v(std::vector<T> vv, bool way1) {
-		U* cur = new U;
-		cur->v = vv;
+	void creat_leaf_v(std::vector<T> v, bool way) {
+		U* cur = new U(v, d++, way);
+		/*cur->v = vv;
 		cur->way = way1;
-		cur->id = d++;
+		cur->id = d++;*/
 		AddLeaf_v(cur, root);
 	};
 	/*! Deleting the Node.*/
-	void RemoveNode(Node<T, U>* p, Node<T, U>* parent, int a)
+	void RemoveNode(Node<U>* p, Node<U>* parent, int a)
 	{
 		if (root != NULL)
 		{
@@ -83,13 +77,13 @@ public:
 			}
 			else
 			{
-				if (p->data->data <= parent->data->data && parent->left != NULL)
+				if (p->data->GetData()<= parent->data->GetData() && parent->left != NULL)
 				{
 					parent->left == p ?
 						RemoveMatch(parent, parent->left, true, a) :
 						RemoveNode(p, parent->left, a);
 				}
-				else if (p->data->data > parent->data->data && parent->right != NULL)
+				else if (p->data->GetData() > parent->data->GetData() && parent->right != NULL)
 				{
 					parent->right == p ?
 						RemoveMatch(parent, parent->right, false, a) :
@@ -99,7 +93,7 @@ public:
 		}
 	}
 	/*! Deleting a vector node.*/
-	void RemoveNode_vect(Node<T, U>* p, Node<T, U>* parent, int a)
+	void RemoveNode_vect(Node<U>* p, Node<U>* parent, int a)
 	{
 		if (root != NULL)
 		{
@@ -109,13 +103,13 @@ public:
 			}
 			else
 			{
-				if (p->data->v[0] <= parent->data->v[0] && parent->left != NULL)
+				if (p->data->GetVector(0) <= parent->data->GetVector(0) && parent->left != NULL)
 				{
 					parent->left == p ?
 						RemoveMatch_vect(parent, parent->left, true, a) :
 						RemoveNode_vect(p, parent->left, a);
 				}
-				else if (p->data->v[0] > parent->data->v[0] && parent->right != NULL)
+				else if (p->data->GetVector(0) > parent->data->GetVector(0) && parent->right != NULL)
 				{
 					parent->right == p ?
 						RemoveMatch_vect(parent, parent->right, false, a) :
@@ -125,13 +119,13 @@ public:
 		}
 	}
 private:
-	void AddLeaf_v(U* cur, Node<T, U>* node) {
+	void AddLeaf_v(U* cur, Node<U>* node) {
 		if (root == NULL)
 		{
-			root = new Node<T, U>;
+			root = new Node<U>;
 			root->data = cur;
 		}
-		else if (cur->v[0] <= node->data->v[0])
+		else if (cur->GetVector(0) <= node->data->GetVector(0))
 		{
 			if (node->left != NULL)
 			{
@@ -139,12 +133,12 @@ private:
 			}
 			else
 			{
-				node->left = new Node<T, U>;
+				node->left = new Node<U>;
 				node->left->data = cur;
 				cur->way = 0;
 			}
 		}
-		else if (cur->v[0] > node->data->v[0])
+		else if (cur->GetVector(0) > node->data->GetVector(0))
 		{
 			if (node->right != NULL)
 			{
@@ -152,23 +146,24 @@ private:
 			}
 			else
 			{
-				node->right = new Node<T, U>;
+				node->right = new Node<U>;
 				node->right->data = cur;
 				cur->way = 1;
 			}
 		}
 	}
-	Node<T, U>* Find_smallestPrivate(Node<T, U>* node)
+	/*! Find the smallest value of the tree to rebuild after deletion.*/
+	Node<U>* FindSmallestPrivate(Node<U>* node)
 	{
 		if (node->left != NULL)
 		{
-			return Find_smallestPrivate(node->left);
+			return FindSmallestPrivate(node->left);
 		}
 		else { return node; };
 	}
 	/*! Deleting the root.*/
 	void RemoveRoot(int a) {
-		Node<T, U>* delPtr = root;
+		Node<U>* delPtr = root;
 		if (root->left == NULL && root->right == NULL)
 		{
 			root = NULL;
@@ -187,16 +182,16 @@ private:
 			delPtr->left = NULL;
 			delete delPtr;
 		}
+		else if (a == 2) { root = NULL; }
 		else
 		{
-			Node<T, U>* p = Find_smallest();
+			Node<U>* p = FindSmallestPrivate(root->right);
 			RemoveNode(p, root, a);
 			root->data = p->data;
 		}
 	}
 	/*! Delete the node that was found before.*/
-	void RemoveMatch(Node<T, U>* parent, Node<T, U>* match, bool left, int a) {
-
+	void RemoveMatch(Node<U>* parent, Node<U>* match, bool left, int a) {
 		if (match->left == NULL && match->right == NULL)
 		{
 			left == true ? parent->left = NULL : parent->right = NULL;
@@ -219,13 +214,13 @@ private:
 		}
 		else
 		{
-			Node<T, U>* p = Find_smallestPrivate(match->right);
+			Node<U>* p = FindSmallestPrivate(match->right);
 			RemoveNode(p, match, a);
 			match->data = p->data;
 		}
 	}
 	void RemoveRoot_vect(int a) {
-		Node<T, U>* delPtr = root;
+		Node<U>* delPtr = root;
 		if (root->left == NULL && root->right == NULL)
 		{
 			root = NULL;
@@ -242,16 +237,12 @@ private:
 		}
 		else
 		{
-			Node<T, U>* p = Find_smallest();
-			RemoveNode_vect(p, root);
-			root->data->v.resize(p->data->v.size());
-			for (int i = 0; i < root->data->v.size(); i++) {
-				root->data->v[i] = p->data->v[i];
-			}
+			Node<U>* p = FindSmallestPrivate(root->right);
+			RemoveNode_vect(p, root,a);
+			root->data= p->data;
 		}
 	}
-	void RemoveMatch_vect(Node<T, U>* parent, Node<T, U>* match, bool left, int a) {
-
+	void RemoveMatch_vect(Node<U>* parent, Node<U>* match, bool left, int a) {
 		if (match->left == NULL && match->right == NULL)
 		{
 			left == true ? parent->left = NULL : parent->right = NULL;
@@ -273,12 +264,10 @@ private:
 		}
 		else
 		{
-			Node<T, U>* p = Find_smallestPrivate(match->right);
+			Node<U>* p = FindSmallestPrivate(match->right);
 			RemoveNode(p, match, a);
-			match->data->v.resize(p->data->v.size());
-			for (int i = 0; i < root->data->v.size(); i++) {
-				match->data->v[i] = p->data->v[i];
-			}
+			match->data = p->data;
 		}
 	}
+	Node<U>* root;
 };

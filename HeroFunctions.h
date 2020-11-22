@@ -3,13 +3,17 @@
 #include "Hero.h"
 #include "BinarySearchTree.h"
 #include <fstream>
+#include <iostream>
+using namespace std;
 /*! @param T -data type
 * @param U -object.*/
 /*! Function class for working with character.*/
 template <class T, class U>
-class HeroFunctions : public  Node<T, U>, public BinarySearchTree<T, U>
+class HeroFunctions  
 {
 public:
+	BinarySearchTree<string, U> bst;
+	BookFunctions<T,Book> bf;
 	/*void FromFile() {
 		ifstream heroes("heroes.bin");
 		if (heroes.peek() != EOF) {
@@ -17,12 +21,12 @@ public:
 		}
 	}*/
 	/*! Write to file.*/
-	void InFile() {
+	/*void InFile() {
 		ofstream heroes("heroes.bin");
 		InFilePrivate(BinarySearchTree<string, Node<T, U>>::root, heroes);
 		heroes.close();
-	}
-	void Update() {
+	}*/
+	/*void Update() {
 		PrintInOrder();
 		int id;
 		cout << "Enter id" << endl;
@@ -31,37 +35,41 @@ public:
 		if (ptr == NULL) { cout << "I cant find" << endl; }
 		else  (UpdatePrivate(ptr));
 		system("pause");
-	}
+	}*/
 	/*! Add a character.*/
-	void AddHero() {
+	void AddHero(Node<Book>* r) {
 		int a;
-		Hero* h=new Hero;
-		int n; string s;
+		vector<string> names;
+		int n; string s, data;
+		multimap<int, Node<Book>*> role;
 		cout << "Enter character name" << endl;
-		getline(cin, h->data);
+		getline(cin, data);
 		cout << "Enter the number of his aliases / names" << endl;
 		cin >> n;
 		cout << "Fill them in " << endl;
 		cin.ignore(1, '\n');
 		for (int i = 0; i < n; i++) {
 			getline(cin, s);
-			h->names.push_back(s);
+			names.push_back(s);
 		}
 		cout << "Enter the number of books in which it appears" << endl;
 		cin >> n;
-		cout << "Fill in the title of the books and its role in them " << endl;
+		cout << "Fill the book and its role in it " << endl;
 		for (int i = 0; i < n; i++) {
+            cout << "Choose book ID" << endl;
+			bf.PrintInOrder(r);
+			cin >> a;
+			Node<Book>* ptr = bf.FindId(a, r);
 			cout << "What is his role (1-main, 2-minor, 3-episodic)" << endl;
 			cin >> a;
 			cin.ignore(1, '\n');
-			cout << "Enter the title of the book" << endl;
-			getline(cin, s);
-			h->hb.insert(pair<int, string>(a, s));
+			role.insert(pair<int, Node<Book>*>(a, ptr));
 		}
-		BinarySearchTree<string, Node<T, U>>::AddLeaf(h, BinarySearchTree<string, Node<T, U>>::root);
+		Hero* h = new Hero(data, n, names, role);
+		bst.AddLeaf(h, bst.GetRoot());
 	}
 	/*! Delete by number.*/
-	void Delete()
+	/*void Delete()
 	{
 		PrintInOrder();
 		int id;
@@ -70,31 +78,31 @@ public:
 		Node<T, U>* ptr = FindPrivateId(id, BinarySearchTree<string, Node<T, U>>::root);
 		if (ptr == NULL) { cout << "There is no such thing" << endl; }
 		else  (BinarySearchTree<string, Node<T, U>>::RemoveNode(ptr, BinarySearchTree<string, Node<T, U>>::root, 1));
-	}
+	}*/
 	/*! Print.*/
 	void PrintInOrder() {
-		PrintPreOrderPrivate(BinarySearchTree<string, Node<T, U>>::root);
+		PrintPreOrderPrivate(bst.GetRoot());
 		system("pause");
 	}
 	/*! Find.*/
-	void Find() {
-		string inf;
-		cout << "Enter what you want to find" << endl;
-		cin >> inf;
-		Node<T, U>* ptr2 = FindPrivate(inf, BinarySearchTree<string, Node<T, U>>::root);
-		if (ptr2 == NULL) { cout << "There is no such thing" << endl; }
-		else {
-			PrintHero(ptr2);
-		}
-		system("pause");
-	}
-	/*! Print series.*/
-	void Series() {
-		vector<string>name;
-		SeriesPrivate(BinarySearchTree<string, Node<T, U>>::root, name);
-	}
+	//void Find() {
+	//	string inf;
+	//	cout << "Enter what you want to find" << endl;
+	//	cin >> inf;
+	//	Node<T, U>* ptr2 = FindPrivate(inf, BinarySearchTree<string, Node<T, U>>::root);
+	//	if (ptr2 == NULL) { cout << "There is no such thing" << endl; }
+	//	else {
+	//		PrintHero(ptr2);
+	//	}
+	//	system("pause");
+	//}
+	///*! Print series.*/
+	//void Series() {
+	//	vector<string>name;
+	//	SeriesPrivate(BinarySearchTree<string, Node<T, U>>::root, name);
+	//}
 private:
-	void SeriesPrivate(Node<T, U>* node, vector<string>name) {
+	/*void SeriesPrivate(Node<T, U>* node, vector<string>name) {
 		if (node != NULL)
 		{
 			for (auto it = node->data->hb.begin(); it != node->data->hb.end(); ++it)
@@ -144,24 +152,24 @@ private:
 			}
 		}
 		else { return node; }
-	}
-	void PrintHero(Node<T, U>* node) {
-		cout << node->data->id << ". ";
-		cout << "Name: " << node->data->data << endl;
+	}*/
+	void PrintHero(Node< U>* node) {
+		cout << node->data->GetId() << ". ";
+		cout << "Name: " << node->data->GetData() << endl;
 		cout << "Aliases: ";
-		for (int i = 0; i < node->data->names.size(); i++)
+		for (int i = 0; i < node->data->GetVectorSize(); i++)
 		{
-			cout << node->data->names[i];
-			if (i <= node->data->names.size() - 1) { cout << ", "; }
+			cout << node->data->GetName(i);
+			if (i < node->data->GetVectorSize() - 1) { cout << ", "; }
 			else(cout << endl);
 		}
-		cout << "Role-Book: ";
-		for (auto it = node->data->hb.begin(); it != node->data->hb.end(); ++it)
+		cout << "Role-Book: "<<endl;
+		for (auto it = node->data->role.begin(); it != node->data->role.end(); ++it)
 		{
-			cout << it->first << " -- " << it->second << endl;
+			cout << it->first<< " -- " << it->second->data->GetData() << endl;
 		}
 	}
-	void PrintPreOrderPrivate(Node<T, U>* node) {
+	void PrintPreOrderPrivate(Node<U>* node) {
 		if (node != NULL)
 		{
 			PrintHero(node);
@@ -176,7 +184,7 @@ private:
 		}
 		else(cout << "Empty" << endl);
 	}
-	Node<T, U>* FindPrivateId(int id, Node<T, U>* node) {
+	/*Node<T, U>* FindPrivateId(int id, Node<T, U>* node) {
 		if (node == NULL) return node;
 		if (id == node->data->id) {
 			return node;
@@ -214,7 +222,7 @@ private:
 			getline(cin, s);
 			node->data->hb.insert(pair<int, string>(a, s));
 		}
-	}
+	}*/
 	//void FromFilePrivate(ifstream& heroes) {
 	//	while (!heroes.eof()) {
 	//		Hero* b = new Hero;
@@ -229,7 +237,7 @@ private:
 	//		BinarySearchTree<string, Hero>::AddLeaf(b, BinarySearchTree<string, Node<T, U>>::root);
 	//	}
 	//}
-	void InFilePrivate(Node<T, U>* node, ostream& heroes) {
+	/*void InFilePrivate(Node<T, U>* node, ostream& heroes) {
 
 		if (node->left != NULL)
 		{
@@ -249,5 +257,5 @@ private:
 		{
 			InFilePrivate(node->right, heroes);
 		}
-	}
+	}*/
 };

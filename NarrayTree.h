@@ -8,30 +8,33 @@ template <class T, class U>
 class NarrayTree {
 public:
 	int d = 0;
-	Node<T, U>* root ;
 	NarrayTree()
 	{
 		root = NULL;
+	}
+	Node<U>* GetRoot() {
+		return root;
 	}
 	/*! Adding a Node.
 	*We add more to the right.
     *If more than the previous one and less than the next,
 	*then add the next one as a child
 	*/
-	void AddLeaf(T inf, Node<T, U>* node) {
+	void AddLeaf(T inf, Node<U>* node) {
 		bool c = false;
 		if (root == NULL)
 		{
+			root = new Node<U>;
 			root->data = creat_leaf(inf, 0);
 		}
 		else if (node->left)
 		{
-			if (inf > node->left->data->data) {
+			if (inf > node->left->data->GetData()) {
 				node = node->left;
 				while (node->right)
 				{
 					node = node->right;
-					if (node->data->data > inf) {
+					if (node->data->GetData() > inf) {
 						if (node->left) { AddLeaf(inf, node); c = true; }
 						else {
 							node->left->data = creat_leaf(inf, 0);
@@ -53,21 +56,21 @@ public:
 	*If more than the previous one and less than the next,
 	*then add the next one as a child
 	*/
-	void AddLeaf_v(std::vector<T> v, Node<T, U>* node) {
+	void AddLeaf_v(std::vector<T> v, Node< U>* node) {
 		bool c = false;
 		if (root == NULL)
 		{
-			root = new Node<T, U>;
+			root = new Node<U>;
 			root->data = creat_leaf_v(v, 0);
 		}
 		else if (node->left)
 		{
-			if (v[0] > node->left->data->v[0]) {
+			if (v[0] > node->left->data->GetVector(0)) {
 				node = node->left;
 				while (node->right)
 				{
 					node = node->right;
-					if (node->data->v[0] > v[0]) {
+					if (node->data->GetVector(0) > v[0]) {
 						if (node->left) { AddLeaf_v(v, node); c = true; }
 						else {
 							node->left->data = creat_leaf_v(v, 0);
@@ -88,7 +91,7 @@ public:
 	*We are looking for the node 
 	*that we will delete, and its parent
 	*/
-	void RemoveNode(Node<T, U>* p, Node<T, U>* parent, int a)
+	void RemoveNode(Node< U>* p, Node< U>* parent, int a)
 	{
 		if (root != NULL)
 		{
@@ -100,11 +103,11 @@ public:
 			{
 				if (parent->left)
 				{
-					if (p->data->data <= parent->left->data->data)
+					if (p->data->GetData() <= parent->left->data->GetData())
 					{
 						RemoveNode(p, parent->left, a);
 					}
-					else if (p->data->data > parent->left->data->data)
+					else if (p->data->GetData() > parent->left->data->GetData())
 					{
 						if (parent == root) { RemoveNode(p, parent->left->right, a); }
 						else(RemoveNode(p, parent->right, a));
@@ -124,7 +127,7 @@ public:
 	*We are looking for the node
 	*that we will delete, and its parent
 	*/
-	void RemoveNode_vect(Node<T, U>* p, Node<T, U>* parent, int a)
+	void RemoveNode_vect(Node< U>* p, Node< U>* parent, int a)
 	{
 		if (root != NULL)
 		{
@@ -136,11 +139,11 @@ public:
 			{
 				if (parent->left)
 				{
-					if (p->data->v[0] <= parent->left->data->v[0])
+					if (p->data->GetVector(0) <= parent->left->data->GetVector(0))
 					{
 						RemoveNode(p, parent->left, a);
 					}
-					else if (p->data->v[0] > parent->left->data->v[0])
+					else if (p->data->GetVector(0) > parent->left->data->GetVector(0))
 					{
 						if (parent == root) { RemoveNode(p, parent->left->right, a); }
 						else(RemoveNode(p, parent->right, a));
@@ -158,26 +161,20 @@ public:
 	}
 private:
 	/*!Creating a Node.*/
-	Node<T, U>* creat_leaf(T e, bool way1) {
-		U* cur = new U;
-		cur->data = e;
-		cur->way = way1;
-		cur->id = d++;
+	U* creat_leaf(T e, bool way) {
+		U* cur = new U(e, d++, way);
 		return cur;
 	};
 	/*!Creating a Node.*/
-	Node<T, U>* creat_leaf_v(std::vector<T> v, bool way1) {
-		U* cur = new U;
-		cur->v = v;
-		cur->way = way1;
-		cur->id = d++;
+	U* creat_leaf_v(std::vector<T> v, bool way) {
+		U* cur = new U( v, d++, way);
 		return cur;
 	};
 	/*! Delete the node that was found before.
 	* à==1 Delete Node
 	* else - Delete by parent
 	*/
-	void RemoveMatch(Node<T, U>* parent, Node<T, U>* match, int a) {
+	void RemoveMatch(Node<U>* parent, Node< U>* match, int a) {
 		if (parent == root)
 		{
 			if (a == 1) {
@@ -232,7 +229,7 @@ private:
 	}
 	/*! Delete the root*/
 	void RemoveRoot(int a) {
-		Node<T, U>* node;
+		Node<U>* node;
 		if (root->left == NULL)
 		{
 			root = NULL;
@@ -255,4 +252,5 @@ private:
 			root->right = NULL;
 		}
 	}
+	Node<U>* root;
 };
