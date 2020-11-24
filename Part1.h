@@ -12,7 +12,7 @@ private:
 public:
 	Part1(T data, int id, bool way) : data(data), id(id), way(way) {}
 	Part1(vector<T> v, int id, bool way) :  v(v), id(id), way(way) {}
-	T GetData() { return data; };
+	T GetData(int i) { return data; };
 	T GetVector(int i) { return v[i]; };
 	int GetVectorSize() { return v.size(); };
 	vector<T> GetVectorF() { return v; };

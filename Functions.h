@@ -166,21 +166,21 @@ public:
 		{
 			Node<U>* ptr = FindPrivate1(inf, bst.GetRoot());
 			if (ptr == NULL) { cout << "There is no such thing" << endl; }
-			else(cout << ptr->data->GetId() << ". " << ptr->data->GetData() << endl);
+			else(cout << ptr->data->GetId() << ". " << ptr->data->GetData(0) << endl);
 			system("pause");
 		}
 		else if (a == 2)
 		{
 			Node<U>* ptr = FindPrivate2(inf, bt.GetRoot());
 			if (ptr == NULL) { cout << "There is no such thing" << endl; }
-			else(cout << ptr->data->GetId() << ". " << ptr->data->GetData() << endl);
+			else(cout << ptr->data->GetId() << ". " << ptr->data->GetData(0) << endl);
 			system("pause");
 		}
 		else if (a == 3)
 		{
 			Node<U>* ptr = FindPrivate3(inf, nt.GetRoot());
 			if (ptr == NULL) { cout << "There is no such thing" << endl; }
-			else(cout << ptr->data->GetId() << ". " << ptr->data->GetData() << endl);
+			else(cout << ptr->data->GetId() << ". " << ptr->data->GetData(0) << endl);
 			system("pause");
 		}
 	}
@@ -373,7 +373,7 @@ private:
 		{
 			if (i == n)
 			{
-				cout << "You found it:" << node->data->GetData() << endl;
+				cout << "You found it:" << node->data->GetData(0) << endl;
 				count = true;
 				return count;
 			}
@@ -402,7 +402,7 @@ private:
 				PrintInOrderPrivate(node->left);
 			}
 			cout << node->data->GetId() << ". ";
-			cout << node->data->GetData() << endl;
+			cout << node->data->GetData(0) << endl;
 			if (node->right != NULL)
 			{
 				PrintInOrderPrivate(node->right);
@@ -414,7 +414,7 @@ private:
 		if (node != NULL)
 		{
 			cout << node->data->GetId() << ". ";
-			cout << node->data->GetData() << endl;
+			cout << node->data->GetData(0) << endl;
 			if (node->left != NULL)
 			{
 				PrintPreOrderPrivate(node->left);
@@ -430,7 +430,7 @@ private:
 	{
 		while (node)
 		{
-			cout << node->data->GetId() << ". " << node->data->GetData();
+			cout << node->data->GetId() << ". " << node->data->GetData(0);
 			if (node->left)
 			{
 				PrintPreOrderPrivate3(node->left);
@@ -451,7 +451,7 @@ private:
 				PrintPostOrderPrivate(node->right);
 			}
 			cout << node->data->GetId() << ". ";
-			cout << node->data->GetData() << endl;
+			cout << node->data->GetData(0) << endl;
 		}
 		else(cout << "Empty" << endl);
 	}
@@ -459,17 +459,17 @@ private:
 	{
 		if (node != NULL)
 		{
-			if (node->data->GetData() == inf)
+			if (node->data->GetData(0) == inf)
 			{
 				return node;
 			}
 			else
 			{
-				if (inf <= node->data->GetData())
+				if (inf <= node->data->GetData(0))
 				{
 					FindPrivate1(inf, node->left);
 				}
-				else if (inf > node->data->GetData())
+				else if (inf > node->data->GetData(0))
 				{
 					FindPrivate1(inf, node->right);
 				}
@@ -480,33 +480,33 @@ private:
 	Node<U>* FindPrivate2(T inf, Node<U>* node)
 	{
 		if (node == NULL) return node;
-		if (inf == node->data->GetData()) {
+		if (inf == node->data->GetData(0)) {
 			return node;
 		}
 		Node<U>* tmp1 = FindPrivate2(inf, node->left);
 		if (tmp1 != NULL) {
-			if (inf == tmp1->data->GetData()) { return tmp1; }
+			if (inf == tmp1->data->GetData(0)) { return tmp1; }
 		}
 		Node<U>* tmp2 = FindPrivate2(inf, node->right);
 		if (tmp2 != NULL) {
-			if (inf == tmp2->data->GetData()) { return tmp2; }
+			if (inf == tmp2->data->GetData(0)) { return tmp2; }
 		}
 	}
 	Node<U>* FindPrivate3(T inf, Node< U>* node) {
 		if (node != NULL)
 		{
-			if (node->data->GetData() == inf)
+			if (node->data->GetData(0) == inf)
 			{
 				return node;
 			}
 			else
 			{
 				if (node->left) {
-					if (inf <= node->left->data->GetData())
+					if (inf <= node->left->data->GetData(0))
 					{
 						FindPrivate3(inf, node->left);
 					}
-					else if (inf > node->left->data->GetData())
+					else if (inf > node->left->data->GetData(0))
 					{
 						FindPrivate3(inf, node->left->right);
 					}

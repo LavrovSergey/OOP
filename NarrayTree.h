@@ -29,27 +29,29 @@ public:
 		}
 		else if (node->left)
 		{
-			if (inf > node->left->data->GetData()) {
+			if (inf > node->left->data->GetData(0)) {
 				node = node->left;
 				while (node->right)
 				{
 					node = node->right;
-					if (node->data->GetData() > inf) {
+					if (node->data->GetData(0) > inf) {
 						if (node->left) { AddLeaf(inf, node); c = true; }
 						else {
+							node->left = new Node<U>;
 							node->left->data = creat_leaf(inf, 0);
 							c = true;
 							break;
 						}
 					}
 				}
-				if (c == false) { node->right->data = creat_leaf(inf, 1); }
+				if (c == false) { node->right = new Node<U>; node->right->data = creat_leaf(inf, 1); }
 			}
 			else {
+				node->left->left = new Node<U>;
 				node->left->left->data = creat_leaf(inf, 0);
 			}
 		}
-		else(node->left->data = creat_leaf(inf, 0));
+		else { node->left = new Node<U>; node->left->data = creat_leaf(inf, 0); }
 	}
 	/*! Adding a Node.
 	*We add more to the right.
@@ -73,19 +75,21 @@ public:
 					if (node->data->GetVector(0) > v[0]) {
 						if (node->left) { AddLeaf_v(v, node); c = true; }
 						else {
+							node->left = new Node<U>;
 							node->left->data = creat_leaf_v(v, 0);
 							c = true;
 							break;
 						}
 					}
 				}
-				if (c == false) { node->right->data = creat_leaf_v(v, 1); }
+				if (c == false) { node->right = new Node<U>; node->right->data = creat_leaf_v(v, 1); }
 			}
 			else {
+				node->left->left = new Node<U>;
 				node->left->left->data = creat_leaf_v(v, 0);
 			}
 		}
-		else(node->left->data = creat_leaf_v(v, 0));
+		else { node->left = new Node<U>; node->left->data = creat_leaf_v(v, 0); }
 	}
 	/*! Deleting the Node.
 	*We are looking for the node 
@@ -103,11 +107,11 @@ public:
 			{
 				if (parent->left)
 				{
-					if (p->data->GetData() <= parent->left->data->GetData())
+					if (p->data->GetData(0) <= parent->left->data->GetData(0))
 					{
 						RemoveNode(p, parent->left, a);
 					}
-					else if (p->data->GetData() > parent->left->data->GetData())
+					else if (p->data->GetData(0) > parent->left->data->GetData(0))
 					{
 						if (parent == root) { RemoveNode(p, parent->left->right, a); }
 						else(RemoveNode(p, parent->right, a));

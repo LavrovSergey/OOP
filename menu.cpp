@@ -118,7 +118,7 @@ int menu_part2() {
 	int code;
 	do {
 		system("cls");
-		key = (key + 12) % 12;
+		key = (key + 10) % 10;
 		if (key == 0) cout << "-> Add a book" << endl;
 		else  cout << "   Add a book" << endl;
 		if (key == 1) cout << "-> Add a character" << endl;
@@ -135,13 +135,9 @@ int menu_part2() {
 		else  cout << "   Find a book" << endl;
 		if (key == 7) cout << "-> Find a character" << endl;
 		else  cout << "   Find a character" << endl;
-		if (key == 8) cout << "-> Update the book" << endl;
-		else  cout << "   Update the book" << endl;
-		if (key == 9) cout << "-> Update the character" << endl;
-		else  cout << "   Update the character" << endl;
-		if (key == 10) cout << "-> Show series of books" << endl;
+		if (key == 8) cout << "-> Show series of books" << endl;
 		else  cout << "   Show series of books" << endl;
-		if (key == 11) cout << "-> Exit" << endl;
+		if (key == 9) cout << "-> Exit" << endl;
 		else  cout << "   Exit" << endl;
 		code = _getch();
 		if (code == 224)
@@ -159,6 +155,7 @@ int part2(bool isRunning)
 {
 	BookFunctions <string, Book> b;
 	HeroFunctions <string, Hero> h;
+	BookSeriesFunctions<string, BookSeries> bs;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	isRunning = true;
@@ -173,14 +170,13 @@ int part2(bool isRunning)
 	    case 1: h.AddHero(b.bst.GetRoot()); break;
 		case 2:b.PrintInOrder(b.bst.GetRoot()); break;
 		case 3:h.PrintInOrder(); break;
-		/*case 4: b.Delete(); b.InFile(); break;*/
-	/*	case 5: h.Delete(); h.InFile(); break;
+		case 4: b.Delete();/* b.InFile();*/ break;
+	    case 5: h.Delete(); /*h.InFile()*/; break;
 		case 6: b.Find(); break;
 		case 7: h.Find(); break;
-		case 8: b.Update(); break;
-		case 9: h.Update(); break;
-		case 10: h.Series(); break;*/
-		case 11: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
+		case 8: { bs.CreateTree(h.bst.GetRoot());
+			bs.Print(); break; }
+		case 9: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
 		}
 	}
 	return 0;
@@ -239,7 +235,7 @@ int menu2(bool isRunning, int a)
 		switch (answer)
 		{
 		case 0: d.AddLeaf(a); break;
-		case 1: d.PrintInOrder(a); break;/*
+		case 1: d.PrintInOrder(a); break;
 		case 2: d.PrintPreOrder(a); break;
 		case 3: d.PrintPostOrder(a); break;
 		case 4: d.FindByTheWay(a); break;
@@ -255,7 +251,7 @@ int menu2(bool isRunning, int a)
 		case 14: d_v.Find_vect(a); break;
 		case 15: d_v.PrintInOrder_vect(a); d_v.Delete_vect(a, 1); break;
 		case 16: d_v.PrintInOrder_vect(a); d_v.Delete_vect(a, 2); break;
-		case 17: d_v.PrintInOrder_vect(a); d_v.Delete_vect(a, 3); break;*/
+		case 17: d_v.PrintInOrder_vect(a); d_v.Delete_vect(a, 3); break;
 		case 18: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
 		}
 	}
@@ -276,7 +272,7 @@ int menu3(bool isRunning, int a)
 
 		switch (answer)
 		{
-		case 0: s.AddLeaf(a); break;/*
+		case 0: s.AddLeaf(a); break;
 		case 1: s.PrintInOrder(a); break;
 		case 2: s.PrintPreOrder(a); break;
 		case 3: s.PrintPostOrder(a); break;
@@ -293,7 +289,7 @@ int menu3(bool isRunning, int a)
 		case 14: s_v.Find_vect(a); break;
 		case 15: s_v.PrintInOrder_vect(a); s_v.Delete_vect(a, 1); break;
 		case 16: s_v.PrintInOrder_vect(a); s_v.Delete_vect(a, 2); break;
-		case 17: s_v.PrintInOrder_vect(a); s_v.Delete_vect(a, 3); break;*/
+		case 17: s_v.PrintInOrder_vect(a); s_v.Delete_vect(a, 3); break;
 		case 18: system("cls"); cout << "Goodbye!\n__________________"; isRunning = false;
 		}
 	}

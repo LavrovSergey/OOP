@@ -11,6 +11,8 @@
 #include "BinaryTree.h"
 #include "Functions.h"
 #include "Book.h"
+#include "BookSeries.h"
+#include "BookSeriesFunctions.h"
 #include "BookFunctions.h"
 #include "HeroFunctions.h"
 #include "Hero.h"

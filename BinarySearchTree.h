@@ -24,14 +24,13 @@ public:
 		AddLeaf(cur, root);
 	};
 	/*! Adding a Node.*/
-	void AddLeaf(U* cur, Node<U>* node) {
-		T comp = cur->GetData();
+	void AddLeafDate(U* cur, Node<U>* node) {
 		if (root == NULL)
 		{
-			root= new Node<U>;
+			root = new Node<U>;
 			root->data = cur;
 		}
-		else if (comp<= node->data->GetData())
+		else if (cur->GetData(0) <= node->data->GetData(0))
 		{
 			if (node->left != NULL)
 			{
@@ -44,7 +43,42 @@ public:
 				cur->way = 0;
 			}
 		}
-		else if (comp > node->data->GetData())
+		else if (cur->GetData(0) > node->data->GetData(0))
+		{
+			if (node->right != NULL)
+			{
+				AddLeaf(cur, node->right);
+			}
+			else
+			{
+				node->right = new Node<U>;
+				node->right->data = cur;
+				cur->way = 1;
+			}
+		}
+
+
+	}
+	void AddLeaf(U* cur, Node<U>* node) {
+		if (root == NULL)
+		{
+			root= new Node<U>;
+			root->data = cur;
+		}
+		else if (cur->GetData(0) <= node->data->GetData(0))
+		{
+			if (node->left != NULL)
+			{
+				AddLeaf(cur, node->left);
+			}
+			else
+			{
+				node->left = new Node<U>;
+				node->left->data = cur;
+				cur->way = 0;
+			}
+		}
+		else if (cur->GetData(0) > node->data->GetData(0))
 		{
 			if (node->right != NULL)
 			{
@@ -77,13 +111,13 @@ public:
 			}
 			else
 			{
-				if (p->data->GetData()<= parent->data->GetData() && parent->left != NULL)
+				if (p->data->GetData(0)<= parent->data->GetData(0) && parent->left != NULL)
 				{
 					parent->left == p ?
 						RemoveMatch(parent, parent->left, true, a) :
 						RemoveNode(p, parent->left, a);
 				}
-				else if (p->data->GetData() > parent->data->GetData() && parent->right != NULL)
+				else if (p->data->GetData(0) > parent->data->GetData(0) && parent->right != NULL)
 				{
 					parent->right == p ?
 						RemoveMatch(parent, parent->right, false, a) :

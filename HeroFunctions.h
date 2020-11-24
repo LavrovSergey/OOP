@@ -2,8 +2,10 @@
 #include "Node.h"
 #include "Hero.h"
 #include "BinarySearchTree.h"
+#include"BookFunctions.h"
 #include <fstream>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 /*! @param T -data type
 * @param U -object.*/
@@ -12,6 +14,7 @@ template <class T, class U>
 class HeroFunctions  
 {
 public:
+int	id = 1;
 	BinarySearchTree<string, U> bst;
 	BookFunctions<T,Book> bf;
 	/*void FromFile() {
@@ -36,9 +39,21 @@ public:
 		else  (UpdatePrivate(ptr));
 		system("pause");
 	}*/
+	static bool comparator(Book* & aa, Book* & bb) {
+
+		 Book& a = *aa;
+		 Book& b = *bb;
+
+		if (a.GetYear() < b.GetYear()) return true;
+		if (a.GetYear() > b.GetYear()) return false;
+		if (a.GetMonth() < b.GetMonth()) return true;
+		if (a.GetMonth() > b.GetMonth()) return false;
+		return a.GetDay() < b.GetDay();
+	}
 	/*! Add a character.*/
 	void AddHero(Node<Book>* r) {
 		int a;
+		vector<Book*> books;
 		vector<string> names;
 		int n; string s, data;
 		multimap<int, Node<Book>*> role;
@@ -64,43 +79,46 @@ public:
 			cin >> a;
 			cin.ignore(1, '\n');
 			role.insert(pair<int, Node<Book>*>(a, ptr));
+			if(a==1 || a==2){books.push_back(ptr->data);}
 		}
-		Hero* h = new Hero(data, n, names, role);
+		sort(books.begin(), books.end(), comparator);
+		Hero* h = new Hero(data, n, names, role, id, books );
+		id++;
 		bst.AddLeaf(h, bst.GetRoot());
 	}
-	/*! Delete by number.*/
-	/*void Delete()
+	/*! Delete by id.*/
+	void Delete()
 	{
 		PrintInOrder();
 		int id;
 		cout << "Enter id" << endl;
 		cin >> id;
-		Node<T, U>* ptr = FindPrivateId(id, BinarySearchTree<string, Node<T, U>>::root);
+		Node<U>* ptr = FindPrivateId(id, bst.GetRoot());
 		if (ptr == NULL) { cout << "There is no such thing" << endl; }
-		else  (BinarySearchTree<string, Node<T, U>>::RemoveNode(ptr, BinarySearchTree<string, Node<T, U>>::root, 1));
-	}*/
+		else  (bst.RemoveNode(ptr, bst.GetRoot(), 1));
+	}
 	/*! Print.*/
 	void PrintInOrder() {
 		PrintPreOrderPrivate(bst.GetRoot());
 		system("pause");
 	}
 	/*! Find.*/
-	//void Find() {
-	//	string inf;
-	//	cout << "Enter what you want to find" << endl;
-	//	cin >> inf;
-	//	Node<T, U>* ptr2 = FindPrivate(inf, BinarySearchTree<string, Node<T, U>>::root);
-	//	if (ptr2 == NULL) { cout << "There is no such thing" << endl; }
-	//	else {
-	//		PrintHero(ptr2);
-	//	}
-	//	system("pause");
-	//}
-	///*! Print series.*/
-	//void Series() {
-	//	vector<string>name;
-	//	SeriesPrivate(BinarySearchTree<string, Node<T, U>>::root, name);
-	//}
+	void Find() {
+		string inf;
+		cout << "Enter what you want to find" << endl;
+		cin >> inf;
+		Node< U>* ptr2 = FindPrivate(inf, bst.GetRoot());
+		if (ptr2 == NULL) { cout << "There is no such thing" << endl; }
+		else {
+			PrintHero(ptr2);
+		}
+		system("pause");
+	}
+	
+	/*vector<Book> Series() {
+		vector<string>name;
+		SeriesPrivate(BinarySearchTree<string, Node<T, U>>::root, name);
+	}*/
 private:
 	/*void SeriesPrivate(Node<T, U>* node, vector<string>name) {
 		if (node != NULL)
@@ -130,32 +148,32 @@ private:
 		}
 		else { cout << "Empty" << endl; }
 
-	}
-	Node<T, U>* FindPrivate(string name, Node<T, U>* node)
+	}*/
+	Node<U>* FindPrivate(string name, Node< U>* node)
 	{
 		if (node != NULL)
 		{
-			if (node->data->data == name)
+			if (node->data->GetData(0) == name)
 			{
 				return node;
 			}
 			else
 			{
-				if (name <= node->data->data)
+				if (name <= node->data->GetData(0))
 				{
 					FindPrivate(name, node->left);
 				}
-				else if (name > node->data->data)
+				else if (name > node->data->GetData(0))
 				{
 					FindPrivate(name, node->right);
 				}
 			}
 		}
 		else { return node; }
-	}*/
+	}
 	void PrintHero(Node< U>* node) {
 		cout << node->data->GetId() << ". ";
-		cout << "Name: " << node->data->GetData() << endl;
+		cout << "Name: " << node->data->GetData(0) << endl;
 		cout << "Aliases: ";
 		for (int i = 0; i < node->data->GetVectorSize(); i++)
 		{
@@ -163,10 +181,13 @@ private:
 			if (i < node->data->GetVectorSize() - 1) { cout << ", "; }
 			else(cout << endl);
 		}
+		multimap<int, Node<Book>*> role = node->data->GetRole();
 		cout << "Role-Book: "<<endl;
-		for (auto it = node->data->role.begin(); it != node->data->role.end(); ++it)
+		for (auto it = role.begin(); it != role.end(); ++it)
 		{
-			cout << it->first<< " -- " << it->second->data->GetData() << endl;
+			if (it->first == 1) { cout << "main" << " -- " << it->second->data->GetData(0) << endl; }
+			else if (it->first == 2) { cout << "minor" << " -- " << it->second->data->GetData(0) << endl; }
+			else if (it->first == 3) { cout << "episodic" << " -- " << it->second->data->GetData(0) << endl; }
 		}
 	}
 	void PrintPreOrderPrivate(Node<U>* node) {
@@ -184,21 +205,21 @@ private:
 		}
 		else(cout << "Empty" << endl);
 	}
-	/*Node<T, U>* FindPrivateId(int id, Node<T, U>* node) {
+	Node<U>* FindPrivateId(int id, Node<U>* node) {
 		if (node == NULL) return node;
-		if (id == node->data->id) {
+		if (id == node->data->GetId()) {
 			return node;
 		}
-		Node<T, U>* tmp1 = FindPrivateId(id, node->left);
+		Node< U>* tmp1 = FindPrivateId(id, node->left);
 		if (tmp1 != NULL) {
-			if (id == tmp1->data->id) { return tmp1; }
+			if (id == tmp1->data->GetId()){ return tmp1; }
 		}
-		Node<T, U>* tmp2 = FindPrivateId(id, node->right);
+		Node<U>* tmp2 = FindPrivateId(id, node->right);
 		if (tmp2 != NULL) {
-			if (id == tmp2->data->id) { return tmp2; }
+			if (id == tmp2->data->GetId()){ return tmp2; }
 		}
 	}
-	void UpdatePrivate(Node<T, U>* node) {
+	/*void UpdatePrivate(Node<T, U>* node) {
 		int a;
 		string s;
 		cout << "Enter character name" << endl;
