@@ -7,11 +7,17 @@ template <class T, class U>
 /*! Tree class with any number of children based on the list.*/
 class NarrayTree {
 public:
+	/*id for part1*/
 	int d = 0;
+	/*! Conctructer. Root = 0.*/
 	NarrayTree()
 	{
 		root = NULL;
 	}
+	/**
+	* Get a root of tree
+	* @return root
+	*/
 	Node<U>* GetRoot() {
 		return root;
 	}
@@ -19,6 +25,9 @@ public:
 	*We add more to the right.
     *If more than the previous one and less than the next,
 	*then add the next one as a child
+	*  @param object
+	* @param node for traveling
+	* @return root
 	*/
 	void AddLeaf(T inf, Node<U>* node) {
 		bool c = false;
@@ -57,6 +66,9 @@ public:
 	*We add more to the right.
 	*If more than the previous one and less than the next,
 	*then add the next one as a child
+	*  @param object
+	* @param node for traveling
+	* @return root
 	*/
 	void AddLeaf_v(std::vector<T> v, Node< U>* node) {
 		bool c = false;
@@ -91,9 +103,10 @@ public:
 		}
 		else { node->left = new Node<U>; node->left->data = creat_leaf_v(v, 0); }
 	}
-	/*! Deleting the Node.
-	*We are looking for the node 
-	*that we will delete, and its parent
+	/*! Search a position of node we want to delete.
+	* @param node to delete
+	* @param node that hane to be parent of node we want to delete
+	* @param 1-delete node, 2-delete node and all under it
 	*/
 	void RemoveNode(Node< U>* p, Node< U>* parent, int a)
 	{
@@ -127,9 +140,10 @@ public:
 			}
 		}
 	}
-	/*! Deleting the Node.
-	*We are looking for the node
-	*that we will delete, and its parent
+	/*! Search a position of node we want to delete.
+	* @param node to delete
+	* @param node that hane to be parent of node we want to delete
+	* @param 1-delete node, 2-delete node and all under it
 	*/
 	void RemoveNode_vect(Node< U>* p, Node< U>* parent, int a)
 	{
@@ -164,19 +178,28 @@ public:
 		}
 	}
 private:
-	/*!Creating a Node.*/
+	/*! Creating a odject of part1.
+	* @param vector
+	* @param way shows where our node(left or right from parent)
+	* @return object
+	*/
 	U* creat_leaf(T e, bool way) {
 		U* cur = new U(e, d++, way);
 		return cur;
 	};
-	/*!Creating a Node.*/
+	/*! Creating a odject of part1.
+	* @param vector
+	* @param way shows where our node(left or right from parent)
+	* @return object
+	*/
 	U* creat_leaf_v(std::vector<T> v, bool way) {
 		U* cur = new U( v, d++, way);
 		return cur;
 	};
-	/*! Delete the node that was found before.
-	* à==1 Delete Node
-	* else - Delete by parent
+	/*! Creating a odject of part1.
+	* @param parent of node we want to delete
+	* @param node that we delete
+	* @param how to delete
 	*/
 	void RemoveMatch(Node<U>* parent, Node< U>* match, int a) {
 		if (parent == root)
@@ -231,7 +254,9 @@ private:
 			else { parent->left = match->right; }
 		}
 	}
-	/*! Delete the root*/
+	/*! Deleting of root
+	* @param how to remove
+	*/
 	void RemoveRoot(int a) {
 		Node<U>* node;
 		if (root->left == NULL)

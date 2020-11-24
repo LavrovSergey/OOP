@@ -13,16 +13,25 @@ template <class T, class U>
 class BookSeriesFunctions
 {
 public:
+	/*id*/
 	int id = 1;
 	BinarySearchTree<T, U> bst;
 	HeroFunctions<T, Hero> hf;
+	/*! Create tree of book series
+	*  @param root of tree of characters
+	*/
 	void CreateTree(Node<Hero>* r) {
 		 CreateTreePrivate( r);
 	}
+	/*! Print
+	*/
 	void Print() {
 		PrintInOrderPrivate(bst.GetRoot());
 	}
 private:
+	/*! Print book series
+	*  @param node for traveling
+	*/
 	void PrintSeries(Node<U>* node) {
 		cout << "Books in one series: ";
 		for (int i = 0; i < node->data->GetVectorSize(); i++)
@@ -32,6 +41,9 @@ private:
 			else(cout << endl);
 		}
 	}
+	/*! Print series of books
+	*  @param node for traveling
+	*/
 	void PrintInOrderPrivate(Node<U>* node) {
 		if (node != NULL)
 		{
@@ -47,6 +59,9 @@ private:
 		}
 		else(cout << "Empty" << endl);
 	}
+	/*! Creating of tree
+	*  @param node of tree of characters to get vector of books in one series
+	*/
 	void CreateTreePrivate(Node<Hero>* node) {
 		if (node != NULL)
 		{

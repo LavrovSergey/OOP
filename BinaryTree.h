@@ -7,24 +7,33 @@ template<class T, class U>
 /*! Class binary tree*/
 class BinaryTree {
 public:
+	/*id for part1*/
 	int d = 1;
-	/*! Designer. Root = 0.*/
+	/*! Conctructer. Root = 0.*/
 	BinaryTree()
 	{
 		root = NULL;
 	}
+	/**
+	* Get a root of tree
+	* @return root
+	*/
 	Node<U>* GetRoot() {
 		return root;
 	}
+	/**
+	*Root of tree(it`a not a new root. We just need it to build tree)
+	* @param pointer to node of new root
+	*/
 	void SetRoot(Node<U>* node) {
-		root=node;
+		root = node;
 	}
-	/*Part1* Find_max() {
-		return Find_maxPrivate(root);
-	}*/
 	/*! Add a node to the tree.
-	*We check the tree for fullness 
+	*We check the tree for fullness
 	*and write down where it is empty
+	* @param root of tree
+	* @param node that we add to tree
+	* @return root
 	*/
 	Node<U>* AddLeaf(Node<U>* root, U* node) {
 		if (root == NULL) {
@@ -50,39 +59,11 @@ public:
 		}
 		return root;
 	}
-	Node<U>* AddLeaf_v(Node<U>* root, U* node) {
-		if (root == NULL) {
-			Node<U>* cur = new Node<U>;
-			cur->data = node;
-			return cur;
-		}
-		else if (bal(root) == 0 && check(root->right)) {
-			root->right = AddLeaf_v(root->right, node);
-			root->right->data->way = 1;
-		}
-		else if (bal(root) == 0) {
-			root->left = AddLeaf_v(root->left, node);
-			root->left->data->way = 0;
-		}
-		else if (bal(root) == 1 && check(root->left)) {
-			root->left = AddLeaf_v(root->left, node);
-			root->left->data->way = 0;
-		}
-		else if (bal(root) == 1) {
-			root->right = AddLeaf_v(root->right, node);
-			root->right->data->way = 1;
-		}
-		return root;
-	}
-	/*Part1* Find_maxPrivate(Part1* node) {
-		if (node == NULL) { return 0; }
-		Part1* tmp = Find_maxPrivate(node->left);
-		if (tmp != NULL && tmp->counter > node->counter) { node = tmp; }
-		tmp = Find_maxPrivate(node->right);
-		if (tmp != NULL && tmp->counter > node->counter) { node = tmp; }
-		return node;
-	}*/
-	/*! Deleting a node.*/
+	/*! Search a position of node we want to delete.
+	* @param node to delete
+	* @param node that hane to be parent of node we want to delete
+	* @param 1-delete node, 2-delete node and all under it 
+	*/
 	void RemoveNode(Node<U>* p, Node<U>* parent, int a)
 	{
 		if (root != NULL)
@@ -93,42 +74,50 @@ public:
 			}
 			else
 			{
-				if (p == parent->left ) {
+				if (p == parent->left) {
 					RemoveMatch(parent, parent->left, true, a);
 				}
-				else if( parent->left != NULL) {RemoveNode(p, parent->left, a);}
-				if (p == parent->right  ) {
-						RemoveMatch(parent, parent->right, false, a);
-					}
-				else if(parent->right != NULL){ RemoveNode(p, parent->right, a); }
+				else if (parent->left != NULL) { RemoveNode(p, parent->left, a); }
+				if (p == parent->right) {
+					RemoveMatch(parent, parent->right, false, a);
+				}
+				else if (parent->right != NULL) { RemoveNode(p, parent->right, a); }
 			}
 		}
 	}
-	/*! Creating a node.*/
+	/*! Creating a odject of part1.
+	* @param vector
+	* @param way shows where our node(left or right from parent)
+	* @return object 
+	*/
 	U* creat_leaf_v(std::vector<T> v, bool way) {
 		U* cur = new U(v, d++, way);
-		/*cur->v = vv;
-		cur->way = way1;
-		cur->id = d++;*/
 		return cur;
 	};
-	/*! Creating a node.*/
+	/*! Creating a odject of part1.
+	* @param vector
+	* @param way shows where our node(left or right from parent)
+	* @return object
+	*/
 	U* creat_leaf(T e, bool way) {
 		U* cur = new U(e, d++, way);
-		/*cur->data = e;
-		cur->way = way1;
-		cur->id = d++;*/
 		return cur;
 	};
 private:
-	/*! Check the balance of the tree.*/
+	/*! Check the balance of the tree.
+	* @param root of tree
+	* @return height difference
+	*/
 	int bal(Node<U>* root) {
 		if (root == NULL) { return 0; }
 		int lheight = height(root->left) + 1;
 		int rheight = height(root->right) + 1;
 		return(lheight - rheight);
 	}
-	/*! Check the height of the tree.*/
+	/*! Check the height of the tree.
+	* @param root
+	* @return height of the heighest subtree
+	*/
 	int height(Node<U>* root) {
 		if (root == NULL)
 		{
@@ -140,7 +129,10 @@ private:
 			return(lheight > rheight) ? lheight : rheight;
 		}
 	}
-	/*!Check free space.*/
+	/*!Check free space.
+	* @param root
+	* @return where is free space
+	*/
 	bool check(Node<U>* root) {
 		if (root == NULL) { return false; }
 		bool x = check(root->left);
@@ -151,6 +143,10 @@ private:
 		bool y = check(root->right);
 		return x || y;
 	}
+	/*! Find the smallest in right subtree to rebuild tree
+	* @param root->right
+	* @return the smallest node
+	*/
 	Node<U>* FindSmallestPrivate(Node< U>* node)
 	{
 		if (node->left != NULL)
@@ -159,6 +155,9 @@ private:
 		}
 		else { return node; };
 	}
+	/*! Deleting of root
+	* @param how to remove
+	*/
 	void RemoveRoot(int a) {
 		Node<U>* delPtr = root;
 		if (root->left == NULL && root->right == NULL)
@@ -186,6 +185,13 @@ private:
 			root->data = p->data;
 		}
 	}
+	/*! Creating a odject of part1.
+	* @param parent of node we want to delete
+	* @param node that we delete
+	* @param if we have left node
+	* @param how to delete
+	* @return object
+	*/
 	void RemoveMatch(Node<U>* parent, Node<U>* match, bool left, int a) {
 		if (match->left == NULL && match->right == NULL)
 		{

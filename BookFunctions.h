@@ -14,29 +14,8 @@ class BookFunctions
 public:
 	int id = 1;
 	BinarySearchTree<T, U> bst;
-	/*void FromFile() {
-		ifstream books("books.bin");
-		if (books.peek() != EOF) {
-			FromFilePrivate(books);
-		}
-	}*/
-	/*! Write to file.*/
-	/*void InFile() {
-		ofstream books("books.bin");
-		InFilePrivate(BinarySearchTree<string, Node<T, U>>::root, books);
-		books.close();
-	}*/
-	/*void Update() {
-		PrintInOrder();
-		int id;
-		cout << "Enter id" << endl;
-		cin >> id;
-		Node<T, U>* ptr = FindPrivateId(id, BinarySearchTree<string, Node<T, U>>::root);
-		if (ptr == NULL) { cout << "I cant find" << endl; }
-		else  (UpdatePrivate(ptr));
-		system("pause");
-	}*/
-	/*! Adding a book.*/
+	/*! Adding a book.
+	*/
 	void AddBook() {
 		int n,d,m,y,pages; string data,s,plot;
 		vector<string> authors;
@@ -73,7 +52,9 @@ public:
 		else  (bst.RemoveNode(ptr, bst.GetRoot(), 1));
 		system("pause");
 	}
-	/*! Print.*/
+	/*! Print.
+	* @param root
+	*/
 	void PrintInOrder(Node<U>* r) {
 		PrintInOrderPrivate(r);
 		system("pause");
@@ -90,6 +71,10 @@ public:
 		}
 		system("pause");
 	}
+	/*! Print book series
+	* @param name of book
+	*  @param node for traveling
+	*/
 	Node<U>* FindPrivate(string name, Node<U>* node)
 	{
 		if (node != NULL)
@@ -112,6 +97,9 @@ public:
 		}
 		else { return node; }
 	}
+	/*! Print book 
+	*  @param node of book
+	*/
 	void PrintBook(Node<U>* node) {
 		cout << node->data->GetId() << ". ";
 		cout << "Title: " << node->data->GetData(0) << endl;
@@ -126,12 +114,21 @@ public:
 		cout << "Number of pages:" << node->data->GetPages()<<endl;
 		cout << "Plot:" << node->data->GetPlot() << endl;
 	}
-	/*! Search by id.*/
+	/*! Search by id.
+	*@param id
+	* @param root
+	* @return node
+	*/
 	Node<U>* FindId(int id, Node<U>* r)
 	{
 	     return FindPrivateId(id, r);
 	}
 private:
+	/*! Search by id.
+	*@param id
+	* @param root
+	* @return node
+	*/
 	Node<U>* FindPrivateId(int id, Node<U>* node) {
 		if (node == NULL) return node;
 		if (id == node->data->GetId()) {
@@ -146,27 +143,9 @@ private:
 			if (id == tmp2->data->GetId()) { return tmp2; }
 		}
 	}
-	//void UpdatePrivate(Node<T, U>* node) {
-	//	string s;
-	//	cout << "Enter new name of book" << endl;
-	//	getline(cin, node->data->data);
-	//	cout << "Enter the number of authors" << endl;
-	//	cin >> node->data->v;
-	//	cout << "Fill in authors" << endl;
-	//	cin.ignore(1, '\n');
-	//	for (int i = 0; i < node->data->v; i++) {
-	//		getline(cin, s);
-	//		node->data->authors.push_back(s);
-	//	}
-	//	cout << "Fill in the date the book was written (day month year)" << endl;
-	//	cin >> node->data->d >> node->data->m >> node->data->y;
-	//	cout << "Enter the number of pages" << endl;
-	//	cin >> node->data->pages;
-	//	cin.ignore(1, '\n');
-	//	cout << "Fill in the plot briefly" << endl;
-	//	getline(cin, node->data->plot);
-	//}
-	
+	/*! Print book
+	*  @param node for traveling
+	*/
 	void PrintInOrderPrivate(Node<U>* node)
 	{
 		if ( node != NULL)
@@ -183,44 +162,4 @@ private:
 		}
 		else(cout << "Empty" << endl);
 	}
-	//void InFilePrivate(Node<T, U>* node, ostream& books) {
-	//	if (node->left != NULL)
-	//	{
-	//		InFilePrivate(node->left, books);
-	//	}
-	//	if (node != NULL) {
-	//		books.write((char*)&node->data->v, sizeof(int));
-	//		for (int i = 0; i < node->v; i++) {
-	//			books.write((char*)&node->data->authors[i], sizeof(string));
-	//		}
-	//		books.write((char*)&node->data->data, sizeof(string));
-	//		books.write((char*)&node->data->d, sizeof(int));
-	//		books.write((char*)&node->data->m, sizeof(int));
-	//		books.write((char*)&node->data->y, sizeof(int));
-	//		books.write((char*)&node->data->plot, sizeof(string));
-	//		books.write((char*)&node->data->pages, sizeof(int));
-	//	}
-	//	if (node->right != NULL)
-	//	{
-	//		InFilePrivate(node->right, books);
-	//	}
-	//}
-	//void FromFilePrivate(ifstream& books) {
-	//	while (!books.eof()) {
-	//		Book* b = new Book;
-	//		string s;
-	//		books.read((char*)&b->data->v, sizeof(int));
-	//		if (books.eof()) { break; }
-	//		for (int i = 0; i < b->data->v; i++) {
-	//			books.read((char*)&s, sizeof(string)); b->data->authors.push_back(s);          // Âûçâàíî èñêëþ÷åíèå: íàðóøåíèå äîñòóïà äëÿ ÷òåíèÿ._Pnext áûëî 0x2BACC0F0A08.
-	//		}
-	//		books.read((char*)&b->data->data, sizeof(string));
-	//		books.read((char*)&b->data->d, sizeof(int));
-	//		books.read((char*)&b->data->m, sizeof(int));
-	//		books.read((char*)&b->data->y, sizeof(int));
-	//		books.read((char*)&b->data->plot, sizeof(string));
-	//		books.read((char*)&b->data->pages, sizeof(int));
-	//		BinarySearchTree<string, Node<T, U>>::AddLeaf(b, BinarySearchTree<string, Node<T, U>>::root);
-	//	}
-	//}
 };

@@ -21,6 +21,7 @@ public:
 	*0-left
 	*1-right
 	* if route length=0 then print root
+	* @param which tree
 	*/
 	void FindByTheWay(int a) {
 		bool count = false, i = 0;
@@ -57,6 +58,8 @@ public:
 	* a==1 by value
 	* a==2 by id
 	* a==3 by fathers`s node
+	* @param tree
+	* @param how
 	*/
 	void Delete(int a, int b)
 	{
@@ -131,7 +134,8 @@ public:
 			}
 		}
 	}
-	/*! Adding a node for part1.*/
+	/*! Adding a node for part1.
+	@param tree*/
 	void AddLeaf(int a) {
 		T inf;
 		cout << "Enter information" << endl;
@@ -140,7 +144,9 @@ public:
 		else if (a == 2) { bt.SetRoot(bt.AddLeaf(bt.GetRoot(), bt.creat_leaf(inf, 0))); }
 		else if (a == 3) {nt.AddLeaf(inf, nt.GetRoot()); }
 	}
-	/*! Adding a node for part1.*/
+	/*! Adding a node for part1.
+	* @param tree
+	*/
 	void AddLeaf_vect(int a) {
 		int n;
 		T inf;
@@ -154,10 +160,12 @@ public:
 			v.push_back(inf);
 		}
 		if (a == 1) {bst.creat_leaf_v(v, 0); }
-		else if (a == 2) { bt.SetRoot(bt.AddLeaf_v(bt.GetRoot(), bt.creat_leaf_v(v, 0))); }
+		else if (a == 2) { bt.SetRoot(bt.AddLeaf(bt.GetRoot(), bt.creat_leaf_v(v, 0))); }
 		else if (a == 3) {nt.AddLeaf_v(v, nt.GetRoot()); }
 	}
-	/*! Search by the information.*/
+	/*! Search by the information.
+	* @param tree
+	*/
 	void Find(int a) {
 		T inf;
 		cout << "Enter what you want to find" << endl;
@@ -184,7 +192,9 @@ public:
 			system("pause");
 		}
 	}
-	/*! Search by the information.*/
+	/*! Search by the information.
+	* @param tree
+	*/
 	void Find_vect(int a) {
 		T inf;
 		vector<T> v;
@@ -241,6 +251,8 @@ public:
 	* a==1 by value
 	* a==2 by id
 	* a==3 by fathers`s node
+	* @param tree
+	* @param how
 	*/
 	void Delete_vect(int a, int b)
 	{
@@ -260,7 +272,7 @@ public:
 			{
 				Node<U>* ptr = FindPrivate1_vect(v, bst.GetRoot());
 				if (ptr == NULL) { cout << "There is no such thing" << endl; }
-				else  (bst.RemoveNode(ptr, bst.GetRoot(), a));
+				else  (bst.RemoveNode_vect(ptr, bst.GetRoot(), a));
 			}
 			else if (a == 2)
 			{
@@ -272,7 +284,7 @@ public:
 			{
 				Node<U>* ptr = FindPrivate3_vect(v, nt.GetRoot());
 				if (ptr == NULL) { cout << "There is no such thing" << endl; }
-				else (nt.RemoveNode(ptr, nt.GetRoot(), a));
+				else (nt.RemoveNode_vect(ptr, nt.GetRoot(), a));
 			}
 		}
 		else if (b == 2) {
@@ -284,7 +296,7 @@ public:
 			{
 				Node<U>* ptr = FindPrivateId(id, bst.GetRoot());
 				if (ptr == NULL) { cout << "There is no such thing" << endl; }
-				else  (bst.RemoveNode(ptr, bst.GetRoot(), a));
+				else  (bst.RemoveNode_vect(ptr, bst.GetRoot(), a));
 			}
 			else if (a == 2)
 			{
@@ -296,7 +308,7 @@ public:
 			{
 				Node<U>* ptr = FindPrivateId3(id, nt.GetRoot());
 				if (ptr == NULL) { cout << "There is no such thing" << endl; }
-				else (nt.RemoveNode(ptr, nt.GetRoot(), a));
+				else (nt.RemoveNode_vect(ptr, nt.GetRoot(), a));
 			}
 		}
 		else if (b == 3)
@@ -309,7 +321,7 @@ public:
 			{
 				Node<U>* ptr = FindPrivateId(id, bst.GetRoot());
 				if (ptr == NULL) { cout << "There is no such thing" << endl; }
-				else  (bst.RemoveNode(ptr, bst.GetRoot(), 2));
+				else  (bst.RemoveNode_vect(ptr, bst.GetRoot(), 2));
 			}
 			else if (a == 2)
 			{
@@ -321,46 +333,58 @@ public:
 			{
 				Node<U>* ptr = FindPrivateId3(id, nt.GetRoot());
 				if (ptr == NULL) { cout << "There is no such thing" << endl; }
-				else (nt.RemoveNode(ptr, nt.GetRoot(), 2));
+				else (nt.RemoveNode_vect(ptr, nt.GetRoot(), 2));
 			}
 		}
 	}
-	/*! Print.*/
+	/*! Print.
+	* @param tree
+	*/
 	void PrintInOrder(int a) {
 		if (a == 1) { PrintInOrderPrivate(bst.GetRoot()); }
 		else if (a == 2) { PrintInOrderPrivate(bt.GetRoot()); }
 		else if (a == 3) { PrintPreOrderPrivate3(nt.GetRoot()); }
 		system("pause");
 	}
-	/*! Print.*/
+	/*! Print.
+	* @param tree
+	*/
 	void PrintInOrder_vect(int a) {
 		if (a == 1) { PrintInOrderPrivate_vect(bst.GetRoot()); }
 		else if (a == 2) { PrintInOrderPrivate_vect(bt.GetRoot()); }
 		else if (a == 3) { PrintPreOrderPrivate3_vect(nt.GetRoot()); }
 		system("pause");
 	}
-	/*! Print.*/
+	/*! Print.
+	* @param tree
+	*/
 	void PrintPostOrder(int a) {
 		if (a == 1) { PrintPostOrderPrivate(bst.GetRoot()); }
 		else if (a == 2) { PrintPostOrderPrivate(bt.GetRoot()); }
 		else if (a == 3) { PrintPreOrderPrivate3(nt.GetRoot()); }
 		system("pause");
 	}
-	/*! Print.*/
+	/*! Print.
+	* @param tree
+	*/
 	void PrintPostOrder_vect(int a) {
 		if (a == 1) { PrintPostOrderPrivate_vect(bst.GetRoot()); }
 		else if (a == 2) { PrintPostOrderPrivate_vect(bt.GetRoot()); }
 		else if (a == 3) { PrintPreOrderPrivate3_vect(nt.GetRoot()); }
 		system("pause");
 	}
-	/*! Print.*/
+	/*! Print.
+	* @param tree
+	*/
 	void PrintPreOrder(int a) {
 		if (a == 1) { PrintPreOrderPrivate(bst.GetRoot()); }
 		else if (a == 2) { PrintPreOrderPrivate(bt.GetRoot()); }
 		else if (a == 3) { PrintPreOrderPrivate3(nt.GetRoot()); }
 		system("pause");
 	}
-	/*! Print.*/
+	/*! Print.
+	* @param tree
+	*/
 	void PrintPreOrder_vect(int a) {
 		if (a == 1) { PrintPreOrderPrivate_vect(bst.GetRoot()); }
 		else if (a == 2) { PrintPreOrderPrivate_vect(bt.GetRoot()); }
@@ -368,6 +392,14 @@ public:
 		system("pause");
 	}
 private:
+	/*! Find by the way
+	* @param mas of way
+	* @param node for traveling
+	* @param to say if we have this node
+	* @param counter to stop when we come to node we was searching 
+	* @param length of way
+	* @return if we have node
+	*/
 	bool FindByTheWayPrivate(bool* mas, Node<U>* node, bool count, int i, int n) {
 		if (node != NULL)
 		{
@@ -393,6 +425,9 @@ private:
 		}
 		else { return count; }
 	}
+	/*! Print.
+	*  @param node for traveling
+	*/
 	void PrintInOrderPrivate(Node<U>* node)
 	{
 		if (node != NULL)
@@ -410,6 +445,9 @@ private:
 		}
 		else(cout << "Пусто" << endl);
 	}
+	/*! Print.
+	*  @param node for traveling
+	*/
 	void PrintPreOrderPrivate(Node< U>* node) {
 		if (node != NULL)
 		{
@@ -426,6 +464,9 @@ private:
 		}
 		else(cout << "Empty" << endl);
 	}
+	/*! Print.
+	*  @param node for traveling
+	*/
 	void PrintPreOrderPrivate3(Node<U>* node)
 	{
 		while (node)
@@ -438,6 +479,9 @@ private:
 			node = node->right;
 		}
 	}
+	/*! Print.
+	*  @param node for traveling
+	*/
 	void PrintPostOrderPrivate(Node<U>* node)
 	{
 		if (node != NULL)
@@ -455,6 +499,11 @@ private:
 		}
 		else(cout << "Empty" << endl);
 	}
+	/*! Find by information
+	*  @param inf in part1
+	* @param node for traveling
+	* @return node that we found 
+	*/
 	Node<U>* FindPrivate1(T inf, Node<U>* node)
 	{
 		if (node != NULL)
@@ -477,6 +526,11 @@ private:
 		}
 		else { return node; }
 	}
+	/*! Find by information
+	*  @param inf in part1
+	* @param node for traveling
+	* @return node that we found
+	*/
 	Node<U>* FindPrivate2(T inf, Node<U>* node)
 	{
 		if (node == NULL) return node;
@@ -492,6 +546,11 @@ private:
 			if (inf == tmp2->data->GetData(0)) { return tmp2; }
 		}
 	}
+	/*! Find by information
+	*  @param inf in part1
+	* @param node for traveling
+	* @return node that we found
+	*/
 	Node<U>* FindPrivate3(T inf, Node< U>* node) {
 		if (node != NULL)
 		{
@@ -518,6 +577,11 @@ private:
 		}
 		else { return node; }
 	}
+	/*! Find by id
+	*  @param id
+	* @param node for traveling
+	* @return node that we found
+	*/
 	Node<U>* FindPrivateId(int id, Node< U>* node) {
 		if (node == NULL) return node;
 		if (id == node->data->GetId()) {
@@ -532,6 +596,11 @@ private:
 			if (id == tmp2->data->GetId()) { return tmp2; }
 		}
 	}
+	/*! Find by id
+	*  @param id
+	* @param node for traveling
+	* @return node that we found
+	*/
 	Node< U>* FindPrivateId3(int id, Node<U>* node)
 	{
 		while (node)
@@ -545,6 +614,9 @@ private:
 		}
 		return 0;
 	}
+	/*! Print.
+	*  @param node for traveling
+	*/
 	void PrintPreOrderPrivate_vect(Node< U>* node) {
 		if (node != NULL)
 		{
@@ -560,6 +632,9 @@ private:
 		}
 		else(cout << "Empty" << endl);
 	}
+	/*! Print.
+	*  @param node for traveling
+	*/
 	void PrintPreOrderPrivate3_vect(Node<U>* node)
 	{
 		while (node)
@@ -572,6 +647,9 @@ private:
 			node = node->right;
 		}
 	}
+	/*! Print.
+	*  @param node for traveling
+	*/
 	void PrintPostOrderPrivate_vect(Node<U>* node)
 	{
 		if (node != NULL)
@@ -588,6 +666,9 @@ private:
 		}
 		else(cout << "Empty" << endl);
 	}
+	/*! Print.
+	*  @param node for traveling
+	*/
 	void PrintInOrderPrivate_vect(Node<U>* node)
 	{
 		if (node != NULL)
@@ -604,6 +685,11 @@ private:
 		}
 		else(cout << "Empty" << endl);
 	};
+	/*! Find by information
+	*  @param inf in part1
+	* @param node for traveling
+	* @return node that we found
+	*/
 	Node<U>* FindPrivate1_vect(vector<T> v, Node< U>* node)
 	{
 		if (node != NULL)
@@ -628,6 +714,11 @@ private:
 			return 0;
 		}
 	}
+	/*! Find by information
+	*  @param inf in part1
+	* @param node for traveling
+	* @return node that we found
+	*/
 	Node<U>* FindPrivate2_vect(vector<T> v, Node<U>* node)
 	{
 		if (node == NULL) return node;
@@ -647,6 +738,11 @@ private:
 			}
 		}
 	}
+	/*! Find by information
+	*  @param inf in part1
+	* @param node for traveling
+	* @return node that we found
+	*/
 	Node<U>* FindPrivate3_vect(vector<T> v, Node< U>* node)
 	{
 		if (node != NULL)
