@@ -12,3 +12,8 @@ NoteText::~NoteText()
 {
     delete ui;
 }
+
+void NoteText::on_pushButton_clicked()
+{
+   MainWindow:: Add1();
+}

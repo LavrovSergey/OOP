@@ -12,34 +12,57 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_NoteText
 {
 public:
-    QDialogButtonBox *buttonBox;
     QLabel *label;
+    QPushButton *pushButton;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
+    QLineEdit *lineEdit;
+    QTextEdit *textEdit;
 
     void setupUi(QDialog *NoteText)
     {
         if (NoteText->objectName().isEmpty())
             NoteText->setObjectName(QString::fromUtf8("NoteText"));
         NoteText->resize(400, 300);
-        buttonBox = new QDialogButtonBox(NoteText);
-        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
-        buttonBox->setGeometry(QRect(30, 240, 341, 32));
-        buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         label = new QLabel(NoteText);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(30, 20, 341, 201));
+        label->setGeometry(QRect(10, 10, 251, 21));
+        QFont font;
+        font.setPointSize(13);
+        label->setFont(font);
+        pushButton = new QPushButton(NoteText);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(270, 240, 93, 28));
+        widget = new QWidget(NoteText);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(10, 50, 381, 171));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        lineEdit = new QLineEdit(widget);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+
+        verticalLayout->addWidget(lineEdit);
+
+        textEdit = new QTextEdit(widget);
+        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+
+        verticalLayout->addWidget(textEdit);
+
 
         retranslateUi(NoteText);
-        QObject::connect(buttonBox, SIGNAL(accepted()), NoteText, SLOT(accept()));
-        QObject::connect(buttonBox, SIGNAL(rejected()), NoteText, SLOT(reject()));
 
         QMetaObject::connectSlotsByName(NoteText);
     } // setupUi
@@ -47,7 +70,8 @@ public:
     void retranslateUi(QDialog *NoteText)
     {
         NoteText->setWindowTitle(QCoreApplication::translate("NoteText", "Dialog", nullptr));
-        label->setText(QCoreApplication::translate("NoteText", "TextLabel", nullptr));
+        label->setText(QCoreApplication::translate("NoteText", "Title of the note and note", nullptr));
+        pushButton->setText(QCoreApplication::translate("NoteText", "Add", nullptr));
     } // retranslateUi
 
 };

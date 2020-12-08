@@ -11,6 +11,18 @@ MainWindow::MainWindow(QWidget *parent)
 {
      ui->setupUi(this);
 
+     trayIcon = new QSystemTrayIcon(this);
+         trayIcon->setIcon(this->style()->standardIcon(QStyle::SP_ComputerIcon));
+         trayIcon->show();
+
+         connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+                 this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
+
+         // Регистрируем HotKey "ALT+SHIFT+D"
+         RegisterHotKey((HWND)MainWindow::winId(),   // Устанавливаем системный идентификатор окна виджета, который будет обрабатывать HotKey
+                        100,                         // Устанавливаем идентификатор HotKey
+                        MOD_ALT | MOD_SHIFT,         // Устанавливаем модификаторы
+                        'D');
 
      QString filename;
      for(int i =0;i<4;i++){
@@ -26,10 +38,6 @@ MainWindow::MainWindow(QWidget *parent)
                QString text=in.readLine();
                 QString date=in.readLine();
                 QString type=in.readLine();
-                qDebug(title.toStdString().c_str());
-                qDebug(text.toStdString().c_str());
-                qDebug(date.toStdString().c_str());
-                qDebug(type.toStdString().c_str());
               Note note(title,text ,type );
               list.append(note);
           }
@@ -101,8 +109,43 @@ void MainWindow::InFile(){
     }
 }
 
+bool MainWindow::nativeEvent(const QByteArray &eventType, void *message, long *result)
+{
+    Q_UNUSED(eventType)
+    Q_UNUSED(result)
+    // Преобразуем указатель message в MSG WinAPI
+    MSG* msg = reinterpret_cast<MSG*>(message);
+
+    // Если сообщение является HotKey, то ...
+    if(msg->message == WM_HOTKEY){
+        // ... проверяем идентификатор HotKey
+        if(msg->wParam == 100){
+            // Сообщаем об этом в консоль
+            NoteText add;
+            add.setModal(true);
+            add.exec();
+            return true;
+        }
+    }
+    return false;
+}
+
+void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason)
+{
+    switch (reason){
+    case QSystemTrayIcon::Trigger:
+        !isVisible() ? show() : hide();
+        break;
+    default:
+        break;
+    }
+}
+
 void MainWindow::on_AddNote_clicked()
 {
+    Add();
+}
+void MainWindow::Add(){
     QListWidgetItem *newItem=new QListWidgetItem;
     newItem->setText(ui->NoteTitle->text());
     ui->TitleList->insertItem(0,newItem);
@@ -119,8 +162,6 @@ void MainWindow::on_AddNote_clicked()
     ui->NoteTitle->clear();
     ui->NoteText->clear();
 }
-
-
 void MainWindow::on_Archive_clicked()
 {
     QListWidgetItem* cur=ui->TitleList->currentItem();
@@ -169,5 +210,4 @@ void MainWindow::on_Show_clicked()
                 }
             }
         }
-
 }
