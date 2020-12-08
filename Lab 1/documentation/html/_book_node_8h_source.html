@@ -1,0 +1,845 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.20"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Lab 1: РўРµРєСЃС‚ РїСЂРѕРіСЂР°РјРё BookNode.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Lab 1
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- РЎС‚РІРѕСЂРµРЅРѕ СЃРёСЃС‚РµРјРѕСЋ Doxygen 1.8.20 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'РџРѕС€СѓРє');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','РџРѕС€СѓРє');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">BookNode.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include&lt;fstream&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keyword">class</span> U&gt; <span class="keyword">class </span><a class="code" href="class_binary_search_tree.html">BinarySearchTree</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_book_node.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_book_node.html">BookNode</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_binary_search_tree.html">BinarySearchTree</a>&lt;string, <a class="code" href="class_book_node.html">BookNode</a>&gt;;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_book_node.html">BookNode</a>* left;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_book_node.html">BookNode</a>* right;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">string</span> data; <span class="comment">//name of the book</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    vector&lt;string&gt; authors;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">int</span> d, m, y;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">int</span> pages;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">string</span> plot;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">int</span> <span class="keywordtype">id</span> = 0;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">bool</span> way;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_book_functions.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_book_functions.html">BookFunctions</a> : <span class="keyword">public</span> <a class="code" href="class_binary_search_tree.html">BinarySearchTree</a>&lt;string, BookNode&gt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">/*void FromFile() {</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">        ifstream books(&quot;books.bin&quot;);</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">        FromFilePrivate(BinarySearchTree&lt;string, BookNode&gt;::root, books);</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">        books.close();</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">    }*/</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_book_functions.html#a1f0d4c556662e1a93f0f82ad6dbf55c6">   32</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_book_functions.html#a1f0d4c556662e1a93f0f82ad6dbf55c6">InFile</a>() {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        ofstream books(<span class="stringliteral">&quot;books.bin&quot;</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        InFilePrivate(<a class="code" href="class_binary_search_tree.html">BinarySearchTree&lt;string, BookNode&gt;::root</a>, books);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        books.close();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_book_functions.html#a58ac88c0d21c650b24a6c916da1e11ad">   38</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_book_functions.html#a58ac88c0d21c650b24a6c916da1e11ad">AddBook</a>() {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="class_book_node.html">BookNode</a>* b = <span class="keyword">new</span> <a class="code" href="class_book_node.html">BookNode</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">int</span> n; <span class="keywordtype">string</span> s;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Введите название книги  &lt;&lt; endl;
+        getline(cin, b-&gt;data);
+        cout &lt;&lt; &quot;Введите количество авторов" &lt;&lt; endl;
+        cin &gt;&gt; n;
+        cout &lt;&lt; &quot;Заполните авторов" &lt;&lt; endl;
+        cin.ignore(1, &#39;\n&#39;);
+        for (int i = 0; i &lt; n; i++) {
+            getline(cin, s);
+            b-&gt;authors.push_back(s);
+        }
+        cout &lt;&lt; &quot;Заполните дату написания книги(день месяц год)&quot; &lt;&lt; endl;
+        cin &gt;&gt; b-&gt;d &gt;&gt; b-&gt;m &gt;&gt; b-&gt;y;
+        cout &lt;&lt; &quot;Введите количество страниц" &lt;&lt; endl;
+        cin &gt;&gt; b-&gt;pages;
+        cin.ignore(1, &#39;\n&#39;);
+        cout &lt;&lt; &quot;Заполните сюжет кратко&quot; &lt;&lt; endl;
+        getline(cin, b-&gt;plot);
+        BinarySearchTree&lt;string, BookNode&gt;::AddLeaf(b, BinarySearchTree&lt;string, BookNode&gt;::root);
+        
+    }
+    /*! Delete a book.*/
+    void Delete()
+    {
+        PrintInOrder();
+        int id;
+        cout &lt;&lt; &quot;Введите id&quot; &lt;&lt; endl;
+        cin &gt;&gt; id;
+            BookNode* ptr = FindPrivateId(id, BinarySearchTree&lt;string, BookNode&gt;::root);
+            if (ptr == NULL) { cout &lt;&lt; &quot;Такого нема&quot; &lt;&lt; endl; }
+            else  (BinarySearchTree&lt;string, BookNode&gt;::RemoveNode(ptr, BinarySearchTree&lt;string, BookNode&gt;::root, 1));
+            system(&quot;pause&quot;);
+    }
+    /*! Print.*/
+    void PrintInOrder() {
+        PrintInOrderPrivate(BinarySearchTree&lt;string, BookNode&gt;::root);
+        system(&quot;pause&quot;);
+    }
+    /*! Find.*/
+    void Find() {
+        string inf;
+        cout &lt;&lt; &quot;Введите, что хотите найти" &lt;&lt; endl;
+        cin &gt;&gt; inf;
+            BookNode* ptr1 = FindPrivate(inf, BinarySearchTree&lt;string, BookNode&gt;::root);
+            if (ptr1 == NULL ) { cout &lt;&lt; &quot;Такого нема&quot; &lt;&lt; endl; }
+            else {
+                PrintBook(ptr1);
+            }
+            system(&quot;pause&quot;);
+    }
+    BookNode* FindPrivate(string name, BookNode* node)
+    {
+        if (node != NULL)
+        {
+            if (node-&gt;data == name)
+            {
+                return node;
+            }
+            else
+            {
+                if (name &lt;= node-&gt;data)
+                {
+                    FindPrivate(name, node-&gt;left);
+                }
+                else if (name &gt; node-&gt;data)
+                {
+                    FindPrivate(name, node-&gt;right);
+                }
+            }
+        }
+        else { return node; }
+    }
+    void PrintBook(BookNode* node) {
+        cout &lt;&lt; node-&gt;id &lt;&lt; &quot;. &quot;;
+        cout &lt;&lt; &quot;Название: &quot; &lt;&lt; node-&gt;data &lt;&lt; endl;
+        cout &lt;&lt; &quot;Авторы: &quot;;
+        for (int i = 0; i &lt; node-&gt;authors.size(); i++)
+        {
+            cout &lt;&lt; node-&gt;authors[i];
+            if (i&lt;= node-&gt;authors.size()-1) { cout &lt;&lt; &quot;, &quot;; }
+            else(cout &lt;&lt; endl);
+        }
+        cout &lt;&lt; &quot;Дата написания:&quot; &lt;&lt; node-&gt;d &lt;&lt; &quot;. &quot; &lt;&lt; node-&gt;m &lt;&lt; &quot;. &quot; &lt;&lt; node-&gt;y &lt;&lt; endl;
+        cout &lt;&lt; &quot;Количество страниц:&quot; &lt;&lt; node-&gt;id &lt;&lt; &quot;.&quot;;
+        cout &lt;&lt; &quot;Описание:&quot; &lt;&lt; node-&gt;plot &lt;&lt; endl;
+    }
+private:
+    /*! Search by id.*/
+    BookNode* FindPrivateId(int id, BookNode* node) {
+        if (node == NULL) return node;
+        if (id == node-&gt;id) {
+            return node;
+        }
+        BookNode* tmp1 = FindPrivateId(id, node-&gt;left);
+        if (tmp1 != NULL) {
+            if (id == tmp1-&gt;id) { return tmp1; }
+        }
+        BookNode* tmp2 = FindPrivateId(id, node-&gt;right);
+        if (tmp2 != NULL) {
+            if (id == tmp2-&gt;id) { return tmp2; }
+        }
+    }
+    void PrintInOrderPrivate(BookNode* node)
+    {
+        if (BinarySearchTree&lt;string, BookNode&gt;::root != NULL)
+        {
+            if (node-&gt;left != NULL)
+            {
+                PrintInOrderPrivate(node-&gt;left);
+            }
+            PrintBook(node);
+            if (node-&gt;right != NULL)
+            {
+                PrintInOrderPrivate(node-&gt;right);
+            } 
+        }
+        else(cout &lt;&lt; &quot;Пусто" &lt;&lt; endl);
+    }
+    void InFilePrivate(BookNode* node, ostream &amp;books) {
+        
+        if (node-&gt;left != NULL)
+        {
+            InFilePrivate(node-&gt;left, books);
+        }
+        books.write((char*)&amp;node, sizeof(BookNode));
+        if (node-&gt;right != NULL)
+        {
+            InFilePrivate(node-&gt;right, books);
+        }
+    }
+};&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        getline(cin, b-&gt;data);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Введите количество авторов  &lt;&lt; endl;
+        cin &gt;&gt; n;
+        cout &lt;&lt; &quot;Заполните авторов" &lt;&lt; endl;
+        cin.ignore(1, &#39;\n&#39;);
+        for (int i = 0; i &lt; n; i++) {
+            getline(cin, s);
+            b-&gt;authors.push_back(s);
+        }
+        cout &lt;&lt; &quot;Заполните дату написания книги(день месяц год)&quot; &lt;&lt; endl;
+        cin &gt;&gt; b-&gt;d &gt;&gt; b-&gt;m &gt;&gt; b-&gt;y;
+        cout &lt;&lt; &quot;Введите количество страниц" &lt;&lt; endl;
+        cin &gt;&gt; b-&gt;pages;
+        cin.ignore(1, &#39;\n&#39;);
+        cout &lt;&lt; &quot;Заполните сюжет кратко&quot; &lt;&lt; endl;
+        getline(cin, b-&gt;plot);
+        BinarySearchTree&lt;string, BookNode&gt;::AddLeaf(b, BinarySearchTree&lt;string, BookNode&gt;::root);
+        
+    }
+    /*! Delete a book.*/
+    void Delete()
+    {
+        PrintInOrder();
+        int id;
+        cout &lt;&lt; &quot;Введите id&quot; &lt;&lt; endl;
+        cin &gt;&gt; id;
+            BookNode* ptr = FindPrivateId(id, BinarySearchTree&lt;string, BookNode&gt;::root);
+            if (ptr == NULL) { cout &lt;&lt; &quot;Такого нема&quot; &lt;&lt; endl; }
+            else  (BinarySearchTree&lt;string, BookNode&gt;::RemoveNode(ptr, BinarySearchTree&lt;string, BookNode&gt;::root, 1));
+            system(&quot;pause&quot;);
+    }
+    /*! Print.*/
+    void PrintInOrder() {
+        PrintInOrderPrivate(BinarySearchTree&lt;string, BookNode&gt;::root);
+        system(&quot;pause&quot;);
+    }
+    /*! Find.*/
+    void Find() {
+        string inf;
+        cout &lt;&lt; &quot;Введите, что хотите найти" &lt;&lt; endl;
+        cin &gt;&gt; inf;
+            BookNode* ptr1 = FindPrivate(inf, BinarySearchTree&lt;string, BookNode&gt;::root);
+            if (ptr1 == NULL ) { cout &lt;&lt; &quot;Такого нема&quot; &lt;&lt; endl; }
+            else {
+                PrintBook(ptr1);
+            }
+            system(&quot;pause&quot;);
+    }
+    BookNode* FindPrivate(string name, BookNode* node)
+    {
+        if (node != NULL)
+        {
+            if (node-&gt;data == name)
+            {
+                return node;
+            }
+            else
+            {
+                if (name &lt;= node-&gt;data)
+                {
+                    FindPrivate(name, node-&gt;left);
+                }
+                else if (name &gt; node-&gt;data)
+                {
+                    FindPrivate(name, node-&gt;right);
+                }
+            }
+        }
+        else { return node; }
+    }
+    void PrintBook(BookNode* node) {
+        cout &lt;&lt; node-&gt;id &lt;&lt; &quot;. &quot;;
+        cout &lt;&lt; &quot;Название: &quot; &lt;&lt; node-&gt;data &lt;&lt; endl;
+        cout &lt;&lt; &quot;Авторы: &quot;;
+        for (int i = 0; i &lt; node-&gt;authors.size(); i++)
+        {
+            cout &lt;&lt; node-&gt;authors[i];
+            if (i&lt;= node-&gt;authors.size()-1) { cout &lt;&lt; &quot;, &quot;; }
+            else(cout &lt;&lt; endl);
+        }
+        cout &lt;&lt; &quot;Дата написания:&quot; &lt;&lt; node-&gt;d &lt;&lt; &quot;. &quot; &lt;&lt; node-&gt;m &lt;&lt; &quot;. &quot; &lt;&lt; node-&gt;y &lt;&lt; endl;
+        cout &lt;&lt; &quot;Количество страниц:&quot; &lt;&lt; node-&gt;id &lt;&lt; &quot;.&quot;;
+        cout &lt;&lt; &quot;Описание:&quot; &lt;&lt; node-&gt;plot &lt;&lt; endl;
+    }
+private:
+    /*! Search by id.*/
+    BookNode* FindPrivateId(int id, BookNode* node) {
+        if (node == NULL) return node;
+        if (id == node-&gt;id) {
+            return node;
+        }
+        BookNode* tmp1 = FindPrivateId(id, node-&gt;left);
+        if (tmp1 != NULL) {
+            if (id == tmp1-&gt;id) { return tmp1; }
+        }
+        BookNode* tmp2 = FindPrivateId(id, node-&gt;right);
+        if (tmp2 != NULL) {
+            if (id == tmp2-&gt;id) { return tmp2; }
+        }
+    }
+    void PrintInOrderPrivate(BookNode* node)
+    {
+        if (BinarySearchTree&lt;string, BookNode&gt;::root != NULL)
+        {
+            if (node-&gt;left != NULL)
+            {
+                PrintInOrderPrivate(node-&gt;left);
+            }
+            PrintBook(node);
+            if (node-&gt;right != NULL)
+            {
+                PrintInOrderPrivate(node-&gt;right);
+            } 
+        }
+        else(cout &lt;&lt; &quot;Пусто" &lt;&lt; endl);
+    }
+    void InFilePrivate(BookNode* node, ostream &amp;books) {
+        
+        if (node-&gt;left != NULL)
+        {
+            InFilePrivate(node-&gt;left, books);
+        }
+        books.write((char*)&amp;node, sizeof(BookNode));
+        if (node-&gt;right != NULL)
+        {
+            InFilePrivate(node-&gt;right, books);
+        }
+    }
+};&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        cin &gt;&gt; n;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Заполните авторов  &lt;&lt; endl;
+        cin.ignore(1, &#39;\n&#39;);
+        for (int i = 0; i &lt; n; i++) {
+            getline(cin, s);
+            b-&gt;authors.push_back(s);
+        }
+        cout &lt;&lt; &quot;Заполните дату написания книги(день месяц год)&quot; &lt;&lt; endl;
+        cin &gt;&gt; b-&gt;d &gt;&gt; b-&gt;m &gt;&gt; b-&gt;y;
+        cout &lt;&lt; &quot;Введите количество страниц" &lt;&lt; endl;
+        cin &gt;&gt; b-&gt;pages;
+        cin.ignore(1, &#39;\n&#39;);
+        cout &lt;&lt; &quot;Заполните сюжет кратко&quot; &lt;&lt; endl;
+        getline(cin, b-&gt;plot);
+        BinarySearchTree&lt;string, BookNode&gt;::AddLeaf(b, BinarySearchTree&lt;string, BookNode&gt;::root);
+        
+    }
+    /*! Delete a book.*/
+    void Delete()
+    {
+        PrintInOrder();
+        int id;
+        cout &lt;&lt; &quot;Введите id&quot; &lt;&lt; endl;
+        cin &gt;&gt; id;
+            BookNode* ptr = FindPrivateId(id, BinarySearchTree&lt;string, BookNode&gt;::root);
+            if (ptr == NULL) { cout &lt;&lt; &quot;Такого нема&quot; &lt;&lt; endl; }
+            else  (BinarySearchTree&lt;string, BookNode&gt;::RemoveNode(ptr, BinarySearchTree&lt;string, BookNode&gt;::root, 1));
+            system(&quot;pause&quot;);
+    }
+    /*! Print.*/
+    void PrintInOrder() {
+        PrintInOrderPrivate(BinarySearchTree&lt;string, BookNode&gt;::root);
+        system(&quot;pause&quot;);
+    }
+    /*! Find.*/
+    void Find() {
+        string inf;
+        cout &lt;&lt; &quot;Введите, что хотите найти" &lt;&lt; endl;
+        cin &gt;&gt; inf;
+            BookNode* ptr1 = FindPrivate(inf, BinarySearchTree&lt;string, BookNode&gt;::root);
+            if (ptr1 == NULL ) { cout &lt;&lt; &quot;Такого нема&quot; &lt;&lt; endl; }
+            else {
+                PrintBook(ptr1);
+            }
+            system(&quot;pause&quot;);
+    }
+    BookNode* FindPrivate(string name, BookNode* node)
+    {
+        if (node != NULL)
+        {
+            if (node-&gt;data == name)
+            {
+                return node;
+            }
+            else
+            {
+                if (name &lt;= node-&gt;data)
+                {
+                    FindPrivate(name, node-&gt;left);
+                }
+                else if (name &gt; node-&gt;data)
+                {
+                    FindPrivate(name, node-&gt;right);
+                }
+            }
+        }
+        else { return node; }
+    }
+    void PrintBook(BookNode* node) {
+        cout &lt;&lt; node-&gt;id &lt;&lt; &quot;. &quot;;
+        cout &lt;&lt; &quot;Название: &quot; &lt;&lt; node-&gt;data &lt;&lt; endl;
+        cout &lt;&lt; &quot;Авторы: &quot;;
+        for (int i = 0; i &lt; node-&gt;authors.size(); i++)
+        {
+            cout &lt;&lt; node-&gt;authors[i];
+            if (i&lt;= node-&gt;authors.size()-1) { cout &lt;&lt; &quot;, &quot;; }
+            else(cout &lt;&lt; endl);
+        }
+        cout &lt;&lt; &quot;Дата написания:&quot; &lt;&lt; node-&gt;d &lt;&lt; &quot;. &quot; &lt;&lt; node-&gt;m &lt;&lt; &quot;. &quot; &lt;&lt; node-&gt;y &lt;&lt; endl;
+        cout &lt;&lt; &quot;Количество страниц:&quot; &lt;&lt; node-&gt;id &lt;&lt; &quot;.&quot;;
+        cout &lt;&lt; &quot;Описание:&quot; &lt;&lt; node-&gt;plot &lt;&lt; endl;
+    }
+private:
+    /*! Search by id.*/
+    BookNode* FindPrivateId(int id, BookNode* node) {
+        if (node == NULL) return node;
+        if (id == node-&gt;id) {
+            return node;
+        }
+        BookNode* tmp1 = FindPrivateId(id, node-&gt;left);
+        if (tmp1 != NULL) {
+            if (id == tmp1-&gt;id) { return tmp1; }
+        }
+        BookNode* tmp2 = FindPrivateId(id, node-&gt;right);
+        if (tmp2 != NULL) {
+            if (id == tmp2-&gt;id) { return tmp2; }
+        }
+    }
+    void PrintInOrderPrivate(BookNode* node)
+    {
+        if (BinarySearchTree&lt;string, BookNode&gt;::root != NULL)
+        {
+            if (node-&gt;left != NULL)
+            {
+                PrintInOrderPrivate(node-&gt;left);
+            }
+            PrintBook(node);
+            if (node-&gt;right != NULL)
+            {
+                PrintInOrderPrivate(node-&gt;right);
+            } 
+        }
+        else(cout &lt;&lt; &quot;Пусто" &lt;&lt; endl);
+    }
+    void InFilePrivate(BookNode* node, ostream &amp;books) {
+        
+        if (node-&gt;left != NULL)
+        {
+            InFilePrivate(node-&gt;left, books);
+        }
+        books.write((char*)&amp;node, sizeof(BookNode));
+        if (node-&gt;right != NULL)
+        {
+            InFilePrivate(node-&gt;right, books);
+        }
+    }
+};&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        cin.ignore(1, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            getline(cin, s);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            b-&gt;authors.push_back(s);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Заполните дату написания книги(день месяц год)&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        cin &gt;&gt; b-&gt;d &gt;&gt; b-&gt;m &gt;&gt; b-&gt;y;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Введите количество страниц  &lt;&lt; endl;
+        cin &gt;&gt; b-&gt;pages;
+        cin.ignore(1, &#39;\n&#39;);
+        cout &lt;&lt; &quot;Заполните сюжет кратко&quot; &lt;&lt; endl;
+        getline(cin, b-&gt;plot);
+        BinarySearchTree&lt;string, BookNode&gt;::AddLeaf(b, BinarySearchTree&lt;string, BookNode&gt;::root);
+        
+    }
+    /*! Delete a book.*/
+    void Delete()
+    {
+        PrintInOrder();
+        int id;
+        cout &lt;&lt; &quot;Введите id&quot; &lt;&lt; endl;
+        cin &gt;&gt; id;
+            BookNode* ptr = FindPrivateId(id, BinarySearchTree&lt;string, BookNode&gt;::root);
+            if (ptr == NULL) { cout &lt;&lt; &quot;Такого нема&quot; &lt;&lt; endl; }
+            else  (BinarySearchTree&lt;string, BookNode&gt;::RemoveNode(ptr, BinarySearchTree&lt;string, BookNode&gt;::root, 1));
+            system(&quot;pause&quot;);
+    }
+    /*! Print.*/
+    void PrintInOrder() {
+        PrintInOrderPrivate(BinarySearchTree&lt;string, BookNode&gt;::root);
+        system(&quot;pause&quot;);
+    }
+    /*! Find.*/
+    void Find() {
+        string inf;
+        cout &lt;&lt; &quot;Введите, что хотите найти" &lt;&lt; endl;
+        cin &gt;&gt; inf;
+            BookNode* ptr1 = FindPrivate(inf, BinarySearchTree&lt;string, BookNode&gt;::root);
+            if (ptr1 == NULL ) { cout &lt;&lt; &quot;Такого нема&quot; &lt;&lt; endl; }
+            else {
+                PrintBook(ptr1);
+            }
+            system(&quot;pause&quot;);
+    }
+    BookNode* FindPrivate(string name, BookNode* node)
+    {
+        if (node != NULL)
+        {
+            if (node-&gt;data == name)
+            {
+                return node;
+            }
+            else
+            {
+                if (name &lt;= node-&gt;data)
+                {
+                    FindPrivate(name, node-&gt;left);
+                }
+                else if (name &gt; node-&gt;data)
+                {
+                    FindPrivate(name, node-&gt;right);
+                }
+            }
+        }
+        else { return node; }
+    }
+    void PrintBook(BookNode* node) {
+        cout &lt;&lt; node-&gt;id &lt;&lt; &quot;. &quot;;
+        cout &lt;&lt; &quot;Название: &quot; &lt;&lt; node-&gt;data &lt;&lt; endl;
+        cout &lt;&lt; &quot;Авторы: &quot;;
+        for (int i = 0; i &lt; node-&gt;authors.size(); i++)
+        {
+            cout &lt;&lt; node-&gt;authors[i];
+            if (i&lt;= node-&gt;authors.size()-1) { cout &lt;&lt; &quot;, &quot;; }
+            else(cout &lt;&lt; endl);
+        }
+        cout &lt;&lt; &quot;Дата написания:&quot; &lt;&lt; node-&gt;d &lt;&lt; &quot;. &quot; &lt;&lt; node-&gt;m &lt;&lt; &quot;. &quot; &lt;&lt; node-&gt;y &lt;&lt; endl;
+        cout &lt;&lt; &quot;Количество страниц:&quot; &lt;&lt; node-&gt;id &lt;&lt; &quot;.&quot;;
+        cout &lt;&lt; &quot;Описание:&quot; &lt;&lt; node-&gt;plot &lt;&lt; endl;
+    }
+private:
+    /*! Search by id.*/
+    BookNode* FindPrivateId(int id, BookNode* node) {
+        if (node == NULL) return node;
+        if (id == node-&gt;id) {
+            return node;
+        }
+        BookNode* tmp1 = FindPrivateId(id, node-&gt;left);
+        if (tmp1 != NULL) {
+            if (id == tmp1-&gt;id) { return tmp1; }
+        }
+        BookNode* tmp2 = FindPrivateId(id, node-&gt;right);
+        if (tmp2 != NULL) {
+            if (id == tmp2-&gt;id) { return tmp2; }
+        }
+    }
+    void PrintInOrderPrivate(BookNode* node)
+    {
+        if (BinarySearchTree&lt;string, BookNode&gt;::root != NULL)
+        {
+            if (node-&gt;left != NULL)
+            {
+                PrintInOrderPrivate(node-&gt;left);
+            }
+            PrintBook(node);
+            if (node-&gt;right != NULL)
+            {
+                PrintInOrderPrivate(node-&gt;right);
+            } 
+        }
+        else(cout &lt;&lt; &quot;Пусто" &lt;&lt; endl);
+    }
+    void InFilePrivate(BookNode* node, ostream &amp;books) {
+        
+        if (node-&gt;left != NULL)
+        {
+            InFilePrivate(node-&gt;left, books);
+        }
+        books.write((char*)&amp;node, sizeof(BookNode));
+        if (node-&gt;right != NULL)
+        {
+            InFilePrivate(node-&gt;right, books);
+        }
+    }
+};&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        cin &gt;&gt; b-&gt;pages;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        cin.ignore(1, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Заполните сюжет кратко&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        getline(cin, b-&gt;plot);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="class_binary_search_tree.html#ad4723e714be61e8cd31ad821ae719ad8">BinarySearchTree&lt;string, BookNode&gt;::AddLeaf</a>(b, <a class="code" href="class_binary_search_tree.html">BinarySearchTree&lt;string, BookNode&gt;::root</a>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_book_functions.html#a3fe508a645783bbe83ee3e9dbb08401e">   62</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_book_functions.html#a3fe508a645783bbe83ee3e9dbb08401e">Delete</a>()</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="class_book_functions.html#aab4dbc01f21f34a9d06ec68cb290acd1">PrintInOrder</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">int</span> id;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Введите id&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        cin &gt;&gt; id;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <a class="code" href="class_book_node.html">BookNode</a>* ptr = FindPrivateId(<span class="keywordtype">id</span>, <a class="code" href="class_binary_search_tree.html">BinarySearchTree&lt;string, BookNode&gt;::root</a>);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">if</span> (ptr == NULL) { cout &lt;&lt; <span class="stringliteral">&quot;Такого нема&quot;</span> &lt;&lt; endl; }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">else</span>  (<a class="code" href="class_binary_search_tree.html">BinarySearchTree&lt;string, BookNode&gt;::RemoveNode</a>(ptr, <a class="code" href="class_binary_search_tree.html">BinarySearchTree&lt;string, BookNode&gt;::root</a>, 1));</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            system(<span class="stringliteral">&quot;pause&quot;</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_book_functions.html#aab4dbc01f21f34a9d06ec68cb290acd1">   74</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_book_functions.html#aab4dbc01f21f34a9d06ec68cb290acd1">PrintInOrder</a>() {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        PrintInOrderPrivate(<a class="code" href="class_binary_search_tree.html">BinarySearchTree&lt;string, BookNode&gt;::root</a>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        system(<span class="stringliteral">&quot;pause&quot;</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_book_functions.html#abe38b8adfff185e6df62b62d167a9a68">   79</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_book_functions.html#abe38b8adfff185e6df62b62d167a9a68">Find</a>() {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">string</span> inf;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Введите, что хотите найти  &lt;&lt; endl;
+        cin &gt;&gt; inf;
+            BookNode* ptr1 = FindPrivate(inf, BinarySearchTree&lt;string, BookNode&gt;::root);
+            if (ptr1 == NULL ) { cout &lt;&lt; &quot;Такого нема&quot; &lt;&lt; endl; }
+            else {
+                PrintBook(ptr1);
+            }
+            system(&quot;pause&quot;);
+    }
+    BookNode* FindPrivate(string name, BookNode* node)
+    {
+        if (node != NULL)
+        {
+            if (node-&gt;data == name)
+            {
+                return node;
+            }
+            else
+            {
+                if (name &lt;= node-&gt;data)
+                {
+                    FindPrivate(name, node-&gt;left);
+                }
+                else if (name &gt; node-&gt;data)
+                {
+                    FindPrivate(name, node-&gt;right);
+                }
+            }
+        }
+        else { return node; }
+    }
+    void PrintBook(BookNode* node) {
+        cout &lt;&lt; node-&gt;id &lt;&lt; &quot;. &quot;;
+        cout &lt;&lt; &quot;Название: &quot; &lt;&lt; node-&gt;data &lt;&lt; endl;
+        cout &lt;&lt; &quot;Авторы: &quot;;
+        for (int i = 0; i &lt; node-&gt;authors.size(); i++)
+        {
+            cout &lt;&lt; node-&gt;authors[i];
+            if (i&lt;= node-&gt;authors.size()-1) { cout &lt;&lt; &quot;, &quot;; }
+            else(cout &lt;&lt; endl);
+        }
+        cout &lt;&lt; &quot;Дата написания:&quot; &lt;&lt; node-&gt;d &lt;&lt; &quot;. &quot; &lt;&lt; node-&gt;m &lt;&lt; &quot;. &quot; &lt;&lt; node-&gt;y &lt;&lt; endl;
+        cout &lt;&lt; &quot;Количество страниц:&quot; &lt;&lt; node-&gt;id &lt;&lt; &quot;.&quot;;
+        cout &lt;&lt; &quot;Описание:&quot; &lt;&lt; node-&gt;plot &lt;&lt; endl;
+    }
+private:
+    /*! Search by id.*/
+    BookNode* FindPrivateId(int id, BookNode* node) {
+        if (node == NULL) return node;
+        if (id == node-&gt;id) {
+            return node;
+        }
+        BookNode* tmp1 = FindPrivateId(id, node-&gt;left);
+        if (tmp1 != NULL) {
+            if (id == tmp1-&gt;id) { return tmp1; }
+        }
+        BookNode* tmp2 = FindPrivateId(id, node-&gt;right);
+        if (tmp2 != NULL) {
+            if (id == tmp2-&gt;id) { return tmp2; }
+        }
+    }
+    void PrintInOrderPrivate(BookNode* node)
+    {
+        if (BinarySearchTree&lt;string, BookNode&gt;::root != NULL)
+        {
+            if (node-&gt;left != NULL)
+            {
+                PrintInOrderPrivate(node-&gt;left);
+            }
+            PrintBook(node);
+            if (node-&gt;right != NULL)
+            {
+                PrintInOrderPrivate(node-&gt;right);
+            } 
+        }
+        else(cout &lt;&lt; &quot;Пусто" &lt;&lt; endl);
+    }
+    void InFilePrivate(BookNode* node, ostream &amp;books) {
+        
+        if (node-&gt;left != NULL)
+        {
+            InFilePrivate(node-&gt;left, books);
+        }
+        books.write((char*)&amp;node, sizeof(BookNode));
+        if (node-&gt;right != NULL)
+        {
+            InFilePrivate(node-&gt;right, books);
+        }
+    }
+};&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        cin &gt;&gt; inf;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <a class="code" href="class_book_node.html">BookNode</a>* ptr1 = FindPrivate(inf, <a class="code" href="class_binary_search_tree.html">BinarySearchTree&lt;string, BookNode&gt;::root</a>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordflow">if</span> (ptr1 == NULL ) { cout &lt;&lt; <span class="stringliteral">&quot;Такого нема&quot;</span> &lt;&lt; endl; }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                PrintBook(ptr1);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            system(<span class="stringliteral">&quot;pause&quot;</span>);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="class_book_node.html">BookNode</a>* FindPrivate(<span class="keywordtype">string</span> name, <a class="code" href="class_book_node.html">BookNode</a>* node)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">if</span> (node != NULL)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordflow">if</span> (node-&gt;data == name)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordflow">return</span> node;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <span class="keywordflow">if</span> (name &lt;= node-&gt;data)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                    FindPrivate(name, node-&gt;left);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name &gt; node-&gt;data)</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    FindPrivate(name, node-&gt;right);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">else</span> { <span class="keywordflow">return</span> node; }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">void</span> PrintBook(<a class="code" href="class_book_node.html">BookNode</a>* node) {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        cout &lt;&lt; node-&gt;id &lt;&lt; <span class="stringliteral">&quot;. &quot;</span>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Название: &quot;</span> &lt;&lt; node-&gt;data &lt;&lt; endl;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Авторы: &quot;</span>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; node-&gt;authors.size(); i++)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            cout &lt;&lt; node-&gt;authors[i];</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keywordflow">if</span> (i&lt;= node-&gt;authors.size()-1) { cout &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>; }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">else</span>(cout &lt;&lt; endl);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Дата написания:&quot;</span> &lt;&lt; node-&gt;d &lt;&lt; <span class="stringliteral">&quot;. &quot;</span> &lt;&lt; node-&gt;m &lt;&lt; <span class="stringliteral">&quot;. &quot;</span> &lt;&lt; node-&gt;y &lt;&lt; endl;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Количество страниц:&quot;</span> &lt;&lt; node-&gt;id &lt;&lt; <span class="stringliteral">&quot;.&quot;</span>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Описание:&quot;</span> &lt;&lt; node-&gt;plot &lt;&lt; endl;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <a class="code" href="class_book_node.html">BookNode</a>* FindPrivateId(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <a class="code" href="class_book_node.html">BookNode</a>* node) {</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">if</span> (node == NULL) <span class="keywordflow">return</span> node;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == node-&gt;id) {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">return</span> node;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <a class="code" href="class_book_node.html">BookNode</a>* tmp1 = FindPrivateId(<span class="keywordtype">id</span>, node-&gt;left);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordflow">if</span> (tmp1 != NULL) {</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == tmp1-&gt;id) { <span class="keywordflow">return</span> tmp1; }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <a class="code" href="class_book_node.html">BookNode</a>* tmp2 = FindPrivateId(<span class="keywordtype">id</span>, node-&gt;right);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keywordflow">if</span> (tmp2 != NULL) {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == tmp2-&gt;id) { <span class="keywordflow">return</span> tmp2; }</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        }</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">void</span> PrintInOrderPrivate(<a class="code" href="class_book_node.html">BookNode</a>* node)</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    {</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_binary_search_tree.html">BinarySearchTree&lt;string, BookNode&gt;::root</a> != NULL)</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        {</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <span class="keywordflow">if</span> (node-&gt;left != NULL)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                PrintInOrderPrivate(node-&gt;left);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            }</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            PrintBook(node);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <span class="keywordflow">if</span> (node-&gt;right != NULL)</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            {</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                PrintInOrderPrivate(node-&gt;right);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            } </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        }</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordflow">else</span>(cout &lt;&lt; <span class="stringliteral">&quot;Пусто  &lt;&lt; endl);
+    }
+    void InFilePrivate(BookNode* node, ostream &amp;books) {
+        
+        if (node-&gt;left != NULL)
+        {
+            InFilePrivate(node-&gt;left, books);
+        }
+        books.write((char*)&amp;node, sizeof(BookNode));
+        if (node-&gt;right != NULL)
+        {
+            InFilePrivate(node-&gt;right, books);
+        }
+    }
+};&quot;</span> &lt;&lt; endl);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">void</span> InFilePrivate(<a class="code" href="class_book_node.html">BookNode</a>* node, ostream &amp;books) {</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">if</span> (node-&gt;left != NULL)</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        {</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            InFilePrivate(node-&gt;left, books);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        }</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        books.write((<span class="keywordtype">char</span>*)&amp;node, <span class="keyword">sizeof</span>(<a class="code" href="class_book_node.html">BookNode</a>));</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keywordflow">if</span> (node-&gt;right != NULL)</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        {</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            InFilePrivate(node-&gt;right, books);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        }</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;};</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_book_functions_html_a3fe508a645783bbe83ee3e9dbb08401e"><div class="ttname"><a href="class_book_functions.html#a3fe508a645783bbe83ee3e9dbb08401e">BookFunctions::Delete</a></div><div class="ttdeci">void Delete()</div><div class="ttdef"><b>Definition:</b> BookNode.h:62</div></div>
+<div class="ttc" id="aclass_book_functions_html"><div class="ttname"><a href="class_book_functions.html">BookFunctions</a></div><div class="ttdef"><b>Definition:</b> BookNode.h:23</div></div>
+<div class="ttc" id="aclass_book_functions_html_a58ac88c0d21c650b24a6c916da1e11ad"><div class="ttname"><a href="class_book_functions.html#a58ac88c0d21c650b24a6c916da1e11ad">BookFunctions::AddBook</a></div><div class="ttdeci">void AddBook()</div><div class="ttdef"><b>Definition:</b> BookNode.h:38</div></div>
+<div class="ttc" id="aclass_book_functions_html_aab4dbc01f21f34a9d06ec68cb290acd1"><div class="ttname"><a href="class_book_functions.html#aab4dbc01f21f34a9d06ec68cb290acd1">BookFunctions::PrintInOrder</a></div><div class="ttdeci">void PrintInOrder()</div><div class="ttdef"><b>Definition:</b> BookNode.h:74</div></div>
+<div class="ttc" id="aclass_binary_search_tree_html"><div class="ttname"><a href="class_binary_search_tree.html">BinarySearchTree</a></div><div class="ttdef"><b>Definition:</b> BinarySearchTree.h:8</div></div>
+<div class="ttc" id="aclass_book_node_html"><div class="ttname"><a href="class_book_node.html">BookNode</a></div><div class="ttdef"><b>Definition:</b> BookNode.h:9</div></div>
+<div class="ttc" id="aclass_book_functions_html_a1f0d4c556662e1a93f0f82ad6dbf55c6"><div class="ttname"><a href="class_book_functions.html#a1f0d4c556662e1a93f0f82ad6dbf55c6">BookFunctions::InFile</a></div><div class="ttdeci">void InFile()</div><div class="ttdef"><b>Definition:</b> BookNode.h:32</div></div>
+<div class="ttc" id="aclass_book_functions_html_abe38b8adfff185e6df62b62d167a9a68"><div class="ttname"><a href="class_book_functions.html#abe38b8adfff185e6df62b62d167a9a68">BookFunctions::Find</a></div><div class="ttdeci">void Find()</div><div class="ttdef"><b>Definition:</b> BookNode.h:79</div></div>
+<div class="ttc" id="aclass_binary_search_tree_html_ad4723e714be61e8cd31ad821ae719ad8"><div class="ttname"><a href="class_binary_search_tree.html#ad4723e714be61e8cd31ad821ae719ad8">BinarySearchTree::AddLeaf</a></div><div class="ttdeci">void AddLeaf(U *cur, U *node)</div><div class="ttdef"><b>Definition:</b> BinarySearchTree.h:33</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+РЎС‚РІРѕСЂРµРЅРѕ СЃРёСЃС‚РµРјРѕСЋ&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
+</small></address>
+</body>
+</html>

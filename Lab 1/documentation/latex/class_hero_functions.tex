@@ -1,0 +1,89 @@
+\hypertarget{class_hero_functions}{}\doxysection{Hero\+Functions$<$ T, U $>$ Class Template Reference}
+\label{class_hero_functions}\index{HeroFunctions$<$ T, U $>$@{HeroFunctions$<$ T, U $>$}}
+
+
+{\ttfamily \#include $<$Hero\+Functions.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_hero_functions_a8429ea2752b50001f6de87a6e7252597}{Add\+Hero}} (\mbox{\hyperlink{class_node}{Node}}$<$ \mbox{\hyperlink{class_book}{Book}} $>$ $\ast$r)
+\item 
+void \mbox{\hyperlink{class_hero_functions_a17ba2a061f8a5da028b382169451bfc7}{Delete}} ()
+\item 
+void \mbox{\hyperlink{class_hero_functions_a1d0cb57b869b8b78f0b3d760cf0ed983}{Print\+In\+Order}} ()
+\item 
+void \mbox{\hyperlink{class_hero_functions_a8b07324882e906f6c04154f85d1889f4}{Find}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_hero_functions_addb99ccd822334e3511460f51735687b}\label{class_hero_functions_addb99ccd822334e3511460f51735687b}} 
+static bool {\bfseries comparator} (\mbox{\hyperlink{class_book}{Book}} $\ast$\&aa, \mbox{\hyperlink{class_book}{Book}} $\ast$\&bb)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_hero_functions_ae3bf80731b0bdc956782a2e15113a3dc}\label{class_hero_functions_ae3bf80731b0bdc956782a2e15113a3dc}} 
+int {\bfseries id} = 1
+\item 
+\mbox{\Hypertarget{class_hero_functions_a765f2066e2ea1ba6b82f0683babf6210}\label{class_hero_functions_a765f2066e2ea1ba6b82f0683babf6210}} 
+\mbox{\hyperlink{class_binary_search_tree}{Binary\+Search\+Tree}}$<$ string, U $>$ {\bfseries bst}
+\item 
+\mbox{\Hypertarget{class_hero_functions_a1c40242afaeb1455233385a42dbfe7b4}\label{class_hero_functions_a1c40242afaeb1455233385a42dbfe7b4}} 
+\mbox{\hyperlink{class_book_functions}{Book\+Functions}}$<$ T, \mbox{\hyperlink{class_book}{Book}} $>$ {\bfseries bf}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T, class U$>$\newline
+class Hero\+Functions$<$ T, U $>$}
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & -\/data type \\
+\hline
+{\em U} & -\/object.\\
+\hline
+\end{DoxyParams}
+Function class for working with character. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_hero_functions_a8429ea2752b50001f6de87a6e7252597}\label{class_hero_functions_a8429ea2752b50001f6de87a6e7252597}} 
+\index{HeroFunctions$<$ T, U $>$@{HeroFunctions$<$ T, U $>$}!AddHero@{AddHero}}
+\index{AddHero@{AddHero}!HeroFunctions$<$ T, U $>$@{HeroFunctions$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{AddHero()}{AddHero()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_hero_functions}{Hero\+Functions}}$<$ T, U $>$\+::Add\+Hero (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}}$<$ \mbox{\hyperlink{class_book}{Book}} $>$ $\ast$}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add a character. 
+\begin{DoxyParams}{Parameters}
+{\em root} & of tree of book to add books \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_hero_functions_a17ba2a061f8a5da028b382169451bfc7}\label{class_hero_functions_a17ba2a061f8a5da028b382169451bfc7}} 
+\index{HeroFunctions$<$ T, U $>$@{HeroFunctions$<$ T, U $>$}!Delete@{Delete}}
+\index{Delete@{Delete}!HeroFunctions$<$ T, U $>$@{HeroFunctions$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_hero_functions}{Hero\+Functions}}$<$ T, U $>$\+::Delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Delete by id. \mbox{\Hypertarget{class_hero_functions_a8b07324882e906f6c04154f85d1889f4}\label{class_hero_functions_a8b07324882e906f6c04154f85d1889f4}} 
+\index{HeroFunctions$<$ T, U $>$@{HeroFunctions$<$ T, U $>$}!Find@{Find}}
+\index{Find@{Find}!HeroFunctions$<$ T, U $>$@{HeroFunctions$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{Find()}{Find()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_hero_functions}{Hero\+Functions}}$<$ T, U $>$\+::Find (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Find by name. \mbox{\Hypertarget{class_hero_functions_a1d0cb57b869b8b78f0b3d760cf0ed983}\label{class_hero_functions_a1d0cb57b869b8b78f0b3d760cf0ed983}} 
+\index{HeroFunctions$<$ T, U $>$@{HeroFunctions$<$ T, U $>$}!PrintInOrder@{PrintInOrder}}
+\index{PrintInOrder@{PrintInOrder}!HeroFunctions$<$ T, U $>$@{HeroFunctions$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{PrintInOrder()}{PrintInOrder()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_hero_functions}{Hero\+Functions}}$<$ T, U $>$\+::Print\+In\+Order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Print. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Hero\+Functions.\+h\end{DoxyCompactItemize}

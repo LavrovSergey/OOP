@@ -1,0 +1,166 @@
+\hypertarget{class_binary_search_tree}{}\doxysection{Binary\+Search\+Tree$<$ T, U $>$ Class Template Reference}
+\label{class_binary_search_tree}\index{BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}}
+
+
+{\ttfamily \#include $<$Binary\+Search\+Tree.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_binary_search_tree_aef966ae780d805bc52314a9570e7ad0a}{Binary\+Search\+Tree}} ()
+\item 
+\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$ \mbox{\hyperlink{class_binary_search_tree_ab451de0e9f9099d63f702a72e33ef0fc}{Get\+Root}} ()
+\item 
+void \mbox{\hyperlink{class_binary_search_tree_a705d82c8c056ba095f0d40216c91b442}{creat\+\_\+leaf}} (T e, bool way)
+\item 
+void \mbox{\hyperlink{class_binary_search_tree_a44be504a04f72b1ec3be349c9ad8d8cb}{Add\+Leaf\+Date}} (U $\ast$cur, \mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$node)
+\item 
+void \mbox{\hyperlink{class_binary_search_tree_a69ab4c7d48539aec7bd571e8da74a4fd}{Add\+Leaf}} (U $\ast$cur, \mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$node)
+\item 
+void \mbox{\hyperlink{class_binary_search_tree_adeac0b085d71617bdd2ee46c1924e016}{creat\+\_\+leaf\+\_\+v}} (std\+::vector$<$ T $>$ v, bool way)
+\item 
+void \mbox{\hyperlink{class_binary_search_tree_a8162012935d6c02a31ae9a573431dbcc}{Remove\+Node}} (\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$p, \mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$parent, int a)
+\item 
+void \mbox{\hyperlink{class_binary_search_tree_ace1f32cdbc3d61ba06d004da3ed8e530}{Remove\+Node\+\_\+vect}} (\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$p, \mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$parent, int a)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_binary_search_tree_ab2a4a767588948ae2c8a7bbecbf3dc8a}\label{class_binary_search_tree_ab2a4a767588948ae2c8a7bbecbf3dc8a}} 
+int {\bfseries d} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T, class U$>$\newline
+class Binary\+Search\+Tree$<$ T, U $>$}
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & -\/data type \\
+\hline
+{\em U} & -\/object.\\
+\hline
+\end{DoxyParams}
+Class binary search tree 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_binary_search_tree_aef966ae780d805bc52314a9570e7ad0a}\label{class_binary_search_tree_aef966ae780d805bc52314a9570e7ad0a}} 
+\index{BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}!BinarySearchTree@{BinarySearchTree}}
+\index{BinarySearchTree@{BinarySearchTree}!BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{BinarySearchTree()}{BinarySearchTree()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+\mbox{\hyperlink{class_binary_search_tree}{Binary\+Search\+Tree}}$<$ T, U $>$\+::\mbox{\hyperlink{class_binary_search_tree}{Binary\+Search\+Tree}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructer. Root = 0. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_binary_search_tree_a69ab4c7d48539aec7bd571e8da74a4fd}\label{class_binary_search_tree_a69ab4c7d48539aec7bd571e8da74a4fd}} 
+\index{BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}!AddLeaf@{AddLeaf}}
+\index{AddLeaf@{AddLeaf}!BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{AddLeaf()}{AddLeaf()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_binary_search_tree}{Binary\+Search\+Tree}}$<$ T, U $>$\+::Add\+Leaf (\begin{DoxyParamCaption}\item[{U $\ast$}]{cur,  }\item[{\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add a node to the tree. 
+\begin{DoxyParams}{Parameters}
+{\em root} & of tree \\
+\hline
+{\em node} & that we add to tree \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binary_search_tree_a44be504a04f72b1ec3be349c9ad8d8cb}\label{class_binary_search_tree_a44be504a04f72b1ec3be349c9ad8d8cb}} 
+\index{BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}!AddLeafDate@{AddLeafDate}}
+\index{AddLeafDate@{AddLeafDate}!BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{AddLeafDate()}{AddLeafDate()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_binary_search_tree}{Binary\+Search\+Tree}}$<$ T, U $>$\+::Add\+Leaf\+Date (\begin{DoxyParamCaption}\item[{U $\ast$}]{cur,  }\item[{\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add a node for series of books to the tree. 
+\begin{DoxyParams}{Parameters}
+{\em root} & of tree \\
+\hline
+{\em node} & that we add to tree \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binary_search_tree_a705d82c8c056ba095f0d40216c91b442}\label{class_binary_search_tree_a705d82c8c056ba095f0d40216c91b442}} 
+\index{BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}!creat\_leaf@{creat\_leaf}}
+\index{creat\_leaf@{creat\_leaf}!BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{creat\_leaf()}{creat\_leaf()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_binary_search_tree}{Binary\+Search\+Tree}}$<$ T, U $>$\+::creat\+\_\+leaf (\begin{DoxyParamCaption}\item[{T}]{e,  }\item[{bool}]{way }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creating a odject of part1. 
+\begin{DoxyParams}{Parameters}
+{\em vector} & \\
+\hline
+{\em way} & shows where our node(left or right from parent) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binary_search_tree_adeac0b085d71617bdd2ee46c1924e016}\label{class_binary_search_tree_adeac0b085d71617bdd2ee46c1924e016}} 
+\index{BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}!creat\_leaf\_v@{creat\_leaf\_v}}
+\index{creat\_leaf\_v@{creat\_leaf\_v}!BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{creat\_leaf\_v()}{creat\_leaf\_v()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_binary_search_tree}{Binary\+Search\+Tree}}$<$ T, U $>$\+::creat\+\_\+leaf\+\_\+v (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$}]{v,  }\item[{bool}]{way }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creating a odject of part1. 
+\begin{DoxyParams}{Parameters}
+{\em vector} & \\
+\hline
+{\em way} & shows where our node(left or right from parent) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binary_search_tree_ab451de0e9f9099d63f702a72e33ef0fc}\label{class_binary_search_tree_ab451de0e9f9099d63f702a72e33ef0fc}} 
+\index{BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}!GetRoot@{GetRoot}}
+\index{GetRoot@{GetRoot}!BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{GetRoot()}{GetRoot()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+\mbox{\hyperlink{class_node}{Node}}$<$U$>$$\ast$ \mbox{\hyperlink{class_binary_search_tree}{Binary\+Search\+Tree}}$<$ T, U $>$\+::Get\+Root (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get a root of tree \begin{DoxyReturn}{Returns}
+root 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binary_search_tree_a8162012935d6c02a31ae9a573431dbcc}\label{class_binary_search_tree_a8162012935d6c02a31ae9a573431dbcc}} 
+\index{BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}!RemoveNode@{RemoveNode}}
+\index{RemoveNode@{RemoveNode}!BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveNode()}{RemoveNode()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_binary_search_tree}{Binary\+Search\+Tree}}$<$ T, U $>$\+::Remove\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$}]{p,  }\item[{\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$}]{parent,  }\item[{int}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Search a position of node we want to delete. 
+\begin{DoxyParams}{Parameters}
+{\em node} & to delete \\
+\hline
+{\em node} & that hane to be parent of node we want to delete \\
+\hline
+{\em 1-\/delete} & node, 2-\/delete node and all under it \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binary_search_tree_ace1f32cdbc3d61ba06d004da3ed8e530}\label{class_binary_search_tree_ace1f32cdbc3d61ba06d004da3ed8e530}} 
+\index{BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}!RemoveNode\_vect@{RemoveNode\_vect}}
+\index{RemoveNode\_vect@{RemoveNode\_vect}!BinarySearchTree$<$ T, U $>$@{BinarySearchTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveNode\_vect()}{RemoveNode\_vect()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_binary_search_tree}{Binary\+Search\+Tree}}$<$ T, U $>$\+::Remove\+Node\+\_\+vect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$}]{p,  }\item[{\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$}]{parent,  }\item[{int}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Search a position of node we want to delete. 
+\begin{DoxyParams}{Parameters}
+{\em node} & to delete \\
+\hline
+{\em node} & that hane to be parent of node we want to delete \\
+\hline
+{\em 1-\/delete} & node, 2-\/delete node and all under it \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Binary\+Search\+Tree.\+h\end{DoxyCompactItemize}

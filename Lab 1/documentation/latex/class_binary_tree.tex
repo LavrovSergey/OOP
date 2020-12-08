@@ -1,0 +1,149 @@
+\hypertarget{class_binary_tree}{}\doxysection{Binary\+Tree$<$ T, U $>$ Class Template Reference}
+\label{class_binary_tree}\index{BinaryTree$<$ T, U $>$@{BinaryTree$<$ T, U $>$}}
+
+
+{\ttfamily \#include $<$Binary\+Tree.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_binary_tree_aa2531dcb048fea592c8a1edcb5fa4a1d}{Binary\+Tree}} ()
+\item 
+\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$ \mbox{\hyperlink{class_binary_tree_a92df2ba6370b86a07a07799e80ef2e20}{Get\+Root}} ()
+\item 
+void \mbox{\hyperlink{class_binary_tree_ac4f3a02d231186f89d614cce62f26209}{Set\+Root}} (\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$node)
+\item 
+\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$ \mbox{\hyperlink{class_binary_tree_a1a4c4946567844e44d280525e99f3486}{Add\+Leaf}} (\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$root, U $\ast$node)
+\item 
+void \mbox{\hyperlink{class_binary_tree_abeaa2ef53186aecfadb6be7c127265aa}{Remove\+Node}} (\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$p, \mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$parent, int a)
+\item 
+U $\ast$ \mbox{\hyperlink{class_binary_tree_a84a5b130e2e8d237b3ce8edacd80b329}{creat\+\_\+leaf\+\_\+v}} (std\+::vector$<$ T $>$ v, bool way)
+\item 
+U $\ast$ \mbox{\hyperlink{class_binary_tree_ab3bb0aa78b051b73439a3f941fd08875}{creat\+\_\+leaf}} (T e, bool way)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_binary_tree_abf9d1994dd1da821c63af073cf1b9bd0}\label{class_binary_tree_abf9d1994dd1da821c63af073cf1b9bd0}} 
+int {\bfseries d} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T, class U$>$\newline
+class Binary\+Tree$<$ T, U $>$}
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & -\/data type \\
+\hline
+{\em U} & -\/object.\\
+\hline
+\end{DoxyParams}
+Class binary tree 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_binary_tree_aa2531dcb048fea592c8a1edcb5fa4a1d}\label{class_binary_tree_aa2531dcb048fea592c8a1edcb5fa4a1d}} 
+\index{BinaryTree$<$ T, U $>$@{BinaryTree$<$ T, U $>$}!BinaryTree@{BinaryTree}}
+\index{BinaryTree@{BinaryTree}!BinaryTree$<$ T, U $>$@{BinaryTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{BinaryTree()}{BinaryTree()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+\mbox{\hyperlink{class_binary_tree}{Binary\+Tree}}$<$ T, U $>$\+::\mbox{\hyperlink{class_binary_tree}{Binary\+Tree}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Conctructer. Root = 0. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_binary_tree_a1a4c4946567844e44d280525e99f3486}\label{class_binary_tree_a1a4c4946567844e44d280525e99f3486}} 
+\index{BinaryTree$<$ T, U $>$@{BinaryTree$<$ T, U $>$}!AddLeaf@{AddLeaf}}
+\index{AddLeaf@{AddLeaf}!BinaryTree$<$ T, U $>$@{BinaryTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{AddLeaf()}{AddLeaf()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+\mbox{\hyperlink{class_node}{Node}}$<$U$>$$\ast$ \mbox{\hyperlink{class_binary_tree}{Binary\+Tree}}$<$ T, U $>$\+::Add\+Leaf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$}]{root,  }\item[{U $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add a node to the tree. We check the tree for fullness and write down where it is empty 
+\begin{DoxyParams}{Parameters}
+{\em root} & of tree \\
+\hline
+{\em node} & that we add to tree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+root 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binary_tree_ab3bb0aa78b051b73439a3f941fd08875}\label{class_binary_tree_ab3bb0aa78b051b73439a3f941fd08875}} 
+\index{BinaryTree$<$ T, U $>$@{BinaryTree$<$ T, U $>$}!creat\_leaf@{creat\_leaf}}
+\index{creat\_leaf@{creat\_leaf}!BinaryTree$<$ T, U $>$@{BinaryTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{creat\_leaf()}{creat\_leaf()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+U$\ast$ \mbox{\hyperlink{class_binary_tree}{Binary\+Tree}}$<$ T, U $>$\+::creat\+\_\+leaf (\begin{DoxyParamCaption}\item[{T}]{e,  }\item[{bool}]{way }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creating a odject of part1. 
+\begin{DoxyParams}{Parameters}
+{\em vector} & \\
+\hline
+{\em way} & shows where our node(left or right from parent) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binary_tree_a84a5b130e2e8d237b3ce8edacd80b329}\label{class_binary_tree_a84a5b130e2e8d237b3ce8edacd80b329}} 
+\index{BinaryTree$<$ T, U $>$@{BinaryTree$<$ T, U $>$}!creat\_leaf\_v@{creat\_leaf\_v}}
+\index{creat\_leaf\_v@{creat\_leaf\_v}!BinaryTree$<$ T, U $>$@{BinaryTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{creat\_leaf\_v()}{creat\_leaf\_v()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+U$\ast$ \mbox{\hyperlink{class_binary_tree}{Binary\+Tree}}$<$ T, U $>$\+::creat\+\_\+leaf\+\_\+v (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$}]{v,  }\item[{bool}]{way }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creating a odject of part1. 
+\begin{DoxyParams}{Parameters}
+{\em vector} & \\
+\hline
+{\em way} & shows where our node(left or right from parent) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binary_tree_a92df2ba6370b86a07a07799e80ef2e20}\label{class_binary_tree_a92df2ba6370b86a07a07799e80ef2e20}} 
+\index{BinaryTree$<$ T, U $>$@{BinaryTree$<$ T, U $>$}!GetRoot@{GetRoot}}
+\index{GetRoot@{GetRoot}!BinaryTree$<$ T, U $>$@{BinaryTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{GetRoot()}{GetRoot()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+\mbox{\hyperlink{class_node}{Node}}$<$U$>$$\ast$ \mbox{\hyperlink{class_binary_tree}{Binary\+Tree}}$<$ T, U $>$\+::Get\+Root (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get a root of tree \begin{DoxyReturn}{Returns}
+root 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_binary_tree_abeaa2ef53186aecfadb6be7c127265aa}\label{class_binary_tree_abeaa2ef53186aecfadb6be7c127265aa}} 
+\index{BinaryTree$<$ T, U $>$@{BinaryTree$<$ T, U $>$}!RemoveNode@{RemoveNode}}
+\index{RemoveNode@{RemoveNode}!BinaryTree$<$ T, U $>$@{BinaryTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveNode()}{RemoveNode()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_binary_tree}{Binary\+Tree}}$<$ T, U $>$\+::Remove\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$}]{p,  }\item[{\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$}]{parent,  }\item[{int}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Search a position of node we want to delete. 
+\begin{DoxyParams}{Parameters}
+{\em node} & to delete \\
+\hline
+{\em node} & that hane to be parent of node we want to delete \\
+\hline
+{\em 1-\/delete} & node, 2-\/delete node and all under it \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_binary_tree_ac4f3a02d231186f89d614cce62f26209}\label{class_binary_tree_ac4f3a02d231186f89d614cce62f26209}} 
+\index{BinaryTree$<$ T, U $>$@{BinaryTree$<$ T, U $>$}!SetRoot@{SetRoot}}
+\index{SetRoot@{SetRoot}!BinaryTree$<$ T, U $>$@{BinaryTree$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{SetRoot()}{SetRoot()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{class_binary_tree}{Binary\+Tree}}$<$ T, U $>$\+::Set\+Root (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}}$<$ U $>$ $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Root of tree(it\`{}a not a new root. We just need it to build tree) 
+\begin{DoxyParams}{Parameters}
+{\em pointer} & to node of new root \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Binary\+Tree.\+h\end{DoxyCompactItemize}
