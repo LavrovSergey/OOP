@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
 
-const int num = 8; //checkpoints
+const int num = 8; 
 int points[num][2] = { 300, 610,
                       1270,430,
                       1380,2380,
@@ -82,7 +82,6 @@ int main()
         if (Keyboard::isKeyPressed(Keyboard::Down)) Down = 1;
         if (Keyboard::isKeyPressed(Keyboard::Left)) Left = 1;
 
-        //car movement
         if (Up && speed < maxSpeed)
             if (speed < 0)  speed += dec;
             else  speed += acc;
@@ -105,7 +104,7 @@ int main()
         for (int i = 0; i < N; i++) car[i].move();
         for (int i = 1; i < N; i++) car[i].findTarget();
 
-        //collision
+        
         for (int i = 0; i < N; i++)
             for (int j = 0; j < N; j++)
             {
