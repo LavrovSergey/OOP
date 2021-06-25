@@ -1,0 +1,214 @@
+\hypertarget{main_8h}{}\doxysection{Файл C\+:/\+Users/a\+Dmin/\+Desktop/untitled/main.h}
+\label{main_8h}\index{C:/Users/aDmin/Desktop/untitled/main.h@{C:/Users/aDmin/Desktop/untitled/main.h}}
+{\ttfamily \#include $<$QElapsed\+Timer$>$}\newline
+{\ttfamily \#include $<$QApplication$>$}\newline
+{\ttfamily \#include $<$QWidget$>$}\newline
+{\ttfamily \#include $<$QLabel$>$}\newline
+{\ttfamily \#include $<$QPush\+Button$>$}\newline
+{\ttfamily \#include $<$QGrid\+Layout$>$}\newline
+{\ttfamily \#include $<$QTime$>$}\newline
+{\ttfamily \#include $<$QText\+Edit$>$}\newline
+{\ttfamily \#include $<$QThread$>$}\newline
+{\ttfamily \#include $<$QRadio\+Button$>$}\newline
+\doxysubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8h_adbd5cbe76e047a39e0a34f085cdae6fe}{MIN}}~0
+\item 
+\#define \mbox{\hyperlink{main_8h_a392fb874e547e582e9c66a08a1f23326}{MAX}}~99
+\item 
+\#define \mbox{\hyperlink{main_8h_a1fe26ed5b8e432a6ed4615369e0493dc}{SLEEP\+\_\+ms}}~500
+\end{DoxyCompactItemize}
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8h_abb9ee10191569258e0f22bdd0a95ba62}{delay}} ()
+\begin{DoxyCompactList}\small\item\em delay create dealy in the qt \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8h_ab59adf2966c6f41d8328e8b227b807a7}{update\+Array}} (int data\mbox{[}$\,$\mbox{]}, int length)
+\begin{DoxyCompactList}\small\item\em update\+Array filling array with random numbers \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8h_a6f5ca7d3dce1097034713482ad69336c}{highlight\+Button}} (QPush\+Button $\ast$button)
+\begin{DoxyCompactList}\small\item\em highlight\+Button set the background of button to yellow to attract view \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8h_a2fd1f599678c509b5dc3a2f08c18b182}{unhighlight\+Button}} (QPush\+Button $\ast$button)
+\begin{DoxyCompactList}\small\item\em unhighlight\+Button set the button to normal color \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8h_a4b9708d87be7a409eff20e5e7e8b43c8}{swap}} (int $\ast$a, int $\ast$b)
+\begin{DoxyCompactList}\small\item\em swap swap value of a and b \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8h_accc8eaba1d7516748b9c151dd7272d57}{set\+Button\+Value}} (QPush\+Button $\ast$button, int data)
+\begin{DoxyCompactList}\small\item\em set\+Button\+Value set button \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8h_aa352717686bb1551398d78c9f4235ad1}{bubble\+Sort}} (QPush\+Button $\ast$button\mbox{[}$\,$\mbox{]}, int data\mbox{[}$\,$\mbox{]}, int length)
+\begin{DoxyCompactList}\small\item\em bubble\+Sort run selection sort algorith and update ui \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8h_a5aa89d111d8242a94672698294b86aee}{selection\+Sort}} (QPush\+Button $\ast$button\mbox{[}$\,$\mbox{]}, int data\mbox{[}$\,$\mbox{]}, int length)
+\begin{DoxyCompactList}\small\item\em selection\+Sort run selection sort algorith and update ui \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8h_abe9c4c41dd5fcbc871b7d86573fc3f89}{update\+Button}} (QPush\+Button $\ast$button\mbox{[}$\,$\mbox{]}, int data\mbox{[}$\,$\mbox{]}, int length)
+\begin{DoxyCompactList}\small\item\em update\+Button \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\mbox{\Hypertarget{main_8h_a392fb874e547e582e9c66a08a1f23326}\label{main_8h_a392fb874e547e582e9c66a08a1f23326}} 
+\index{main.h@{main.h}!MAX@{MAX}}
+\index{MAX@{MAX}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{MAX}{MAX}}
+{\footnotesize\ttfamily \#define MAX~99}
+
+\mbox{\Hypertarget{main_8h_adbd5cbe76e047a39e0a34f085cdae6fe}\label{main_8h_adbd5cbe76e047a39e0a34f085cdae6fe}} 
+\index{main.h@{main.h}!MIN@{MIN}}
+\index{MIN@{MIN}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{MIN}{MIN}}
+{\footnotesize\ttfamily \#define MIN~0}
+
+\mbox{\Hypertarget{main_8h_a1fe26ed5b8e432a6ed4615369e0493dc}\label{main_8h_a1fe26ed5b8e432a6ed4615369e0493dc}} 
+\index{main.h@{main.h}!SLEEP\_ms@{SLEEP\_ms}}
+\index{SLEEP\_ms@{SLEEP\_ms}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{SLEEP\_ms}{SLEEP\_ms}}
+{\footnotesize\ttfamily \#define SLEEP\+\_\+ms~500}
+
+
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{main_8h_aa352717686bb1551398d78c9f4235ad1}\label{main_8h_aa352717686bb1551398d78c9f4235ad1}} 
+\index{main.h@{main.h}!bubbleSort@{bubbleSort}}
+\index{bubbleSort@{bubbleSort}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{bubbleSort()}{bubbleSort()}}
+{\footnotesize\ttfamily void bubble\+Sort (\begin{DoxyParamCaption}\item[{QPush\+Button $\ast$}]{button\mbox{[}$\,$\mbox{]},  }\item[{int}]{data\mbox{[}$\,$\mbox{]},  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+bubble\+Sort run selection sort algorith and update ui 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em button} & -\/ array to sort for ui \\
+\hline
+{\em data} & -\/ array to sort \\
+\hline
+{\em length} & -\/ of array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8h_abb9ee10191569258e0f22bdd0a95ba62}\label{main_8h_abb9ee10191569258e0f22bdd0a95ba62}} 
+\index{main.h@{main.h}!delay@{delay}}
+\index{delay@{delay}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{delay()}{delay()}}
+{\footnotesize\ttfamily void delay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+delay create dealy in the qt 
+
+\mbox{\Hypertarget{main_8h_a6f5ca7d3dce1097034713482ad69336c}\label{main_8h_a6f5ca7d3dce1097034713482ad69336c}} 
+\index{main.h@{main.h}!highlightButton@{highlightButton}}
+\index{highlightButton@{highlightButton}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{highlightButton()}{highlightButton()}}
+{\footnotesize\ttfamily void highlight\+Button (\begin{DoxyParamCaption}\item[{QPush\+Button $\ast$}]{button }\end{DoxyParamCaption})}
+
+
+
+highlight\+Button set the background of button to yellow to attract view 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em button} & -\/ active int \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8h_a5aa89d111d8242a94672698294b86aee}\label{main_8h_a5aa89d111d8242a94672698294b86aee}} 
+\index{main.h@{main.h}!selectionSort@{selectionSort}}
+\index{selectionSort@{selectionSort}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{selectionSort()}{selectionSort()}}
+{\footnotesize\ttfamily void selection\+Sort (\begin{DoxyParamCaption}\item[{QPush\+Button $\ast$}]{button\mbox{[}$\,$\mbox{]},  }\item[{int}]{data\mbox{[}$\,$\mbox{]},  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+selection\+Sort run selection sort algorith and update ui 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em button} & -\/ array to sort for ui \\
+\hline
+{\em data} & -\/ array to sort \\
+\hline
+{\em length} & -\/ of array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8h_accc8eaba1d7516748b9c151dd7272d57}\label{main_8h_accc8eaba1d7516748b9c151dd7272d57}} 
+\index{main.h@{main.h}!setButtonValue@{setButtonValue}}
+\index{setButtonValue@{setButtonValue}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{setButtonValue()}{setButtonValue()}}
+{\footnotesize\ttfamily void set\+Button\+Value (\begin{DoxyParamCaption}\item[{QPush\+Button $\ast$}]{button,  }\item[{int}]{data }\end{DoxyParamCaption})}
+
+
+
+set\+Button\+Value set button 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em button} & \\
+\hline
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8h_a4b9708d87be7a409eff20e5e7e8b43c8}\label{main_8h_a4b9708d87be7a409eff20e5e7e8b43c8}} 
+\index{main.h@{main.h}!swap@{swap}}
+\index{swap@{swap}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily void swap (\begin{DoxyParamCaption}\item[{int $\ast$}]{a,  }\item[{int $\ast$}]{b }\end{DoxyParamCaption})}
+
+
+
+swap swap value of a and b 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em a} & -\/ int \\
+\hline
+{\em b} & -\/ int \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8h_a2fd1f599678c509b5dc3a2f08c18b182}\label{main_8h_a2fd1f599678c509b5dc3a2f08c18b182}} 
+\index{main.h@{main.h}!unhighlightButton@{unhighlightButton}}
+\index{unhighlightButton@{unhighlightButton}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{unhighlightButton()}{unhighlightButton()}}
+{\footnotesize\ttfamily void unhighlight\+Button (\begin{DoxyParamCaption}\item[{QPush\+Button $\ast$}]{button }\end{DoxyParamCaption})}
+
+
+
+unhighlight\+Button set the button to normal color 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em button} & -\/ not active now \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8h_ab59adf2966c6f41d8328e8b227b807a7}\label{main_8h_ab59adf2966c6f41d8328e8b227b807a7}} 
+\index{main.h@{main.h}!updateArray@{updateArray}}
+\index{updateArray@{updateArray}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{updateArray()}{updateArray()}}
+{\footnotesize\ttfamily void update\+Array (\begin{DoxyParamCaption}\item[{int}]{data\mbox{[}$\,$\mbox{]},  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+update\+Array filling array with random numbers 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em data} & -\/ array \\
+\hline
+{\em length} & -\/ lenth of array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8h_abe9c4c41dd5fcbc871b7d86573fc3f89}\label{main_8h_abe9c4c41dd5fcbc871b7d86573fc3f89}} 
+\index{main.h@{main.h}!updateButton@{updateButton}}
+\index{updateButton@{updateButton}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{updateButton()}{updateButton()}}
+{\footnotesize\ttfamily void update\+Button (\begin{DoxyParamCaption}\item[{QPush\+Button $\ast$}]{button\mbox{[}$\,$\mbox{]},  }\item[{int}]{data\mbox{[}$\,$\mbox{]},  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+update\+Button 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em button} & -\/ array to sort for ui \\
+\hline
+{\em data} & -\/ array to sort \\
+\hline
+{\em length} & -\/ of array \\
+\hline
+\end{DoxyParams}
